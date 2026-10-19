@@ -4,10 +4,10 @@ extends Area2D
 
 @onready var interaction_area: Area2D = $InteractionArea
 @onready var exit_point: Marker2D = $ExitPoint
+@onready var sprite: Sprite2D = $Sprite2D
 
 var player_nearby: bool = false
 var player_hidden: bool = false
-
 
 func _ready() -> void:
 	interaction_area.body_entered.connect(_on_body_entered)
@@ -36,7 +36,7 @@ func enter_locker() -> void:
 	player.velocity = Vector2.ZERO
 	player.set_physics_process(false)
 	player.visible = false
-
+	$Sprite2D.texture=ResourceLoader.load("res://assets/interactables/locker_hidden.png")
 
 func exit_locker() -> void:
 	if not is_instance_valid(player):
@@ -51,12 +51,11 @@ func exit_locker() -> void:
 	player.remove_from_group("hidden")
 
 	player_hidden = false
-
+	$Sprite2D.texture=ResourceLoader.load("res://assets/interactables/locker.png")
 
 func _on_body_entered(body: Node2D) -> void:
 	if body == player:
 		player_nearby = true
-
 
 func _on_body_exited(body: Node2D) -> void:
 	if body == player and not player_hidden:
