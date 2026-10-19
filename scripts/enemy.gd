@@ -3,7 +3,9 @@ extends CharacterBody2D
 @export var MovementScript: Script
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_timer: Timer = $AttackTimer
+@onready var attack_sound: AudioStreamPlayer2D = $AttackSound
 
+var animation_direction: String = "down"
 var is_alive: bool = true
 var strength: int = 10
 var target_in_range: bool = false
@@ -11,9 +13,10 @@ var target = null
 
 func _physics_process(delta):
 	if velocity.length() > 0:
-		animated_sprite_2d.play("walk")
+		animated_sprite_2d.play("walk_down")
 	else:
-		animated_sprite_2d.play("idle")
+		animated_sprite_2d.play("idle_down")
+
 
 func _on_follow_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
@@ -22,6 +25,7 @@ func _on_follow_area_body_entered(body: Node2D) -> void:
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		target_in_range = true
+		attack_sound.play()
 		body.take_damage(strength)
 		attack_timer.start()
 
@@ -35,3 +39,4 @@ func _on_hitbox_body_exited(body: Node2D) -> void:
 func _on_attack_timer_timeout() -> void:
 	if target and target_in_range:
 		target.take_damage(strength)
+		attack_sound.play()

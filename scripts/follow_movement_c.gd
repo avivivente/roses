@@ -1,8 +1,8 @@
 class_name FollowMovementC
 extends Node
 
-@export var patrol_speed: float = 130
-@export var chase_speed: float = 170
+@export var patrol_speed: float = 100
+@export var chase_speed: float = 150
 @export var return_speed: float = 300.0
 @export var arrival_distance: float = 4
 

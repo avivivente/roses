@@ -6,6 +6,22 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sm8fe"]
 size = Vector2(76, 55)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjaqi"]
+atlas = ExtResource("1_s6wrt")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvtld"]
+atlas = ExtResource("1_s6wrt")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct4mp"]
+atlas = ExtResource("1_s6wrt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4jxa"]
+atlas = ExtResource("1_s6wrt")
+region = Rect2(0, 96, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_c0y7d"]
 atlas = ExtResource("1_s6wrt")
 region = Rect2(0, 32, 32, 32)
@@ -88,6 +104,23 @@ region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sm8fe"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjaqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvtld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ct4mp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4jxa")
+}],
+"loop": 0,
+"name": &"dying",
+"speed": 3.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c0y7d")
@@ -204,4 +237,8 @@ shape = SubResource("RectangleShape2D_sm8fe")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=614778915]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_sm8fe")
-animation = &"walk_down"
+animation = &"dying"
+
+[node name="DamageCooldown" type="Timer" parent="." unique_id=1816606188]
+wait_time = 2.0
+one_shot = true
