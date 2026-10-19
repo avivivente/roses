@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://b0j3eqlkugmdw"]
+
+[ext_resource type="Script" uid="uid://bhmyhfdyqm7dd" path="res://scripts/enemy.gd" id="1_4ra3w"]
+[ext_resource type="Texture2D" uid="uid://km6fmyfh3d82" path="res://assets/enemy/enemies.png" id="1_7k104"]
+[ext_resource type="Script" uid="uid://ccvjinio50h6r" path="res://scripts/follow_movement_c.gd" id="2_5uy6h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60pwd"]
+size = Vector2(13.788843, 16.245739)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f6lyo"]
+radius = 11.679964
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bb38t"]
+size = Vector2(50.85285, 146.63324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7koy"]
+atlas = ExtResource("1_7k104")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvcfn"]
+atlas = ExtResource("1_7k104")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulb22"]
+atlas = ExtResource("1_7k104")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nssrp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7koy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvcfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulb22")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7koy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvcfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulb22")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 2.0
+}]
+
+[node name="Enemy" type="CharacterBody2D" unique_id=243905079]
+y_sort_enabled = true
+scale = Vector2(0.65406865, 0.75973797)
+collision_layer = 2
+collision_mask = 5
+motion_mode = 1
+script = ExtResource("1_4ra3w")
+MovementScript = ExtResource("2_5uy6h")
+
+[node name="FollowMovementC" type="Node" parent="." unique_id=1844680877]
+script = ExtResource("2_5uy6h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=957323323]
+position = Vector2(0, -5.9230943)
+scale = Vector2(5.7657013, 6.076562)
+shape = SubResource("RectangleShape2D_60pwd")
+
+[node name="FollowArea" type="Area2D" parent="." unique_id=330966744]
+position = Vector2(71.33838, 72.76782)
+scale = Vector2(40.08183, 40.34806)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FollowArea" unique_id=746022264]
+position = Vector2(-1.7798187, -1.8035024)
+scale = Vector2(1.0778143, 1)
+shape = SubResource("CircleShape2D_f6lyo")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=933669331]
+scale = Vector2(0.9999999, 1.0000001)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2048996423]
+position = Vector2(-0.7644455, -5.923095)
+scale = Vector2(1.7738359, 0.70913804)
+shape = SubResource("RectangleShape2D_bb38t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1142559630]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_nssrp")
+animation = &"walk"
+frame_progress = 0.43182325
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=799931344]
+wait_time = 3.0
+
+[connection signal="body_entered" from="FollowArea" to="." method="_on_follow_area_body_entered"]
+[connection signal="body_entered" from="FollowArea" to="FollowMovementC" method="_on_follow_area_body_entered"]
+[connection signal="body_exited" from="FollowArea" to="." method="_on_follow_area_body_exited"]
+[connection signal="body_exited" from="FollowArea" to="FollowMovementC" method="_on_follow_area_body_exited"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

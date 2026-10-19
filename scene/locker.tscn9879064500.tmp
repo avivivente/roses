@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://dw1vn1lewcclr"]
+
+[sub_resource type="GDScript" id="GDScript_axpkr"]
+script/source = "extends Area2D
+
+@export var player: CharacterBody2D
+
+@onready var interaction_area: Area2D = $InteractionArea
+@onready var exit_point: Marker2D = $ExitPoint
+
+var player_nearby: bool = false
+var player_hidden: bool = false
+
+
+func _ready() -> void:
+	interaction_area.body_entered.connect(_on_body_entered)
+	interaction_area.body_exited.connect(_on_body_exited)
+
+
+func _process(_delta: float) -> void:
+	if not is_instance_valid(player):
+		return
+
+	if Input.is_action_just_pressed(\"interact\"):
+		if player_hidden:
+			exit_locker()
+		elif player_nearby:
+			enter_locker()
+
+
+func enter_locker() -> void:
+	if not is_instance_valid(player):
+		return
+
+	player_hidden = true
+	player.add_to_group(\"hidden\")
+
+	# Stop the player and hide their character.
+	player.velocity = Vector2.ZERO
+	player.set_physics_process(false)
+	player.visible = false
+
+
+func exit_locker() -> void:
+	if not is_instance_valid(player):
+		return
+
+	# Move the player to the exit marker.
+	player.global_position = exit_point.global_position
+	player.force_update_transform()
+
+	player.visible = true
+	player.set_physics_process(true)
+	player.remove_from_group(\"hidden\")
+
+	player_hidden = false
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body == player:
+		player_nearby = true
+
+
+func _on_body_exited(body: Node2D) -> void:
+	if body == player and not player_hidden:
+		player_nearby = false
+"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nssrp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
+size = Vector2(91, 188)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bb38t"]
+size = Vector2(75, 170)
+
+[node name="Locker" type="Area2D" unique_id=27276546]
+position = Vector2(68, 538)
+script = SubResource("GDScript_axpkr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=528715792]
+texture = SubResource("CompressedTexture2D_nssrp")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1322680934]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1800833933]
+position = Vector2(3.5, -37)
+shape = SubResource("RectangleShape2D_q6r6c")
+one_way_collision_margin = 7.7
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1417078635]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=900825742]
+position = Vector2(3.5, -38)
+shape = SubResource("RectangleShape2D_bb38t")
