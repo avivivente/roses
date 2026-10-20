@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 PlayerStats="*uid://dh6bvyor2dj0j"
+NavigationManager="*uid://dgtwcu1sqy7bl"
 
 [display]
 

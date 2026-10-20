@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://n0h60x7a3824"]
 
 [ext_resource type="Texture2D" uid="uid://8d1xplnito6h" path="res://assets/tilesets/roses_tilesets.png" id="1_6w4ab"]
+[ext_resource type="Script" uid="uid://cekfb30v7tgoj" path="res://scripts/level.gd" id="1_dx6c5"]
 [ext_resource type="Texture2D" uid="uid://4u8cy4lmj5yn" path="res://assets/interactables/assets.png" id="2_n8wy4"]
 [ext_resource type="Texture2D" uid="uid://oqyy7ac8qy4c" path="res://assets/tilesets/Miscellaneous & Props2.png" id="3_dx6c5"]
 [ext_resource type="Texture2D" uid="uid://rqiacw6rrsh6" path="res://assets/tilesets/Miscellaneous & Props1.png" id="4_5mwf5"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dr7t5trcwj4s2" path="res://scene/Player.tscn" id="7_jldy4"]
 [ext_resource type="PackedScene" uid="uid://b0j3eqlkugmdw" path="res://scene/enemy.tscn" id="8_qeex7"]
 [ext_resource type="Script" uid="uid://ccvjinio50h6r" path="res://scripts/follow_movement_c.gd" id="9_hd0gu"]
+[ext_resource type="PackedScene" uid="uid://mq5dpit82nx2" path="res://doors/door.tscn" id="10_n8wy4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v0l8b"]
 texture = ExtResource("1_6w4ab")
@@ -2952,6 +2954,7 @@ sources/2 = SubResource("TileSetAtlasSource_mswub")
 size = Vector2(105, 1368)
 
 [node name="LevelRoot" type="Node2D" unique_id=87040570]
+script = ExtResource("1_dx6c5")
 metadata/_edit_horizontal_guides_ = [-655.0, 3081.0]
 metadata/_edit_vertical_guides_ = [-4354.0, -1146.0]
 
@@ -3230,3 +3233,31 @@ scale = Vector2(0.99999994, 0.99999994)
 
 [node name="patrol_point_C6" type="Marker2D" parent="Enemies/Enemy3" unique_id=544783369]
 position = Vector2(-479.99985, 805.5078)
+
+[node name="Doors" type="Node" parent="." unique_id=1454219268]
+
+[node name="Door_Base" parent="Doors" unique_id=84920167 instance=ExtResource("10_n8wy4")]
+position = Vector2(-1201, 641)
+destination_level_tag = "level_1"
+destination_door_tag = "Cave"
+spawn_direction = "right"
+
+[node name="Spawn" parent="Doors/Door_Base" index="1" unique_id=1452911007]
+position = Vector2(128, -2)
+
+[node name="Door_Grass1" parent="Doors" unique_id=1048856514 instance=ExtResource("10_n8wy4")]
+position = Vector2(700, 1027)
+destination_level_tag = "level_2"
+destination_door_tag = "Base1"
+spawn_direction = "down"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="Doors/Door_Grass1" index="0" unique_id=2037822393]
+rotation = 1.5707964
+scale = Vector2(1.5, 1.5)
+
+[node name="Spawn" parent="Doors/Door_Grass1" index="1" unique_id=1452911007]
+position = Vector2(2, -95)
+
+[editable path="Doors/Door_Base"]
+[editable path="Doors/Door_Grass1"]

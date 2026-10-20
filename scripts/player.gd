@@ -10,8 +10,19 @@ signal died
 
 var animation_direction: String = "down"
 var alive: bool = true
-var max_health: int = 10
-var health: int = 10
+var max_health: int 
+var health: int 
+
+func _ready():
+	health = PlayerStats.health
+	max_health = PlayerStats.max_health
+	
+	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
+	
+func _on_spawn(position: Vector2, direction: String):
+	global_position = position
+	animated_sprite_2d.play("walk_" + direction)
+	animated_sprite_2d.stop()
 
 func _physics_process(_delta: float) -> void:
 	if alive:
@@ -53,6 +64,7 @@ func die() -> void:
 	alive = false
 	await animated_sprite_2d.animation_finished
 	died.emit()
+	get_tree().reload_current_scene()
 
 func update_sprite_direction(input: Vector2) -> void:
 	if input == Vector2.ZERO:
