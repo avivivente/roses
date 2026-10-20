@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+signal healthChanged
 signal died
 
 @export var speed: float = 200
@@ -7,6 +8,7 @@ signal died
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var damage_cooldown: Timer = $DamageCooldown
+@onready var taking_damage: AudioStreamPlayer2D = $TakingDamage
 
 var animation_direction: String = "down"
 var alive: bool = true
@@ -18,7 +20,7 @@ func _ready():
 	max_health = PlayerStats.max_health
 	
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
-	
+
 func _on_spawn(position: Vector2, direction: String):
 	global_position = position
 	animated_sprite_2d.play("walk_" + direction)
@@ -48,10 +50,12 @@ func _physics_process(_delta: float) -> void:
 func take_damage(amount: int) -> void:
 	if alive:
 		if damage_cooldown.time_left > 0:
-			return 
+			return
 			
+		taking_damage.play()
 		health -= amount
 		PlayerStats.health = health
+		healthChanged.emit(health)
 		print(health)
 		if health <= 0:
 			die()
@@ -60,11 +64,10 @@ func take_damage(amount: int) -> void:
 		damage_cooldown.start()
 
 func die() -> void:
-	animated_sprite_2d.play("dying")
+	animated_sprite_2d.play("death")
 	alive = false
 	await animated_sprite_2d.animation_finished
 	died.emit()
-	get_tree().reload_current_scene()
 
 func update_sprite_direction(input: Vector2) -> void:
 	if input == Vector2.ZERO:

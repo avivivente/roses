@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dm6vg70w6xlut"]
+
+[ext_resource type="PackedScene" uid="uid://n0h60x7a3824" path="res://levels/base_level.tscn" id="1_itxqv"]
+[ext_resource type="Script" uid="uid://bjha5kr0j63mn" path="res://scripts/main.gd" id="1_wp4xf"]
+[ext_resource type="PackedScene" uid="uid://bncikc6aaaj8k" path="res://scene/hud.tscn" id="2_v0l8b"]
+
+[node name="Main" type="Node2D" unique_id=6297995]
+script = ExtResource("1_wp4xf")
+
+[node name="LevelRoot" parent="." unique_id=87040570 instance=ExtResource("1_itxqv")]
+
+[node name="HUD" parent="." unique_id=1078417989 instance=ExtResource("2_v0l8b")]
+visible = false

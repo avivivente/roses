@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 PlayerStats="*uid://dh6bvyor2dj0j"
 NavigationManager="*uid://dgtwcu1sqy7bl"
+TransitionScreen="*uid://jfq7270joa8j"
 
 [display]
 

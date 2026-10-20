@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dw1vn1lewcclr"]
 
 [ext_resource type="Script" uid="uid://vp2f2r6qxg15" path="res://scripts/locker.gd" id="1_3vr0h"]
+[ext_resource type="AudioStream" uid="uid://bhlgdift3jmrm" path="res://audio/locker_enter.wav" id="2_7wadm"]
+[ext_resource type="AudioStream" uid="uid://f6y1ggdbe5pq" path="res://audio/locker_exit.wav" id="3_c38np"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_axpkr"]
 load_path = "res://.godot/imported/locker.png-a75f152c11b79bc010321806515c6f57.ctex"
@@ -10,6 +12,15 @@ size = Vector2(91, 232)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bb38t"]
 size = Vector2(75, 170)
+
+[sub_resource type="Gradient" id="Gradient_3vr0h"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ggnbx"]
+gradient = SubResource("Gradient_3vr0h")
+fill = 1
+fill_from = Vector2(0.49658704, 0.48293516)
+fill_to = Vector2(0.8720136, 0.15187714)
 
 [node name="Locker" type="Area2D" unique_id=27276546]
 position = Vector2(68, 538)
@@ -36,3 +47,19 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=900825742]
 position = Vector2(3.5, -38)
 shape = SubResource("RectangleShape2D_bb38t")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1601814456]
+position = Vector2(3, 2)
+scale = Vector2(6.90625, 6.90625)
+energy = 0.0
+texture = SubResource("GradientTexture2D_ggnbx")
+
+[node name="LockerEnter" type="AudioStreamPlayer2D" parent="." unique_id=1268271116]
+stream = ExtResource("2_7wadm")
+volume_db = -5.0
+pitch_scale = 0.7
+
+[node name="LockerExit" type="AudioStreamPlayer2D" parent="." unique_id=834056857]
+stream = ExtResource("3_c38np")
+volume_db = -5.0
+pitch_scale = 0.7

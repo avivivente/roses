@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://br64fv0r0ilri"
-path="res://.godot/imported/locker_hidden.png-e6701c0beaf07bdbc97b5c0b6f7eddfe.ctex"
+uid="uid://bw28j5om8588j"
+path="res://.godot/imported/Leticia_idle.png-bdbe35af527646ec90ac8d1612db2ba2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scripts/locker_hidden.png"
-dest_files=["res://.godot/imported/locker_hidden.png-e6701c0beaf07bdbc97b5c0b6f7eddfe.ctex"]
+source_file="res://assets/player/Leticia_idle.png"
+dest_files=["res://.godot/imported/Leticia_idle.png-bdbe35af527646ec90ac8d1612db2ba2.ctex"]
 
 [params]
 

@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b0j3eqlkugmdw" path="res://scene/enemy.tscn" id="9_ndgrd"]
 [ext_resource type="Script" uid="uid://ccvjinio50h6r" path="res://scripts/follow_movement_c.gd" id="10_h351q"]
 [ext_resource type="PackedScene" uid="uid://mq5dpit82nx2" path="res://doors/door.tscn" id="11_dpc8t"]
+[ext_resource type="PackedScene" uid="uid://6676kmjj5l2h" path="res://scene/HeartsContainer.tscn" id="12_hbb88"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v0l8b"]
 texture = ExtResource("2_hbb88")
@@ -2028,9 +2029,6 @@ texture_region_size = Vector2i(32, 32)
 11:1/0 = 0
 12:1/0 = 0
 13:1/0 = 0
-13:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(1, 1, 1, 8, 2, 9, 5, 9, 9, 6, 9, 3, 5, 0)
-13:1/0/physics_layer_0/polygon_1/points = PackedVector2Array(-1, -2, -1, -6, -3, -7, -7, -5, -7, -2, -7, -2, -6, -1, -2, -1)
-13:1/0/physics_layer_0/polygon_2/points = PackedVector2Array(-7, -10, -9, -2, -10, 0, -15, -3, -15, -6, -10, -12, -7, -12)
 14:1/0 = 0
 15:1/0 = 0
 16:1/0 = 0
@@ -3256,6 +3254,12 @@ rotation = 1.5707964
 
 [node name="Spawn" parent="Doors/Door_Base1" index="1" unique_id=1452911007]
 position = Vector2(2, 63.333336)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1717770849]
+
+[node name="HeartsContainer" parent="CanvasLayer" unique_id=1030660543 instance=ExtResource("12_hbb88")]
+scale = Vector2(4, 4)
+metadata/_edit_use_anchors_ = true
 
 [editable path="Doors/Door_Grass"]
 [editable path="Doors/Door_Base1"]

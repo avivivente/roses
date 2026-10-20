@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://km6fmyfh3d82" path="res://assets/enemy/enemies.png" id="1_7k104"]
 [ext_resource type="Script" uid="uid://ccvjinio50h6r" path="res://scripts/follow_movement_c.gd" id="2_5uy6h"]
 [ext_resource type="AudioStream" uid="uid://bx4mu2mqxw2yv" path="res://audio/enemy_attack_sound.mp3" id="3_b7koy"]
+[ext_resource type="AudioStream" uid="uid://b0trptqluxwbr" path="res://audio/player_detected.wav" id="5_yvcfn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60pwd"]
 size = Vector2(13.258503, 15.81252)
@@ -222,10 +223,6 @@ motion_mode = 1
 script = ExtResource("1_4ra3w")
 MovementScript = ExtResource("2_5uy6h")
 
-[node name="AttackSound" type="AudioStreamPlayer2D" parent="." unique_id=1397957925]
-stream = ExtResource("3_b7koy")
-volume_db = -5.0
-
 [node name="FollowMovementC" type="Node" parent="." unique_id=1844680877]
 script = ExtResource("2_5uy6h")
 
@@ -262,6 +259,15 @@ animation = &"walk_left"
 
 [node name="AttackTimer" type="Timer" parent="." unique_id=799931344]
 wait_time = 3.0
+
+[node name="AttackSound" type="AudioStreamPlayer2D" parent="." unique_id=1397957925]
+stream = ExtResource("3_b7koy")
+volume_db = -10.0
+
+[node name="PlayerDetected" type="AudioStreamPlayer2D" parent="." unique_id=1237799350]
+stream = ExtResource("5_yvcfn")
+volume_db = 1.0
+pitch_scale = 0.5
 
 [connection signal="body_entered" from="FollowArea" to="." method="_on_follow_area_body_entered"]
 [connection signal="body_entered" from="FollowArea" to="FollowMovementC" method="_on_follow_area_body_entered"]

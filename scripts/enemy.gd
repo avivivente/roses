@@ -4,10 +4,12 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_timer: Timer = $AttackTimer
 @onready var attack_sound: AudioStreamPlayer2D = $AttackSound
+@onready var player_detected: AudioStreamPlayer2D = $PlayerDetected
+
 
 var animation_direction: String = "down"
 var is_alive: bool = true
-var strength: int = 10
+var strength: int = 1
 var target_in_range: bool = false
 var target = null
 
@@ -21,6 +23,7 @@ func _physics_process(delta):
 func _on_follow_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		target = body
+		player_detected.play()
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.name == "Player":

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ciflc06ai1lwg"
-path="res://.godot/imported/locker.png-a75f152c11b79bc010321806515c6f57.ctex"
+uid="uid://pihja551brj5"
+path="res://.godot/imported/hearts.png-c03962c914992f793ed5fa80123da4d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scripts/locker.png"
-dest_files=["res://.godot/imported/locker.png-a75f152c11b79bc010321806515c6f57.ctex"]
+source_file="res://assets/UI/hearts.png"
+dest_files=["res://.godot/imported/hearts.png-c03962c914992f793ed5fa80123da4d8.ctex"]
 
 [params]
 
