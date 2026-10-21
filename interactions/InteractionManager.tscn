@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://c5h8ahs8n03po"]
+
+[ext_resource type="Script" uid="uid://cy3jx3iosxrq3" path="res://scripts/interaction_manager.gd" id="1_kapv5"]
+[ext_resource type="FontFile" uid="uid://uux5tmjstmhm" path="res://assets/fonts/dogicapixelbold.ttf" id="1_u2e4y"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_y6trl"]
+light_mode = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_sm8fe"]
+font = ExtResource("1_u2e4y")
+font_size = 15
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="InteractionManager" type="Area2D" unique_id=548599755]
+material = SubResource("CanvasItemMaterial_y6trl")
+script = ExtResource("1_kapv5")
+
+[node name="Label" type="Label" parent="." unique_id=973095043]
+z_index = 20
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -98.0
+offset_right = 98.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "[E] TO INTERACT"
+label_settings = SubResource("LabelSettings_sm8fe")
+horizontal_alignment = 1
+vertical_alignment = 1

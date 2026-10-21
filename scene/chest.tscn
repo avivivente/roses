@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://wgcsl2h7ufti"]
+
+[ext_resource type="Texture2D" uid="uid://4u8cy4lmj5yn" path="res://assets/interactables/assets.png" id="1_26f88"]
+[ext_resource type="Script" uid="uid://8mbteafanqas" path="res://scripts/chest.gd" id="1_cettl"]
+[ext_resource type="PackedScene" uid="uid://c2dat6fqm8soo" path="res://interactions/interaction_area/interaction_area.tscn" id="3_cettl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sm8fe"]
+size = Vector2(22, 11)
+
+[sub_resource type="Animation" id="Animation_c0k1r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -13)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cettl"]
+resource_name = "open"
+length = 1.04
+step = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.001, 0.3822971),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.19221634, 0.28835052, 0.47532856, 0.62184423, 0.7048922, 0.78182214),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -13), Vector2(0, -10.5), Vector2(0, -15.000001), Vector2(0, -15.000002), Vector2(0, -13), Vector2(0, -12.5), Vector2(0, -13)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.19221634, 0.28835052, 0.47532856, 0.62184423, 0.7048922, 0.78182214),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.84375), Vector2(1, 1.1250001), Vector2(1, 1.125), Vector2(1, 1), Vector2(1, 0.96875), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_26vdv"]
+_data = {
+&"RESET": SubResource("Animation_c0k1r"),
+&"open": SubResource("Animation_cettl")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nssrp"]
+size = Vector2(28, 36)
+
+[node name="Chest" type="StaticBody2D" unique_id=1399679068]
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("1_cettl")
+metadata/_edit_horizontal_guides_ = [-25.0]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=830797128]
+position = Vector2(0, -4.5)
+shape = SubResource("RectangleShape2D_sm8fe")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1485931224]
+position = Vector2(0, -13)
+texture = ExtResource("1_26f88")
+hframes = 2
+region_enabled = true
+region_rect = Rect2(0, 32, 64, 32)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=508457687]
+libraries/ = SubResource("AnimationLibrary_26vdv")
+
+[node name="InteractionArea" parent="." unique_id=2018872061 instance=ExtResource("3_cettl")]
+action_name = "OPEN"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=312257855]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_nssrp")
+
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

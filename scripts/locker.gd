@@ -10,7 +10,6 @@ extends Area2D
 @onready var locker_exit: AudioStreamPlayer2D = $LockerExit
 
 
-
 var player_nearby: bool = false
 var player_hidden: bool = false
 

@@ -2,13 +2,14 @@
 
 [ext_resource type="Script" uid="uid://vp2f2r6qxg15" path="res://scripts/locker.gd" id="1_3vr0h"]
 [ext_resource type="AudioStream" uid="uid://bhlgdift3jmrm" path="res://audio/locker_enter.wav" id="2_7wadm"]
+[ext_resource type="PackedScene" uid="uid://c2dat6fqm8soo" path="res://interactions/interaction_area/interaction_area.tscn" id="2_y6trl"]
 [ext_resource type="AudioStream" uid="uid://f6y1ggdbe5pq" path="res://audio/locker_exit.wav" id="3_c38np"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_axpkr"]
 load_path = "res://.godot/imported/locker.png-a75f152c11b79bc010321806515c6f57.ctex"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
-size = Vector2(91, 232)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggnbx"]
+size = Vector2(112, 208)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bb38t"]
 size = Vector2(75, 170)
@@ -22,9 +23,13 @@ fill = 1
 fill_from = Vector2(0.49658704, 0.48293516)
 fill_to = Vector2(0.8720136, 0.15187714)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
+size = Vector2(97, 241)
+
 [node name="Locker" type="Area2D" unique_id=27276546]
 position = Vector2(68, 538)
-collision_mask = 2
+collision_layer = 16
+collision_mask = 3
 script = ExtResource("1_3vr0h")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=50060836]
@@ -33,13 +38,13 @@ position = Vector2(3, -45)
 scale = Vector2(4, 4)
 texture = SubResource("CompressedTexture2D_axpkr")
 
-[node name="InteractionArea" type="Area2D" parent="." unique_id=1322680934]
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1941764789]
+collision_layer = 17
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1800833933]
-position = Vector2(3.5, -15)
-shape = SubResource("RectangleShape2D_q6r6c")
-one_way_collision_margin = 7.7
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=171646729]
+position = Vector2(4, 6)
+shape = SubResource("RectangleShape2D_ggnbx")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1417078635]
 collision_mask = 3
@@ -63,3 +68,12 @@ pitch_scale = 0.7
 stream = ExtResource("3_c38np")
 volume_db = -5.0
 pitch_scale = 0.7
+
+[node name="E_TO_ENTER" parent="." unique_id=2018872061 instance=ExtResource("2_y6trl")]
+collision_layer = 16
+action_name = "ENTER LOCKER"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="E_TO_ENTER" unique_id=1800833933]
+position = Vector2(3.5, -10.5)
+shape = SubResource("RectangleShape2D_q6r6c")
+one_way_collision_margin = 7.7

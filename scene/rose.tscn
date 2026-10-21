@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bh4j2nfuyre0a"]
+
+[ext_resource type="Script" uid="uid://bpcwlh3du41o1" path="res://scripts/rose.gd" id="1_a5rt7"]
+[ext_resource type="Texture2D" uid="uid://csravmpk2a7t7" path="res://assets/interactables/rose.png" id="2_03uhj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sm8fe"]
+radius = 22.203604
+
+[node name="Rose" type="CharacterBody2D" unique_id=212285682]
+collision_layer = 32
+collision_mask = 2
+input_pickable = true
+script = ExtResource("1_a5rt7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1547410072]
+rotation = 0.9180432
+texture = ExtResource("2_03uhj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1680714757]
+shape = SubResource("CircleShape2D_sm8fe")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

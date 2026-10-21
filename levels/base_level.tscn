@@ -13,6 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://mq5dpit82nx2" path="res://doors/door.tscn" id="10_n8wy4"]
 [ext_resource type="AudioStream" uid="uid://bnq11cnqsvrrj" path="res://audio/nature_ambience.mp3" id="12_5mwf5"]
 [ext_resource type="PackedScene" uid="uid://6676kmjj5l2h" path="res://scene/HeartsContainer.tscn" id="13_upde5"]
+[ext_resource type="PackedScene" uid="uid://bncikc6aaaj8k" path="res://scene/hud.tscn" id="14_406qh"]
+[ext_resource type="PackedScene" uid="uid://dwl7fs8wgqeht" path="res://scene/dialogue_area_2d.tscn" id="16_qeex7"]
+[ext_resource type="Script" uid="uid://cmx3omvjjcsnb" path="res://DialogueExportResource.gd" id="17_hd0gu"]
+[ext_resource type="Script" uid="uid://didya636nmhaq" path="res://DialogueFunctionResource.gd" id="18_ubdnn"]
+[ext_resource type="Script" uid="uid://bsyipojh002v7" path="res://DialogueTextResource.gd" id="19_lxejw"]
+[ext_resource type="Script" uid="uid://5mjmy6dyhih" path="res://DialogueChoiceResource.gd" id="20_gs8dq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v0l8b"]
 texture = ExtResource("1_6w4ab")
@@ -2952,10 +2958,40 @@ sources/2 = SubResource("TileSetAtlasSource_mswub")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4j5ol"]
 size = Vector2(105, 1368)
 
+[sub_resource type="Resource" id="Resource_8jj41"]
+script = ExtResource("19_lxejw")
+text = "Oh! You startled me!"
+text_speed = 18.0
+metadata/_custom_type_script = "uid://bsyipojh002v7"
+
+[sub_resource type="Resource" id="Resource_hwjkn"]
+script = ExtResource("19_lxejw")
+text = "I can't seem to find what I'm looking for..."
+metadata/_custom_type_script = "uid://bsyipojh002v7"
+
+[sub_resource type="Resource" id="Resource_5cl6j"]
+script = ExtResource("18_ubdnn")
+metadata/_custom_type_script = "uid://didya636nmhaq"
+
+[sub_resource type="Resource" id="Resource_5ywym"]
+script = ExtResource("18_ubdnn")
+metadata/_custom_type_script = "uid://didya636nmhaq"
+
+[sub_resource type="Resource" id="Resource_2nphg"]
+script = ExtResource("20_gs8dq")
+text = "Do you mind helping me find it?"
+choice_text = Array[String](["Yes, absolutely.", "Sorry, I can't right now."])
+choice_function_call = Array[ExtResource("18_ubdnn")]([SubResource("Resource_5cl6j"), SubResource("Resource_5ywym")])
+metadata/_custom_type_script = "uid://5mjmy6dyhih"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sm8fe"]
+size = Vector2(348, 208)
+
 [node name="LevelRoot" type="Node2D" unique_id=87040570]
+y_sort_enabled = true
 script = ExtResource("1_dx6c5")
-metadata/_edit_horizontal_guides_ = [-655.0, 3081.0]
-metadata/_edit_vertical_guides_ = [-4354.0, -1146.0]
+metadata/_edit_horizontal_guides_ = [-655.0, 3081.0, 650.0, 162.0, 827.0]
+metadata/_edit_vertical_guides_ = [-4354.0, -1072.0, -314.0, 48.0]
 
 [node name="map" type="TileMap" parent="." unique_id=505440110]
 position = Vector2(-2688, -132)
@@ -3142,10 +3178,10 @@ position = Vector2(584, 300)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1183762719]
 zoom = Vector2(0.7, 0.7)
-limit_left = -1206
-limit_top = -454
-limit_right = 1649
-limit_bottom = 1029
+limit_left = -1212
+limit_top = -453
+limit_right = 1643
+limit_bottom = 1030
 
 [node name="Enemies" type="Node" parent="." unique_id=962814133]
 
@@ -3258,9 +3294,9 @@ scale = Vector2(1.5, 1.5)
 [node name="Spawn" parent="Doors/Door_Grass1" index="1" unique_id=1452911007]
 position = Vector2(2, -95)
 
-[node name="Ambience" type="AudioStreamPlayer2D" parent="." unique_id=666351892]
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=902289220]
 stream = ExtResource("12_5mwf5")
-volume_db = 1.0
+volume_db = 0.5
 autoplay = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1033709322]
@@ -3268,6 +3304,21 @@ autoplay = true
 [node name="HeartsContainer" parent="CanvasLayer" unique_id=1030660543 instance=ExtResource("13_upde5")]
 scale = Vector2(4, 4)
 metadata/_edit_use_anchors_ = true
+
+[node name="HUD" parent="." unique_id=1024019043 instance=ExtResource("14_406qh")]
+
+[node name="DialogueArea2D" parent="." unique_id=255564346 instance=ExtResource("16_qeex7")]
+scale = Vector2(0.5, 0.5)
+required_player_look_dir = "down"
+activate_instant = true
+only_active_once = true
+override_dialogue_position = true
+override_position = Vector2(-315, 650)
+dialogue = Array[ExtResource("17_hd0gu")]([SubResource("Resource_8jj41"), SubResource("Resource_hwjkn"), SubResource("Resource_2nphg")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea2D" unique_id=1707812564]
+position = Vector2(-628, 1652)
+shape = SubResource("RectangleShape2D_sm8fe")
 
 [editable path="Doors/Door_Base"]
 [editable path="Doors/Door_Grass1"]

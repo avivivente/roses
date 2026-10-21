@@ -11,7 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://b0j3eqlkugmdw" path="res://scene/enemy.tscn" id="9_ndgrd"]
 [ext_resource type="Script" uid="uid://ccvjinio50h6r" path="res://scripts/follow_movement_c.gd" id="10_h351q"]
 [ext_resource type="PackedScene" uid="uid://mq5dpit82nx2" path="res://doors/door.tscn" id="11_dpc8t"]
+[ext_resource type="PackedScene" uid="uid://bh4j2nfuyre0a" path="res://scene/rose.tscn" id="12_0ourt"]
 [ext_resource type="PackedScene" uid="uid://6676kmjj5l2h" path="res://scene/HeartsContainer.tscn" id="12_hbb88"]
+[ext_resource type="PackedScene" uid="uid://bncikc6aaaj8k" path="res://scene/hud.tscn" id="13_wcjpl"]
+[ext_resource type="AudioStream" uid="uid://bnq11cnqsvrrj" path="res://audio/nature_ambience.mp3" id="14_5orea"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v0l8b"]
 texture = ExtResource("2_hbb88")
@@ -3139,7 +3142,7 @@ position = Vector2(4, 90)
 position = Vector2(584, 284)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1183762719]
-zoom = Vector2(0.7, 0.7)
+zoom = Vector2(1.1, 1.1)
 limit_left = -1202
 limit_top = 1036
 limit_right = 1647
@@ -3255,11 +3258,25 @@ rotation = 1.5707964
 [node name="Spawn" parent="Doors/Door_Base1" index="1" unique_id=1452911007]
 position = Vector2(2, 63.333336)
 
+[node name="Interactables" type="Node" parent="." unique_id=1158383981]
+
+[node name="Rose" parent="Interactables" unique_id=212285682 instance=ExtResource("12_0ourt")]
+position = Vector2(881.00006, 2743)
+scale = Vector2(1.5, 1.5)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1717770849]
+visible = false
 
 [node name="HeartsContainer" parent="CanvasLayer" unique_id=1030660543 instance=ExtResource("12_hbb88")]
 scale = Vector2(4, 4)
 metadata/_edit_use_anchors_ = true
+
+[node name="HUD" parent="." unique_id=1024019043 instance=ExtResource("13_wcjpl")]
+
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=864579141]
+stream = ExtResource("14_5orea")
+volume_db = 0.5
+autoplay = true
 
 [editable path="Doors/Door_Grass"]
 [editable path="Doors/Door_Base1"]

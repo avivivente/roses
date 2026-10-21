@@ -9,24 +9,35 @@ signal died
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var damage_cooldown: Timer = $DamageCooldown
 @onready var taking_damage: AudioStreamPlayer2D = $TakingDamage
+@onready var you_died: AudioStreamPlayer2D = $YouDied
+@onready var effects: AnimationPlayer = $Effects
+@onready var hurtblinktimer: Timer = $HurtBlinkTimer
+
 
 var animation_direction: String = "down"
 var alive: bool = true
 var max_health: int 
 var health: int 
 
-func _ready():
+
+var look_dir: String = "up"
+var can_move: bool = true
+
+func _ready() -> void:
+	add_to_group("Player")
+	
 	health = PlayerStats.health
 	max_health = PlayerStats.max_health
+	effects.play("RESET")
 	
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
 
-func _on_spawn(position: Vector2, direction: String):
-	global_position = position
-	animated_sprite_2d.play("walk_" + direction)
-	animated_sprite_2d.stop()
 
 func _physics_process(_delta: float) -> void:
+	if !can_move:
+		animated_sprite_2d.play("idle_" + animation_direction)
+		return
+
 	if alive:
 		var direction := Input.get_vector("left", "right", "up", "down")
 
@@ -47,6 +58,14 @@ func _physics_process(_delta: float) -> void:
 
 		move_and_collide(velocity * _delta)
 
+
+
+func _on_spawn(position: Vector2, direction: String):
+	global_position = position
+	animated_sprite_2d.play("walk_" + direction)
+	animated_sprite_2d.stop()
+
+
 func take_damage(amount: int) -> void:
 	if alive:
 		if damage_cooldown.time_left > 0:
@@ -57,17 +76,24 @@ func take_damage(amount: int) -> void:
 		PlayerStats.health = health
 		healthChanged.emit(health)
 		print(health)
+		effects.play("hurtBlink")
+		hurtblinktimer.start()
+		await hurtblinktimer.timeout
+		effects.play("RESET")
 		if health <= 0:
 			die()
+			
 			print("You Died!")
 		# Make player invincible for a short time
 		damage_cooldown.start()
 
 func die() -> void:
 	animated_sprite_2d.play("death")
+	you_died.play()
 	alive = false
 	await animated_sprite_2d.animation_finished
 	died.emit()
+
 
 func update_sprite_direction(input: Vector2) -> void:
 	if input == Vector2.ZERO:
