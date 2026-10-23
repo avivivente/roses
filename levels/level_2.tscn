@@ -3142,7 +3142,7 @@ position = Vector2(4, 90)
 position = Vector2(584, 284)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1183762719]
-zoom = Vector2(1.1, 1.1)
+zoom = Vector2(0.7, 0.7)
 limit_left = -1202
 limit_top = 1036
 limit_right = 1647
@@ -3265,13 +3265,12 @@ position = Vector2(881.00006, 2743)
 scale = Vector2(1.5, 1.5)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1717770849]
-visible = false
 
 [node name="HeartsContainer" parent="CanvasLayer" unique_id=1030660543 instance=ExtResource("12_hbb88")]
 scale = Vector2(4, 4)
 metadata/_edit_use_anchors_ = true
 
-[node name="HUD" parent="." unique_id=1024019043 instance=ExtResource("13_wcjpl")]
+[node name="HUD" parent="CanvasLayer" unique_id=1024019043 instance=ExtResource("13_wcjpl")]
 
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=864579141]
 stream = ExtResource("14_5orea")

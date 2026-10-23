@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://8j3ns6w6vmny" path="res://scripts/dialogue_area_2d.gd" id="1_cink8"]
 
-[node name="DialogueArea2D" type="Area2D" unique_id=255564346]
+[node name="Interactables" type="Area2D" unique_id=255564346]
 collision_layer = 128
 collision_mask = 2
 script = ExtResource("1_cink8")

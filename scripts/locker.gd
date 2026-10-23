@@ -44,6 +44,7 @@ func enter_locker() -> void:
 	$Sprite2D.texture=ResourceLoader.load("res://assets/interactables/locker_hidden.png")
 	point_light_2d.visible = true
 	point_light_2d.energy = 0.7
+	$E_TO_ENTER
 
 func exit_locker() -> void:
 	if not is_instance_valid(player):

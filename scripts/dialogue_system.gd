@@ -1,9 +1,9 @@
 extends Node2D
 
-const DialogueButtonPreload = preload("res://scene/dialogue_button.tscn")
+const DialogueButtonPreload = preload("res://interactions/for_text_in_interactables/InteractableTextButton.tscn")
 
-@onready var DialogueLabel: RichTextLabel = $HBoxContainer/VBoxContainer/RichTextLabel
-@onready var SpeakerSprite: Sprite2D = $HBoxContainer/SpeakerParent/Sprite2D
+@onready var DialogueLabel: RichTextLabel = $CanvasLayer/HBoxContainer/VBoxContainer/RichTextLabel
+@onready var SpeakerSprite: Sprite2D = $CanvasLayer/HBoxContainer/SpeakerParent/Sprite2D
 
 var dialogue: Array[DE]
 var current_dialogue_item: int = 0
@@ -13,7 +13,7 @@ var player_node: CharacterBody2D
 
 func _ready() -> void:
 	visible = false
-	$HBoxContainer/VBoxContainer/button_container.visible = false
+	$CanvasLayer/HBoxContainer/VBoxContainer/button_container.visible = false
 	
 	for i in get_tree().get_nodes_in_group("Player"):
 		player_node = i
@@ -76,13 +76,13 @@ func _choice_resource(i: DialogueChoice) -> void:
 	DialogueLabel.text = i.text
 	DialogueLabel.visible_characters = -1
 	if i.speaker_img:
-		$HBoxContainer/SpeakerParent.visible = true
+		$CanvasLayer/HBoxContainer/SpeakerParent.visible = true
 		SpeakerSprite.texture = i.speaker_img
 		SpeakerSprite.hframes = i.speaker_img_Hframes
 		SpeakerSprite.frame = min(i.speaker_img_select_frame, i.speaker_img_Hframes-1)
 	else:
-		$HBoxContainer/SpeakerParent.visible = false
-	$HBoxContainer/VBoxContainer/button_container.visible = true
+		$CanvasLayer/HBoxContainer/SpeakerParent.visible = false
+	$CanvasLayer/HBoxContainer/VBoxContainer/button_container.visible = true
 	
 	for item in i.choice_text.size():
 		var DialogueButtonVar = DialogueButtonPreload.instantiate()
@@ -102,13 +102,13 @@ func _choice_resource(i: DialogueChoice) -> void:
 		else:
 			DialogueButtonVar.connect("pressed", _choice_button_pressed.bind(null, " "), CONNECT_ONE_SHOT)
 		
-		$HBoxContainer/VBoxContainer/button_container.add_child(DialogueButtonVar)
-	$HBoxContainer/VBoxContainer/button_container.get_child(0).grab_focus()
+		$CanvasLayer/HBoxContainer/VBoxContainer/button_container.add_child(DialogueButtonVar)
+	$CanvasLayer/HBoxContainer/VBoxContainer/button_container.get_child(0).grab_focus()
 
 
 func _choice_button_pressed(target_node: Node, wait_for_signal_to_continue: String):
-	$HBoxContainer/VBoxContainer/button_container.visible = false
-	for i in $HBoxContainer/VBoxContainer/button_container.get_children():
+	$CanvasLayer/HBoxContainer/VBoxContainer/button_container.visible = false
+	for i in $CanvasLayer/HBoxContainer/VBoxContainer/button_container.get_children():
 		i.queue_free()
 	
 	#button press audiostreamplayer to the dialogue system,
@@ -127,17 +127,17 @@ func _choice_button_pressed(target_node: Node, wait_for_signal_to_continue: Stri
 	next_item = true
 
 func _text_resource(i: DialogueText) -> void:
-	$AudioStreamPlayer.stream = i.text_sound
-	$AudioStreamPlayer.volume_db = i.text_volume_db
+	$CanvasLayer/AudioStreamPlayer.stream = i.text_sound
+	$CanvasLayer/AudioStreamPlayer.volume_db = i.text_volume_db
 	var camera: Camera2D = get_viewport().get_camera_2d()
 	if camera and i.camera_position != Vector2(999.999, 999.999):
 		var camera_tween: Tween = create_tween().set_trans(Tween.TRANS_SINE)
 		camera_tween.tween_property(camera, "global_position", i.camera_position, i.camera_transition_time)
 	
 	if !i.speaker_img:
-		$HBoxContainer/SpeakerParent.visible = false
+		$CanvasLayer/HBoxContainer/SpeakerParent.visible = false
 	else:
-		$HBoxContainer/SpeakerParent.visible = true
+		$CanvasLayer/HBoxContainer/SpeakerParent.visible = true
 		SpeakerSprite.texture = i.speaker_img
 		SpeakerSprite.hframes = i.speaker_image_Hframes
 		SpeakerSprite.frame = 0
@@ -157,8 +157,8 @@ func _text_resource(i: DialogueText) -> void:
 			var character: String = text_without_square_brackets[DialogueLabel.visible_characters]
 			DialogueLabel.visible_characters += 1
 			if character != " ":
-				$AudioStreamPlayer.pitch_scale = randf_range(i.text_volume_pitch_min, i.text_volume_pitch_max)
-				$AudioStreamPlayer.play()
+				$CanvasLayer/AudioStreamPlayer.pitch_scale = randf_range(i.text_volume_pitch_min, i.text_volume_pitch_max)
+				$CanvasLayer/AudioStreamPlayer.play()
 				if i.speaker_image_Hframes != 1:
 					if SpeakerSprite.frame < i.speaker_img_Hframes - 1:
 						SpeakerSprite.frame += 1

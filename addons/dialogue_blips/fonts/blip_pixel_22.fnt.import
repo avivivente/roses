@@ -1,0 +1,17 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://dfsk8pknhdepj"
+path="res://.godot/imported/blip_pixel_22.fnt-d7b30f920fa7c174c6bd00e5179b40bc.fontdata"
+
+[deps]
+
+source_file="res://addons/dialogue_blips/fonts/blip_pixel_22.fnt"
+dest_files=["res://.godot/imported/blip_pixel_22.fnt-d7b30f920fa7c174c6bd00e5179b40bc.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true
+scaling_mode=2

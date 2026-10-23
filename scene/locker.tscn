@@ -24,7 +24,7 @@ fill_from = Vector2(0.49658704, 0.48293516)
 fill_to = Vector2(0.8720136, 0.15187714)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
-size = Vector2(97, 241)
+size = Vector2(97, 136)
 
 [node name="Locker" type="Area2D" unique_id=27276546]
 position = Vector2(68, 538)
@@ -74,6 +74,6 @@ collision_layer = 16
 action_name = "ENTER LOCKER"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="E_TO_ENTER" unique_id=1800833933]
-position = Vector2(3.5, -10.5)
+position = Vector2(3.5, 42)
 shape = SubResource("RectangleShape2D_q6r6c")
 one_way_collision_margin = 7.7

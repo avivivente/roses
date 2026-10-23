@@ -1,0 +1,32 @@
+[
+	{
+		"commands_raw": "Hemlo ${player_name}, are you a doodie fart?\n\n?> > yeah totally -> choice 2\n?> > no, not really -> choice 1\n\n",
+		"gnode_name": "start",
+		"id": 0.0,
+		"name": "Start",
+		"position": [
+			220.0,
+			280.0
+		]
+	},
+	{
+		"commands_raw": "awe maen\n\n",
+		"gnode_name": "choice 1",
+		"id": 1.0,
+		"name": "choice 1",
+		"position": [
+			500.0,
+			380.0
+		]
+	},
+	{
+		"commands_raw": "HELL YEAH\n",
+		"gnode_name": "choice 2",
+		"id": 2.0,
+		"name": "choice 2",
+		"position": [
+			460.0,
+			180.0
+		]
+	}
+]

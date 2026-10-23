@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bqxwhghkatpsl"]
 
-[ext_resource type="Script" uid="uid://c0j0pe3o3sqj3" path="res://scripts/dialogue_system.gd" id="1_5ywym"]
-[ext_resource type="FontFile" uid="uid://uux5tmjstmhm" path="res://assets/fonts/dogicapixelbold.ttf" id="1_mv12q"]
+[ext_resource type="Script" uid="uid://c0j0pe3o3sqj3" path="res://scripts/dialogue_system.gd" id="1_76xm5"]
+[ext_resource type="FontFile" uid="uid://uux5tmjstmhm" path="res://assets/fonts/dogicapixelbold.ttf" id="2_usw71"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_clmr6"]
 light_mode = 1
@@ -18,60 +18,63 @@ expand_margin_right = 8.0
 expand_margin_bottom = 8.0
 
 [node name="DialogueSystem" type="Node2D" unique_id=1095088082]
+clip_children = 2
 z_index = 4000
 material = SubResource("CanvasItemMaterial_clmr6")
-script = ExtResource("1_5ywym")
+script = ExtResource("1_76xm5")
 
-[node name="Panel" type="Panel" parent="." unique_id=329947537]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=520146123]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=329947537]
 material = SubResource("CanvasItemMaterial_clmr6")
-offset_left = -250.0
-offset_top = -60.0
-offset_right = 250.0
-offset_bottom = 60.0
+propagate_maximum_size = true
+offset_left = 50.0
+offset_top = 463.0
+offset_right = 1104.0
+offset_bottom = 619.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_dnd2h")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=849155331]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=849155331]
 material = SubResource("CanvasItemMaterial_clmr6")
 custom_minimum_size = Vector2(70, 0)
 clip_contents = true
-offset_left = -240.0
-offset_top = -55.0
-offset_right = 240.0
-offset_bottom = 55.0
+offset_left = 62.0
+offset_top = 468.0
+offset_right = 1102.0
+offset_bottom = 614.0
 
-[node name="SpeakerParent" type="Control" parent="HBoxContainer" unique_id=1333488734]
+[node name="SpeakerParent" type="Control" parent="CanvasLayer/HBoxContainer" unique_id=1333488734]
 material = SubResource("CanvasItemMaterial_clmr6")
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/SpeakerParent" unique_id=1273087007]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/HBoxContainer/SpeakerParent" unique_id=1273087007]
 material = SubResource("CanvasItemMaterial_clmr6")
-position = Vector2(90, 90)
+position = Vector2(64, 72)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1843913838]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer" unique_id=1843913838]
 material = SubResource("CanvasItemMaterial_clmr6")
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer" unique_id=1756034642]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/VBoxContainer" unique_id=1756034642]
 material = SubResource("CanvasItemMaterial_clmr6")
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_selected_color = Color(1, 1, 1, 0)
 theme_override_constants/line_separation = 9
-theme_override_fonts/normal_font = ExtResource("1_mv12q")
+theme_override_fonts/normal_font = ExtResource("2_usw71")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 scroll_active = false
 visible_characters_behavior = 1
 
-[node name="button_container" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1909642033]
+[node name="button_container" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer" unique_id=1909642033]
 material = SubResource("CanvasItemMaterial_clmr6")
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=353868627]
-max_polyphony = 1000

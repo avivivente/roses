@@ -1,6 +1,6 @@
 extends Area2D
 
-const DialogueSystemPreload = preload("res://scene/dialogue_system.tscn")
+const DialogueSystemPreload = preload("res://interactions/for_text_in_interactables/InteractableTextSystem.tscn")
 
 @export var required_player_look_dir: String
 @export var activate_instant: bool
@@ -46,7 +46,6 @@ func _activate_dialogue() -> void:
 	if override_dialogue_position:
 		desired_dialogue_pos = override_position
 	else:
-		if player_node.global_position.y > get_viewport().get_camera_2d().get_screen_center_position().y:
 			desired_dialogue_pos = dialogue_top_pos
 	new_dialogue.global_position = desired_dialogue_pos
 	new_dialogue.dialogue = dialogue

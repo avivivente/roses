@@ -94,7 +94,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nssrp"]
-size = Vector2(28, 36)
+size = Vector2(22, 29)
 
 [node name="Chest" type="StaticBody2D" unique_id=1399679068]
 collision_layer = 64
@@ -120,7 +120,7 @@ libraries/ = SubResource("AnimationLibrary_26vdv")
 action_name = "OPEN"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=312257855]
-position = Vector2(0, -1)
+position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_nssrp")
 
 [connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

@@ -182,6 +182,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_jsuda")
+}],
+"loop": 1,
+"name": &"death_static",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_waelg")
 }, {
 "duration": 1.0,
@@ -372,7 +380,7 @@ shape = SubResource("RectangleShape2D_sm8fe")
 clip_children = 2
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_sm8fe")
-animation = &"death"
+animation = &"idle_down"
 
 [node name="ColorRect" type="ColorRect" parent="AnimatedSprite2D" unique_id=1537816762]
 offset_left = -27.25
