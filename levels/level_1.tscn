@@ -15,9 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://6676kmjj5l2h" path="res://scene/HeartsContainer.tscn" id="13_nmsli"]
 [ext_resource type="PackedScene" uid="uid://bncikc6aaaj8k" path="res://scene/hud.tscn" id="14_betor"]
 [ext_resource type="PackedScene" uid="uid://wgcsl2h7ufti" path="res://scene/chest.tscn" id="15_vjtdm"]
-[ext_resource type="PackedScene" uid="uid://dwl7fs8wgqeht" path="res://interactions/for_text_in_interactables/InteractableTextPrompt.tscn" id="16_oqlok"]
-[ext_resource type="Script" uid="uid://cmx3omvjjcsnb" path="res://interactions/for_text_in_interactables/DialogueExportResource.gd" id="17_7nvrk"]
-[ext_resource type="Script" uid="uid://bsyipojh002v7" path="res://interactions/for_text_in_interactables/DialogueTextResource.gd" id="18_jkxa6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v0l8b"]
 texture = ExtResource("1_08mmt")
@@ -2970,18 +2967,6 @@ fill = 1
 fill_from = Vector2(0.49658704, 0.50341296)
 fill_to = Vector2(0.8549488, 0.097269624)
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_oqlok"]
-light_mode = 1
-
-[sub_resource type="Resource" id="Resource_pqyof"]
-script = ExtResource("18_jkxa6")
-text = "There's nothing in here."
-text_speed = 18.0
-metadata/_custom_type_script = "uid://bsyipojh002v7"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w75he"]
-size = Vector2(188, 106)
-
 [node name="LevelRoot" type="Node2D" unique_id=87040570]
 y_sort_enabled = true
 script = ExtResource("1_5ot28")
@@ -3169,6 +3154,7 @@ player = NodePath("../../Player")
 position = Vector2(4, 90)
 
 [node name="Enemy1" parent="." unique_id=243905079 instance=ExtResource("8_lrvbd")]
+visible = false
 position = Vector2(-2704, 2280)
 scale = Vector2(1, 1.162)
 
@@ -3192,6 +3178,7 @@ position = Vector2(160, -1487.0913)
 position = Vector2(208, -1900.1722)
 
 [node name="Enemy2" parent="." unique_id=388952696 instance=ExtResource("8_lrvbd")]
+visible = false
 position = Vector2(-3272, 424.00037)
 scale = Vector2(1, 1.162)
 
@@ -3222,6 +3209,7 @@ position = Vector2(-183.99997, 1074.01)
 position = Vector2(-183.99997, 1666.0928)
 
 [node name="Enemy3" parent="." unique_id=1630764144 instance=ExtResource("8_lrvbd")]
+visible = false
 position = Vector2(-2000.0001, 1711.9999)
 scale = Vector2(1, 1.162)
 
@@ -3267,8 +3255,63 @@ destination_door_tag = "Grass"
 spawn_direction = "right"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1258362143]
+visible = false
 position = Vector2(-2587, 1149)
 color = Color(0, 0, 0, 1)
+
+[node name="Chests" type="Node" parent="." unique_id=1828319003]
+
+[node name="Chest" parent="Chests" unique_id=1399679068 instance=ExtResource("15_vjtdm")]
+position = Vector2(-1728, 24)
+scale = Vector2(4, 4)
+
+[node name="Chest2" parent="Chests" unique_id=1260647409 instance=ExtResource("15_vjtdm")]
+position = Vector2(-1856, 24)
+scale = Vector2(4, 4)
+
+[node name="Chest3" parent="Chests" unique_id=405059604 instance=ExtResource("15_vjtdm")]
+position = Vector2(-2640, 280)
+scale = Vector2(4, 4)
+
+[node name="Chest4" parent="Chests" unique_id=711802106 instance=ExtResource("15_vjtdm")]
+position = Vector2(-3264, 312)
+scale = Vector2(4, 4)
+
+[node name="Chest5" parent="Chests" unique_id=1528929497 instance=ExtResource("15_vjtdm")]
+position = Vector2(-3680, 1048)
+scale = Vector2(4, 4)
+
+[node name="Chest6" parent="Chests" unique_id=424015613 instance=ExtResource("15_vjtdm")]
+position = Vector2(-3376, 1432)
+scale = Vector2(4, 4)
+
+[node name="Chest7" parent="Chests" unique_id=1734365844 instance=ExtResource("15_vjtdm")]
+position = Vector2(-3016, 2456)
+scale = Vector2(4, 4)
+
+[node name="Chest8" parent="Chests" unique_id=1094172331 instance=ExtResource("15_vjtdm")]
+position = Vector2(-3120, 2456)
+scale = Vector2(4, 4)
+
+[node name="Chest9" parent="Chests" unique_id=2145998137 instance=ExtResource("15_vjtdm")]
+position = Vector2(-2000, 2456)
+scale = Vector2(4, 4)
+
+[node name="Chest10" parent="Chests" unique_id=507006131 instance=ExtResource("15_vjtdm")]
+position = Vector2(-1344, 2200)
+scale = Vector2(4, 4)
+
+[node name="Chest11" parent="Chests" unique_id=2064224561 instance=ExtResource("15_vjtdm")]
+position = Vector2(-1472, 2200)
+scale = Vector2(4, 4)
+
+[node name="Chest12" parent="Chests" unique_id=1089477322 instance=ExtResource("15_vjtdm")]
+position = Vector2(-2360, 1168)
+scale = Vector2(4, 4)
+
+[node name="Chest13" parent="Chests" unique_id=527483448 instance=ExtResource("15_vjtdm")]
+position = Vector2(-2240, 1168)
+scale = Vector2(4, 4)
 
 [node name="Player" parent="." unique_id=815887106 instance=ExtResource("7_bgw3c")]
 position = Vector2(584, 284)
@@ -3289,10 +3332,6 @@ stream = ExtResource("12_aerfg")
 volume_db = -25.0
 autoplay = true
 
-[node name="Chest" parent="." unique_id=1399679068 instance=ExtResource("15_vjtdm")]
-position = Vector2(-1728, 24)
-scale = Vector2(4, 4)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1593011944]
 
 [node name="HUD" parent="CanvasLayer" unique_id=1024019043 instance=ExtResource("14_betor")]
@@ -3300,18 +3339,6 @@ scale = Vector2(4, 4)
 [node name="HeartsContainer" parent="CanvasLayer" unique_id=1030660543 instance=ExtResource("13_nmsli")]
 scale = Vector2(4, 4)
 metadata/_edit_use_anchors_ = true
-
-[node name="DialogueArea2D" parent="CanvasLayer" unique_id=255564346 instance=ExtResource("16_oqlok")]
-material = SubResource("CanvasItemMaterial_oqlok")
-scale = Vector2(0.5, 0.5)
-required_player_look_dir = "up"
-override_dialogue_position = true
-override_position = Vector2(-1728, -128)
-dialogue = Array[ExtResource("17_7nvrk")]([SubResource("Resource_pqyof")])
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/DialogueArea2D" unique_id=1306240147]
-position = Vector2(-3456, 48)
-shape = SubResource("RectangleShape2D_w75he")
 
 [connection signal="died" from="Player" to="." method="_on_player_died"]
 [connection signal="died" from="Player" to="CanvasLayer/HeartsContainer" method="_on_player_died"]

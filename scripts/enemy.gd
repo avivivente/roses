@@ -4,7 +4,8 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_timer: Timer = $AttackTimer
 @onready var attack_sound: AudioStreamPlayer2D = $AttackSound
-@onready var player_detected: AudioStreamPlayer2D = $PlayerDetected
+@onready var proximity: AudioStreamPlayer2D = $Proximity
+
 
 
 var animation_direction: String = "down"
@@ -13,17 +14,17 @@ var strength: int = 1
 var target_in_range: bool = false
 var target = null
 
+
 func _physics_process(delta):
 	if velocity.length() > 0:
 		animated_sprite_2d.play("walk_down")
 	else:
 		animated_sprite_2d.play("idle_down")
 
-
 func _on_follow_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		target = body
-		player_detected.play()
+
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
@@ -43,3 +44,7 @@ func _on_attack_timer_timeout() -> void:
 	if target and target_in_range:
 		target.take_damage(strength)
 		attack_sound.play()
+
+
+func _on_proximity_area_body_entered(body: Node2D) -> void:
+	$Proximity.play()

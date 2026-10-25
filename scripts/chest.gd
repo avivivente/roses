@@ -1,6 +1,5 @@
 extends StaticBody2D
 
-
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var interaction_area: InteractionArea = $InteractionArea
 

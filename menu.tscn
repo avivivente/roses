@@ -1,0 +1,184 @@
+[gd_scene format=3 uid="uid://dr1j8b60f7ltl"]
+
+[ext_resource type="Script" uid="uid://bomojrmra8x8f" path="res://menu.gd" id="1_lti8b"]
+[ext_resource type="Texture2D" uid="uid://cx2bedx5xoc8u" path="res://assets/UI/Start.png" id="2_4hy44"]
+[ext_resource type="Texture2D" uid="uid://d2rwtfqgyyxl6" path="res://assets/titlecard/MainMenuBG.png" id="2_oxnod"]
+[ext_resource type="Texture2D" uid="uid://0j1yqr5sqhyg" path="res://assets/UI/Start_Pressed.png" id="3_ytr4m"]
+[ext_resource type="Texture2D" uid="uid://dxjrhsvjgasm1" path="res://assets/UI/Start_Hover.png" id="4_l48gv"]
+[ext_resource type="Texture2D" uid="uid://nb37fpcelf57" path="res://assets/UI/Continue.png" id="5_ecwwl"]
+[ext_resource type="Texture2D" uid="uid://dsai6s4hm41qn" path="res://assets/UI/Continue_Pressed.png" id="6_kk3ma"]
+[ext_resource type="Texture2D" uid="uid://gl0u6351v3ul" path="res://assets/UI/Continue_Hover.png" id="7_nrnbx"]
+[ext_resource type="Texture2D" uid="uid://dlk1f0d70nvh8" path="res://assets/UI/Options.png" id="8_iqepy"]
+[ext_resource type="Texture2D" uid="uid://bperlrlclute8" path="res://assets/UI/Option_Pressed.png" id="9_h1wq0"]
+[ext_resource type="Texture2D" uid="uid://gp0ehkbwcohr" path="res://assets/UI/Option_Hover.png" id="10_dwrpx"]
+[ext_resource type="Texture2D" uid="uid://mwvrk3iffhbn" path="res://assets/UI/Quit.png" id="11_g7jxm"]
+[ext_resource type="Texture2D" uid="uid://b5puaegjnb27p" path="res://assets/UI/Quit_Pressed.png" id="12_jspdm"]
+[ext_resource type="Texture2D" uid="uid://by3ffeo1eceaj" path="res://assets/UI/Quit_Hover.png" id="13_oxnod"]
+[ext_resource type="Texture2D" uid="uid://bfn0env83uw6q" path="res://assets/titlecard/Roses_Titlecard.png" id="14_jspdm"]
+[ext_resource type="PackedScene" uid="uid://dmlokcmuwcndl" path="res://scene/menu_fade.tscn" id="16_gd0jp"]
+[ext_resource type="AudioStream" uid="uid://cok6wrjscou8s" path="res://audio/button_press.wav" id="17_3ls4m"]
+[ext_resource type="AudioStream" uid="uid://2f5v42u7on3c" path="res://audio/button_hover.wav" id="18_5h80m"]
+[ext_resource type="Texture2D" uid="uid://c86egf5aj7uc" path="res://assets/titlecard/RoseFieldIcon.png" id="19_5h80m"]
+
+[sub_resource type="Animation" id="Animation_w25hu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_td6mg"]
+resource_name = "rose_glint"
+length = 5.0
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.4, 1.6, 1.8, 2, 2.2, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_guify"]
+_data = {
+&"RESET": SubResource("Animation_w25hu"),
+&"rose_glint": SubResource("Animation_td6mg")
+}
+
+[node name="Main Menu" type="Node2D" unique_id=1322552231]
+script = ExtResource("1_lti8b")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=679107110]
+scale = Vector2(0.25, 0.25)
+transform = Transform2D(0.25, 0, 0, 0.25, 0, 0)
+
+[node name="BG" type="TextureRect" parent="CanvasLayer" unique_id=298349539]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3456.0
+offset_bottom = 1944.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_oxnod")
+
+[node name="ButtonManager" type="Control" parent="CanvasLayer" unique_id=179110142]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1772.0
+offset_top = 1128.0
+offset_right = 1772.0
+offset_bottom = 1128.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+size_flags_horizontal = 3
+size_flags_vertical = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ButtonManager" unique_id=980711630]
+custom_minimum_size = Vector2(50, 50)
+propagate_maximum_size = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -167.2
+offset_right = 186.8
+offset_bottom = 652.0
+grow_horizontal = 2
+scale = Vector2(0.8, 0.8)
+theme_override_constants/separation = 0
+
+[node name="Start" type="TextureButton" parent="CanvasLayer/ButtonManager/VBoxContainer" unique_id=616338444]
+layout_mode = 2
+texture_normal = ExtResource("2_4hy44")
+texture_pressed = ExtResource("3_ytr4m")
+texture_hover = ExtResource("4_l48gv")
+stretch_mode = 0
+
+[node name="Continue" type="TextureButton" parent="CanvasLayer/ButtonManager/VBoxContainer" unique_id=918881601]
+layout_mode = 2
+texture_normal = ExtResource("5_ecwwl")
+texture_pressed = ExtResource("6_kk3ma")
+texture_hover = ExtResource("7_nrnbx")
+stretch_mode = 0
+
+[node name="Options" type="TextureButton" parent="CanvasLayer/ButtonManager/VBoxContainer" unique_id=540172322]
+layout_mode = 2
+texture_normal = ExtResource("8_iqepy")
+texture_pressed = ExtResource("9_h1wq0")
+texture_hover = ExtResource("10_dwrpx")
+stretch_mode = 0
+
+[node name="Quit" type="TextureButton" parent="CanvasLayer/ButtonManager/VBoxContainer" unique_id=671405656]
+layout_mode = 2
+texture_normal = ExtResource("11_g7jxm")
+texture_pressed = ExtResource("12_jspdm")
+texture_hover = ExtResource("13_oxnod")
+stretch_mode = 0
+
+[node name="Title" type="TextureRect" parent="CanvasLayer" unique_id=798832162]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 0.0008544922
+offset_top = -144.0
+offset_right = 256.00085
+offset_bottom = 36.0
+grow_horizontal = 0
+scale = Vector2(9, 9)
+texture = ExtResource("14_jspdm")
+stretch_mode = 2
+
+[node name="FadeOverlay" parent="CanvasLayer" unique_id=141250735 instance=ExtResource("16_gd0jp")]
+visible = false
+offset_right = 3460.0
+offset_bottom = 1944.0
+
+[node name="fade_timer" type="Timer" parent="CanvasLayer/FadeOverlay" unique_id=1093045485]
+wait_time = 2.0
+
+[node name="Button_press" type="AudioStreamPlayer2D" parent="CanvasLayer" unique_id=952782574]
+stream = ExtResource("17_3ls4m")
+
+[node name="Button_hover" type="AudioStreamPlayer2D" parent="CanvasLayer" unique_id=2005982566]
+stream = ExtResource("18_5h80m")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1001635856]
+visible = false
+scale = Vector2(7, 7)
+texture = ExtResource("19_5h80m")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Sprite2D" unique_id=707207105]
+libraries/ = SubResource("AnimationLibrary_guify")
+
+[connection signal="mouse_entered" from="CanvasLayer/ButtonManager/VBoxContainer/Start" to="." method="_on_start_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/ButtonManager/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/ButtonManager/VBoxContainer/Continue" to="." method="_on_continue_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/ButtonManager/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/ButtonManager/VBoxContainer/Options" to="." method="_on_options_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/ButtonManager/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/ButtonManager/VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/ButtonManager/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="timeout" from="CanvasLayer/FadeOverlay/fade_timer" to="." method="_on_fade_timer_timeout"]
+
+[editable path="CanvasLayer/FadeOverlay"]

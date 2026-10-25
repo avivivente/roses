@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c5h8ahs8n03po"]
 
-[ext_resource type="Script" uid="uid://cy3jx3iosxrq3" path="res://scripts/interaction_manager.gd" id="1_kapv5"]
+[ext_resource type="Script" uid="uid://cy3jx3iosxrq3" path="res://globals/interaction_manager.gd" id="1_kapv5"]
 [ext_resource type="FontFile" uid="uid://uux5tmjstmhm" path="res://assets/fonts/dogicapixelbold.ttf" id="1_u2e4y"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_y6trl"]

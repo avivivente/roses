@@ -3,17 +3,20 @@
 [ext_resource type="Script" uid="uid://bhmyhfdyqm7dd" path="res://scripts/enemy.gd" id="1_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://km6fmyfh3d82" path="res://assets/enemy/enemies.png" id="1_7k104"]
 [ext_resource type="Script" uid="uid://ccvjinio50h6r" path="res://scripts/follow_movement_c.gd" id="2_5uy6h"]
-[ext_resource type="AudioStream" uid="uid://bx4mu2mqxw2yv" path="res://audio/enemy_attack_sound.mp3" id="3_b7koy"]
-[ext_resource type="AudioStream" uid="uid://b0trptqluxwbr" path="res://audio/player_detected.wav" id="5_yvcfn"]
+[ext_resource type="AudioStream" uid="uid://blttkbur1kef4" path="res://audio/enemy_hit.wav" id="4_yvcfn"]
+[ext_resource type="AudioStream" uid="uid://cioduc4a43o2k" path="res://audio/proximity.wav" id="5_ulb22"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_60pwd"]
-size = Vector2(13.258503, 15.81252)
+[sub_resource type="CircleShape2D" id="CircleShape2D_yvcfn"]
+radius = 7.519735
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f6lyo"]
-radius = 11.679964
+radius = 10.843646
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bb38t"]
-size = Vector2(45.681377, 142.921)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ulb22"]
+radius = 48.724983
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sm8fe"]
+radius = 581.3841
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b7koy"]
 atlas = ExtResource("1_7k104")
@@ -217,6 +220,7 @@ animations = [{
 [node name="Enemy" type="CharacterBody2D" unique_id=243905079]
 y_sort_enabled = true
 scale = Vector2(0.65406865, 0.75973797)
+collision_layer = 256
 collision_mask = 21
 motion_mode = 1
 script = ExtResource("1_4ra3w")
@@ -228,7 +232,7 @@ script = ExtResource("2_5uy6h")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=957323323]
 position = Vector2(0, -5.9230943)
 scale = Vector2(5.7657013, 6.076562)
-shape = SubResource("RectangleShape2D_60pwd")
+shape = SubResource("CircleShape2D_yvcfn")
 
 [node name="FollowArea" type="Area2D" parent="." unique_id=330966744]
 position = Vector2(71.33838, 72.76782)
@@ -247,9 +251,15 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2048996423]
-position = Vector2(-0.7644455, -5.923095)
-scale = Vector2(1.7738359, 0.70913804)
-shape = SubResource("RectangleShape2D_bb38t")
+rotation = 1.5707964
+shape = SubResource("CircleShape2D_ulb22")
+
+[node name="ProximityArea" type="Area2D" parent="." unique_id=1724277637]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProximityArea" unique_id=879191129]
+shape = SubResource("CircleShape2D_sm8fe")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1142559630]
 scale = Vector2(4, 4)
@@ -260,13 +270,15 @@ animation = &"walk_left"
 wait_time = 3.0
 
 [node name="AttackSound" type="AudioStreamPlayer2D" parent="." unique_id=1397957925]
-stream = ExtResource("3_b7koy")
+stream = ExtResource("4_yvcfn")
 volume_db = -10.0
 
-[node name="PlayerDetected" type="AudioStreamPlayer2D" parent="." unique_id=1237799350]
-stream = ExtResource("5_yvcfn")
-volume_db = 1.2
+[node name="Proximity" type="AudioStreamPlayer2D" parent="." unique_id=1237799350]
+stream = ExtResource("5_ulb22")
+volume_db = 15.0
 pitch_scale = 0.5
+max_distance = 1000.0
+panning_strength = 10.0
 
 [connection signal="body_entered" from="FollowArea" to="." method="_on_follow_area_body_entered"]
 [connection signal="body_entered" from="FollowArea" to="FollowMovementC" method="_on_follow_area_body_entered"]
@@ -274,4 +286,5 @@ pitch_scale = 0.5
 [connection signal="body_exited" from="FollowArea" to="FollowMovementC" method="_on_follow_area_body_exited"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
+[connection signal="body_entered" from="ProximityArea" to="." method="_on_proximity_area_body_entered"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
