@@ -15,14 +15,13 @@ extends CanvasLayer
 @export var will_block_other_input: bool = true
 
 ## The action to use for advancing the dialogue
-@export var next_action: StringName = &"interact"
+@export var next_action: StringName = &"ui_accept"
 
 ## The action to use to skip typing the dialogue
 @export var skip_action: StringName = &"ui_cancel"
 
 ## A sound player for voice lines (if they exist).
-@onready var audio_stream_player: AudioStreamPlayer = %TalkSound
-
+@onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
 
 ## Temporary game states
 var temporary_game_states: Array = []
@@ -62,11 +61,8 @@ var mutation_cooldown: Timer = Timer.new()
 ## The label showing the name of the currently speaking character
 @onready var character_label: RichTextLabel = %CharacterLabel
 
-## The character portrait
-@onready var character_portrait: TextureRect = %Portrait
-
-## Talking sound
-@onready var talk_sound: AudioStreamPlayer = %TalkSound
+### Character portrait
+@onready var portrait: TextureRect = %Portrait
 
 ## The label showing the currently spoken dialogue
 @onready var dialogue_label: DialogueLabel = %DialogueLabel
@@ -141,13 +137,13 @@ func apply_dialogue_line() -> void:
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue")
 
-	var character_portrait_path: String = "res://assets/character_portraits/%s.png" % dialogue_line.character.to_lower()
-	if ResourceLoader.exists(character_portrait_path):
+	var portrait_path: String = "res://assets/character_portraits/%s.png" % dialogue_line.character.to_lower()
+	if ResourceLoader.exists(portrait_path):
 		%Portrait.show()
-		character_portrait.texture = load(character_portrait_path)
+		portrait.texture = load(portrait_path)
 	else:
 		%Portrait.hide()
-		character_portrait.texture = null
+		portrait.texture = null
 
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line
@@ -173,6 +169,7 @@ func apply_dialogue_line() -> void:
 	elif dialogue_line.responses.size() > 0:
 		balloon.focus_mode = Control.FOCUS_NONE
 		responses_menu.show()
+		responses_menu.focus_first_item()
 	elif dialogue_line.time != "":
 		var time: float = dialogue_line.text.length() * 0.02 if dialogue_line.time == "auto" else dialogue_line.time.to_float()
 		await get_tree().create_timer(time).timeout
@@ -232,9 +229,7 @@ func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 
 func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -> void:
 	if not letter in [".", " "]:
-		talk_sound.play()
-
-
+		audio_stream_player.play()
 
 
 #endregion

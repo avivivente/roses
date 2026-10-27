@@ -2,8 +2,11 @@ extends Node2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $Player/AnimatedSprite2D
 @onready var hearts_container: HBoxContainer = $CanvasLayer/HeartsContainer
-@onready var player: CharacterBody2D = $Player
+@onready var player: CharacterBody2D = $Leticia
 @onready var animation_player: AnimationPlayer = $CanvasLayer/FadeOverlay/AnimationPlayer
+@onready var hud: StaticBody2D = $CanvasLayer/HUD
+
+
 
 var level: int = 1
 var current_level_root: Node = null
@@ -11,7 +14,6 @@ var max_health: int
 var health: int 
 
 func _ready():
-	
 	animation_player.play("fade_to_normal")
 	
 	get_tree().get_nodes_in_group("Player")

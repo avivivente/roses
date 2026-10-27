@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://rqiacw6rrsh6" path="res://assets/tilesets/Miscellaneous & Props1.png" id="5_0ourt"]
 [ext_resource type="Texture2D" uid="uid://bq8owmcit1j0d" path="res://assets/tilesets/trees.png" id="6_w200a"]
 [ext_resource type="PackedScene" uid="uid://dw1vn1lewcclr" path="res://scene/locker.tscn" id="7_uo0vl"]
-[ext_resource type="PackedScene" uid="uid://dr7t5trcwj4s2" path="res://scene/Player.tscn" id="8_k2aru"]
+[ext_resource type="PackedScene" uid="uid://dr7t5trcwj4s2" path="res://scene/Leticia.tscn" id="8_k2aru"]
 [ext_resource type="PackedScene" uid="uid://b0j3eqlkugmdw" path="res://scene/enemy.tscn" id="9_ndgrd"]
 [ext_resource type="Script" uid="uid://ccvjinio50h6r" path="res://scripts/follow_movement_c.gd" id="10_h351q"]
 [ext_resource type="PackedScene" uid="uid://mq5dpit82nx2" path="res://doors/door.tscn" id="11_dpc8t"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://6676kmjj5l2h" path="res://scene/HeartsContainer.tscn" id="12_hbb88"]
 [ext_resource type="PackedScene" uid="uid://bncikc6aaaj8k" path="res://scene/hud.tscn" id="13_wcjpl"]
 [ext_resource type="AudioStream" uid="uid://bnq11cnqsvrrj" path="res://audio/nature_ambience.mp3" id="14_5orea"]
+[ext_resource type="PackedScene" uid="uid://dmlokcmuwcndl" path="res://scene/menu_fade.tscn" id="16_w200a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v0l8b"]
 texture = ExtResource("2_hbb88")
@@ -3061,7 +3062,7 @@ scale = Vector2(4, 4)
 [node name="Locker" parent="Lockers" unique_id=27276546 node_paths=PackedStringArray("player") instance=ExtResource("7_uo0vl")]
 position = Vector2(111, 33.5)
 scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
+player = NodePath("../../Leticia")
 
 [node name="ExitPoint" type="Marker2D" parent="Lockers/Locker" unique_id=1809768821]
 position = Vector2(3, 77)
@@ -3069,7 +3070,7 @@ position = Vector2(3, 77)
 [node name="Locker2" parent="Lockers" unique_id=163992719 node_paths=PackedStringArray("player") instance=ExtResource("7_uo0vl")]
 position = Vector2(160, 33.5)
 scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
+player = NodePath("../../Leticia")
 
 [node name="ExitPoint" type="Marker2D" parent="Lockers/Locker2" unique_id=1443162054]
 position = Vector2(3, 77)
@@ -3077,7 +3078,7 @@ position = Vector2(3, 77)
 [node name="Locker3" parent="Lockers" unique_id=26676203 node_paths=PackedStringArray("player") instance=ExtResource("7_uo0vl")]
 position = Vector2(272, 33.5)
 scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
+player = NodePath("../../Leticia")
 
 [node name="ExitPoint" type="Marker2D" parent="Lockers/Locker3" unique_id=1480110532]
 position = Vector2(3, 77)
@@ -3085,7 +3086,7 @@ position = Vector2(3, 77)
 [node name="Locker4" parent="Lockers" unique_id=1596229146 node_paths=PackedStringArray("player") instance=ExtResource("7_uo0vl")]
 position = Vector2(-208, 67)
 scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
+player = NodePath("../../Leticia")
 
 [node name="ExitPoint" type="Marker2D" parent="Lockers/Locker4" unique_id=968531478]
 position = Vector2(0, 88)
@@ -3093,7 +3094,7 @@ position = Vector2(0, 88)
 [node name="Locker5" parent="Lockers" unique_id=1578381641 node_paths=PackedStringArray("player") instance=ExtResource("7_uo0vl")]
 position = Vector2(-52, 579)
 scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
+player = NodePath("../../Leticia")
 
 [node name="ExitPoint" type="Marker2D" parent="Lockers/Locker5" unique_id=472208560]
 position = Vector2(0, 88)
@@ -3101,7 +3102,7 @@ position = Vector2(0, 88)
 [node name="Locker6" parent="Lockers" unique_id=243524020 node_paths=PackedStringArray("player") instance=ExtResource("7_uo0vl")]
 position = Vector2(144, 645)
 scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
+player = NodePath("../../Leticia")
 
 [node name="ExitPoint" type="Marker2D" parent="Lockers/Locker6" unique_id=1961570729]
 position = Vector2(0, 88)
@@ -3109,7 +3110,7 @@ position = Vector2(0, 88)
 [node name="Locker7" parent="Lockers" unique_id=1189258976 node_paths=PackedStringArray("player") instance=ExtResource("7_uo0vl")]
 position = Vector2(-204, 387)
 scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
+player = NodePath("../../Leticia")
 
 [node name="ExitPoint" type="Marker2D" parent="Lockers/Locker7" unique_id=1778540786]
 position = Vector2(0, 88)
@@ -3117,7 +3118,7 @@ position = Vector2(0, 88)
 [node name="Locker8" parent="Lockers" unique_id=1801778630 node_paths=PackedStringArray("player") instance=ExtResource("7_uo0vl")]
 position = Vector2(242, 323)
 scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
+player = NodePath("../../Leticia")
 
 [node name="ExitPoint" type="Marker2D" parent="Lockers/Locker8" unique_id=1069602286]
 position = Vector2(0, 88)
@@ -3125,7 +3126,7 @@ position = Vector2(0, 88)
 [node name="Locker9" parent="Lockers" unique_id=1161097946 node_paths=PackedStringArray("player") instance=ExtResource("7_uo0vl")]
 position = Vector2(288, 323)
 scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
+player = NodePath("../../Leticia")
 
 [node name="ExitPoint" type="Marker2D" parent="Lockers/Locker9" unique_id=745346090]
 position = Vector2(0, 88)
@@ -3133,15 +3134,15 @@ position = Vector2(0, 88)
 [node name="Locker10" parent="Lockers" unique_id=1637108696 node_paths=PackedStringArray("player") instance=ExtResource("7_uo0vl")]
 position = Vector2(271, 419)
 scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
+player = NodePath("../../Leticia")
 
 [node name="ExitPoint" type="Marker2D" parent="Lockers/Locker10" unique_id=634210935]
 position = Vector2(4, 90)
 
-[node name="Player" parent="." unique_id=815887106 instance=ExtResource("8_k2aru")]
+[node name="Leticia" parent="." unique_id=815887106 instance=ExtResource("8_k2aru")]
 position = Vector2(584, 284)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1183762719]
+[node name="Camera2D" type="Camera2D" parent="Leticia" unique_id=1183762719]
 zoom = Vector2(0.7, 0.7)
 limit_left = -1202
 limit_top = 1036
@@ -3266,6 +3267,9 @@ scale = Vector2(1.5, 1.5)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1717770849]
 
+[node name="FadeOverlay" parent="CanvasLayer" unique_id=141250735 instance=ExtResource("16_w200a")]
+visible = false
+
 [node name="HeartsContainer" parent="CanvasLayer" unique_id=1030660543 instance=ExtResource("12_hbb88")]
 scale = Vector2(4, 4)
 metadata/_edit_use_anchors_ = true
@@ -3279,3 +3283,4 @@ autoplay = true
 
 [editable path="Doors/Door_Grass"]
 [editable path="Doors/Door_Base1"]
+[editable path="CanvasLayer/FadeOverlay"]

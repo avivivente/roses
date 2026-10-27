@@ -2,11 +2,9 @@
 
 [ext_resource type="Script" uid="uid://vp2f2r6qxg15" path="res://scripts/locker.gd" id="1_3vr0h"]
 [ext_resource type="AudioStream" uid="uid://bhlgdift3jmrm" path="res://audio/locker_enter.wav" id="2_7wadm"]
+[ext_resource type="Texture2D" uid="uid://ciflc06ai1lwg" path="res://assets/interactables/locker.png" id="2_vbd4t"]
 [ext_resource type="PackedScene" uid="uid://c2dat6fqm8soo" path="res://interactions/interaction_area/interaction_area.tscn" id="2_y6trl"]
 [ext_resource type="AudioStream" uid="uid://f6y1ggdbe5pq" path="res://audio/locker_exit.wav" id="3_c38np"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_axpkr"]
-load_path = "res://.godot/imported/locker.png-a75f152c11b79bc010321806515c6f57.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ggnbx"]
 size = Vector2(112, 208)
@@ -34,11 +32,12 @@ script = ExtResource("1_3vr0h")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=50060836]
 visibility_layer = 1023
-position = Vector2(3, -45)
-scale = Vector2(4, 4)
-texture = SubResource("CompressedTexture2D_axpkr")
+position = Vector2(3.5, -49)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("2_vbd4t")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=1941764789]
+position = Vector2(0, -1)
 collision_layer = 17
 collision_mask = 2
 

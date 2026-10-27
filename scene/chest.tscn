@@ -3,8 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://4u8cy4lmj5yn" path="res://assets/interactables/assets.png" id="1_26f88"]
 [ext_resource type="Script" uid="uid://8mbteafanqas" path="res://scripts/chest.gd" id="1_cettl"]
 [ext_resource type="PackedScene" uid="uid://c2dat6fqm8soo" path="res://interactions/interaction_area/interaction_area.tscn" id="3_cettl"]
-[ext_resource type="Script" uid="uid://cqcur1rm7433g" path="res://addons/dialogue_manager/nodes/actionable/dialogue_actionable_2d.gd" id="4_26vdv"]
-[ext_resource type="Resource" uid="uid://bqfmx61s1bg3k" path="res://dialogues/chest.dialogue" id="5_bgh66"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sm8fe"]
 size = Vector2(22, 11)
@@ -98,10 +96,8 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nssrp"]
 size = Vector2(22, 25)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggnbx"]
-size = Vector2(22, 23)
-
 [node name="Chest" type="StaticBody2D" unique_id=1399679068]
+y_sort_enabled = true
 collision_layer = 64
 collision_mask = 2
 script = ExtResource("1_cettl")
@@ -128,17 +124,4 @@ action_name = "OPEN"
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_nssrp")
 
-[node name="DialogueActionable2D" type="Area2D" parent="." unique_id=650594411]
-collision_layer = 128
-collision_mask = 2
-script = ExtResource("4_26vdv")
-dialogue_resource = ExtResource("5_bgh66")
-dialogue_cue = "open"
-metadata/_custom_type_script = "uid://cqcur1rm7433g"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueActionable2D" unique_id=276685357]
-position = Vector2(0, 1.5)
-shape = SubResource("RectangleShape2D_ggnbx")
-
 [connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]
-[connection signal="actioned" from="DialogueActionable2D" to="." method="_on_dialogue_actionable_2d_actioned"]

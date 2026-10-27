@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://rqiacw6rrsh6" path="res://assets/tilesets/Miscellaneous & Props1.png" id="4_nmsli"]
 [ext_resource type="Texture2D" uid="uid://bq8owmcit1j0d" path="res://assets/tilesets/trees.png" id="5_betor"]
 [ext_resource type="PackedScene" uid="uid://dw1vn1lewcclr" path="res://scene/locker.tscn" id="6_vjtdm"]
-[ext_resource type="PackedScene" uid="uid://dr7t5trcwj4s2" path="res://scene/Player.tscn" id="7_bgw3c"]
+[ext_resource type="PackedScene" uid="uid://dr7t5trcwj4s2" path="res://scene/Leticia.tscn" id="7_bgw3c"]
 [ext_resource type="PackedScene" uid="uid://b0j3eqlkugmdw" path="res://scene/enemy.tscn" id="8_lrvbd"]
 [ext_resource type="Script" uid="uid://ccvjinio50h6r" path="res://scripts/follow_movement_c.gd" id="9_oqlok"]
 [ext_resource type="PackedScene" uid="uid://mq5dpit82nx2" path="res://doors/door.tscn" id="10_7nvrk"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://6676kmjj5l2h" path="res://scene/HeartsContainer.tscn" id="13_nmsli"]
 [ext_resource type="PackedScene" uid="uid://bncikc6aaaj8k" path="res://scene/hud.tscn" id="14_betor"]
 [ext_resource type="PackedScene" uid="uid://wgcsl2h7ufti" path="res://scene/chest.tscn" id="15_vjtdm"]
+[ext_resource type="PackedScene" uid="uid://dmlokcmuwcndl" path="res://scene/menu_fade.tscn" id="16_bgw3c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v0l8b"]
 texture = ExtResource("1_08mmt")
@@ -3067,199 +3068,7 @@ light_mask = 4
 visibility_layer = 4
 shape = SubResource("RectangleShape2D_4j5ol")
 
-[node name="Lockers" type="Node2D" parent="." unique_id=1863791425]
-light_mask = 2
-visibility_layer = 3
-position = Vector2(-2688, -132)
-scale = Vector2(4, 4)
-
-[node name="Locker" parent="Lockers" unique_id=27276546 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
-position = Vector2(111, 33.5)
-scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
-
-[node name="ExitPoint" type="Marker2D" parent="Lockers/Locker" unique_id=1809768821]
-position = Vector2(3, 77)
-
-[node name="Locker2" parent="Lockers" unique_id=163992719 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
-position = Vector2(160, 33.5)
-scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
-
-[node name="ExitPoint" type="Marker2D" parent="Lockers/Locker2" unique_id=1443162054]
-position = Vector2(3, 77)
-
-[node name="Locker3" parent="Lockers" unique_id=26676203 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
-position = Vector2(272, 33.5)
-scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
-
-[node name="ExitPoint" type="Marker2D" parent="Lockers/Locker3" unique_id=1480110532]
-position = Vector2(3, 77)
-
-[node name="Locker4" parent="Lockers" unique_id=1596229146 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
-position = Vector2(-208, 67)
-scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
-
-[node name="ExitPoint" type="Marker2D" parent="Lockers/Locker4" unique_id=968531478]
-position = Vector2(0, 88)
-
-[node name="Locker5" parent="Lockers" unique_id=1578381641 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
-position = Vector2(-52, 579)
-scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
-
-[node name="ExitPoint" type="Marker2D" parent="Lockers/Locker5" unique_id=472208560]
-position = Vector2(0, 88)
-
-[node name="Locker6" parent="Lockers" unique_id=243524020 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
-position = Vector2(144, 645)
-scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
-
-[node name="ExitPoint" type="Marker2D" parent="Lockers/Locker6" unique_id=1961570729]
-position = Vector2(0, 88)
-
-[node name="Locker7" parent="Lockers" unique_id=1189258976 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
-position = Vector2(-204, 387)
-scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
-
-[node name="ExitPoint" type="Marker2D" parent="Lockers/Locker7" unique_id=1778540786]
-position = Vector2(0, 88)
-
-[node name="Locker8" parent="Lockers" unique_id=1801778630 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
-position = Vector2(242, 323)
-scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
-
-[node name="ExitPoint" type="Marker2D" parent="Lockers/Locker8" unique_id=1069602286]
-position = Vector2(0, 88)
-
-[node name="Locker9" parent="Lockers" unique_id=1161097946 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
-position = Vector2(288, 323)
-scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
-
-[node name="ExitPoint" type="Marker2D" parent="Lockers/Locker9" unique_id=745346090]
-position = Vector2(0, 88)
-
-[node name="Locker10" parent="Lockers" unique_id=1637108696 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
-position = Vector2(271, 419)
-scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
-
-[node name="ExitPoint" type="Marker2D" parent="Lockers/Locker10" unique_id=634210935]
-position = Vector2(4, 90)
-
-[node name="Enemy1" parent="." unique_id=243905079 instance=ExtResource("8_lrvbd")]
-visible = false
-position = Vector2(-2704, 2280)
-scale = Vector2(1, 1.162)
-
-[node name="FollowMovementC2" type="Node" parent="Enemy1" unique_id=12637480 node_paths=PackedStringArray("patrol_point_1", "patrol_point_2", "patrol_point_3", "patrol_point_4")]
-script = ExtResource("9_oqlok")
-patrol_point_1 = NodePath("../patrol_point_A1")
-patrol_point_2 = NodePath("../patrol_point_A2")
-patrol_point_3 = NodePath("../patrol_point_A3")
-patrol_point_4 = NodePath("../patrol_point_A4")
-
-[node name="patrol_point_A1" type="Marker2D" parent="Enemy1" unique_id=2006507195]
-position = Vector2(-8, 6.8848877)
-
-[node name="patrol_point_A2" type="Marker2D" parent="Enemy1" unique_id=1832926989]
-position = Vector2(111.99999, -908.778)
-
-[node name="patrol_point_A3" type="Marker2D" parent="Enemy1" unique_id=1856272797]
-position = Vector2(160, -1487.0913)
-
-[node name="patrol_point_A4" type="Marker2D" parent="Enemy1" unique_id=2081681619]
-position = Vector2(208, -1900.1722)
-
-[node name="Enemy2" parent="." unique_id=388952696 instance=ExtResource("8_lrvbd")]
-visible = false
-position = Vector2(-3272, 424.00037)
-scale = Vector2(1, 1.162)
-
-[node name="FollowMovementC2" type="Node" parent="Enemy2" unique_id=719771664 node_paths=PackedStringArray("patrol_point_1", "patrol_point_2", "patrol_point_3", "patrol_point_4", "patrol_point_5", "patrol_point_6")]
-script = ExtResource("9_oqlok")
-patrol_point_1 = NodePath("../patrol_point_B1")
-patrol_point_2 = NodePath("../patrol_point_B2")
-patrol_point_3 = NodePath("../patrol_point_B3")
-patrol_point_4 = NodePath("../patrol_point_B4")
-patrol_point_5 = NodePath("../patrol_point_B5")
-patrol_point_6 = NodePath("../patrol_point_B6")
-
-[node name="patrol_point_B1" type="Marker2D" parent="Enemy2" unique_id=1173362068]
-
-[node name="patrol_point_B2" type="Marker2D" parent="Enemy2" unique_id=616472385]
-position = Vector2(7.9999995, 564.5436)
-
-[node name="patrol_point_B3" type="Marker2D" parent="Enemy2" unique_id=816774605]
-position = Vector2(-367.99997, 578.3129)
-
-[node name="patrol_point_B4" type="Marker2D" parent="Enemy2" unique_id=1831437987]
-position = Vector2(-375.99997, 1067.1254)
-
-[node name="patrol_point_B5" type="Marker2D" parent="Enemy2" unique_id=127455520]
-position = Vector2(-183.99997, 1074.01)
-
-[node name="patrol_point_B6" type="Marker2D" parent="Enemy2" unique_id=920097783]
-position = Vector2(-183.99997, 1666.0928)
-
-[node name="Enemy3" parent="." unique_id=1630764144 instance=ExtResource("8_lrvbd")]
-visible = false
-position = Vector2(-2000.0001, 1711.9999)
-scale = Vector2(1, 1.162)
-
-[node name="FollowMovementC2" type="Node" parent="Enemy3" unique_id=418054267 node_paths=PackedStringArray("patrol_point_1", "patrol_point_2", "patrol_point_3", "patrol_point_4", "patrol_point_5", "patrol_point_6")]
-script = ExtResource("9_oqlok")
-patrol_point_1 = NodePath("../patrol_point_C1")
-patrol_point_2 = NodePath("../patrol_point_C2")
-patrol_point_3 = NodePath("../patrol_point_C3")
-patrol_point_4 = NodePath("../patrol_point_C4")
-patrol_point_5 = NodePath("../patrol_point_C5")
-patrol_point_6 = NodePath("../patrol_point_C6")
-
-[node name="patrol_point_C1" type="Marker2D" parent="Enemy3" unique_id=1087239368]
-
-[node name="patrol_point_C2" type="Marker2D" parent="Enemy3" unique_id=801166171]
-position = Vector2(8.000121, 234.07928)
-
-[node name="patrol_point_C3" type="Marker2D" parent="Enemy3" unique_id=894354046]
-position = Vector2(256.0001, 240.96396)
-
-[node name="patrol_point_C4" type="Marker2D" parent="Enemy3" unique_id=1895694878]
-position = Vector2(200.00009, 537.00525)
-
-[node name="patrol_point_C5" type="Marker2D" parent="Enemy3" unique_id=2133998231]
-position = Vector2(-47.999756, 798.6233)
-scale = Vector2(0.99999994, 0.99999994)
-
-[node name="patrol_point_C6" type="Marker2D" parent="Enemy3" unique_id=544783369]
-position = Vector2(-479.99985, 805.5078)
-
-[node name="Doors" type="Node" parent="." unique_id=1590626143]
-
-[node name="Door_Cave" parent="Doors" unique_id=84920167 instance=ExtResource("10_7nvrk")]
-position = Vector2(-1235, 628)
-destination_level_tag = "base_level"
-destination_door_tag = "Base"
-spawn_direction = "left"
-
-[node name="Door_Cave1" parent="Doors" unique_id=567359006 instance=ExtResource("10_7nvrk")]
-position = Vector2(-1236, 1640)
-destination_level_tag = "level_2"
-destination_door_tag = "Grass"
-spawn_direction = "right"
-
-[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1258362143]
-visible = false
-position = Vector2(-2587, 1149)
-color = Color(0, 0, 0, 1)
-
-[node name="Chests" type="Node" parent="." unique_id=1828319003]
+[node name="Chests" type="Node2D" parent="." unique_id=267007012]
 
 [node name="Chest" parent="Chests" unique_id=1399679068 instance=ExtResource("15_vjtdm")]
 position = Vector2(-1728, 24)
@@ -3313,17 +3122,206 @@ scale = Vector2(4, 4)
 position = Vector2(-2240, 1168)
 scale = Vector2(4, 4)
 
-[node name="Player" parent="." unique_id=815887106 instance=ExtResource("7_bgw3c")]
-position = Vector2(584, 284)
+[node name="Lockers" type="Node2D" parent="." unique_id=1863791425]
+light_mask = 2
+visibility_layer = 3
+position = Vector2(-2688, -132)
+scale = Vector2(4, 4)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1183762719]
+[node name="Locker" parent="Lockers" unique_id=27276546 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
+position = Vector2(111, 33.5)
+scale = Vector2(0.25, 0.25)
+player = NodePath("../../Leticia")
+
+[node name="ExitPoint" type="Marker2D" parent="Lockers/Locker" unique_id=1809768821]
+position = Vector2(3, 77)
+
+[node name="Locker2" parent="Lockers" unique_id=163992719 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
+position = Vector2(160, 33.5)
+scale = Vector2(0.25, 0.25)
+player = NodePath("../../Leticia")
+
+[node name="ExitPoint" type="Marker2D" parent="Lockers/Locker2" unique_id=1443162054]
+position = Vector2(3, 77)
+
+[node name="Locker3" parent="Lockers" unique_id=26676203 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
+position = Vector2(272, 33.5)
+scale = Vector2(0.25, 0.25)
+player = NodePath("../../Leticia")
+
+[node name="ExitPoint" type="Marker2D" parent="Lockers/Locker3" unique_id=1480110532]
+position = Vector2(3, 77)
+
+[node name="Locker4" parent="Lockers" unique_id=1596229146 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
+position = Vector2(-208, 67)
+scale = Vector2(0.25, 0.25)
+player = NodePath("../../Leticia")
+
+[node name="ExitPoint" type="Marker2D" parent="Lockers/Locker4" unique_id=968531478]
+position = Vector2(0, 88)
+
+[node name="Locker5" parent="Lockers" unique_id=1578381641 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
+position = Vector2(-52, 579)
+scale = Vector2(0.25, 0.25)
+player = NodePath("../../Leticia")
+
+[node name="ExitPoint" type="Marker2D" parent="Lockers/Locker5" unique_id=472208560]
+position = Vector2(0, 88)
+
+[node name="Locker6" parent="Lockers" unique_id=243524020 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
+position = Vector2(144, 645)
+scale = Vector2(0.25, 0.25)
+player = NodePath("../../Leticia")
+
+[node name="ExitPoint" type="Marker2D" parent="Lockers/Locker6" unique_id=1961570729]
+position = Vector2(0, 88)
+
+[node name="Locker7" parent="Lockers" unique_id=1189258976 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
+position = Vector2(-204, 387)
+scale = Vector2(0.25, 0.25)
+player = NodePath("../../Leticia")
+
+[node name="ExitPoint" type="Marker2D" parent="Lockers/Locker7" unique_id=1778540786]
+position = Vector2(0, 88)
+
+[node name="Locker8" parent="Lockers" unique_id=1801778630 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
+position = Vector2(242, 323)
+scale = Vector2(0.25, 0.25)
+player = NodePath("../../Leticia")
+
+[node name="ExitPoint" type="Marker2D" parent="Lockers/Locker8" unique_id=1069602286]
+position = Vector2(0, 88)
+
+[node name="Locker9" parent="Lockers" unique_id=1161097946 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
+position = Vector2(288, 323)
+scale = Vector2(0.25, 0.25)
+player = NodePath("../../Leticia")
+
+[node name="ExitPoint" type="Marker2D" parent="Lockers/Locker9" unique_id=745346090]
+position = Vector2(0, 88)
+
+[node name="Locker10" parent="Lockers" unique_id=1637108696 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
+position = Vector2(271, 419)
+scale = Vector2(0.25, 0.25)
+player = NodePath("../../Leticia")
+
+[node name="ExitPoint" type="Marker2D" parent="Lockers/Locker10" unique_id=634210935]
+position = Vector2(4, 90)
+
+[node name="Enemy1" parent="." unique_id=243905079 instance=ExtResource("8_lrvbd")]
+position = Vector2(-2704, 2280)
+scale = Vector2(1, 1.162)
+
+[node name="FollowMovementC2" type="Node" parent="Enemy1" unique_id=12637480 node_paths=PackedStringArray("patrol_point_1", "patrol_point_2", "patrol_point_3", "patrol_point_4")]
+script = ExtResource("9_oqlok")
+patrol_point_1 = NodePath("../patrol_point_A1")
+patrol_point_2 = NodePath("../patrol_point_A2")
+patrol_point_3 = NodePath("../patrol_point_A3")
+patrol_point_4 = NodePath("../patrol_point_A4")
+
+[node name="patrol_point_A1" type="Marker2D" parent="Enemy1" unique_id=2006507195]
+position = Vector2(-8, 6.8848877)
+
+[node name="patrol_point_A2" type="Marker2D" parent="Enemy1" unique_id=1832926989]
+position = Vector2(111.99999, -908.778)
+
+[node name="patrol_point_A3" type="Marker2D" parent="Enemy1" unique_id=1856272797]
+position = Vector2(160, -1487.0913)
+
+[node name="patrol_point_A4" type="Marker2D" parent="Enemy1" unique_id=2081681619]
+position = Vector2(208, -1900.1722)
+
+[node name="Enemy2" parent="." unique_id=388952696 instance=ExtResource("8_lrvbd")]
+position = Vector2(-3272, 424.00037)
+scale = Vector2(1, 1.162)
+
+[node name="FollowMovementC2" type="Node" parent="Enemy2" unique_id=719771664 node_paths=PackedStringArray("patrol_point_1", "patrol_point_2", "patrol_point_3", "patrol_point_4", "patrol_point_5", "patrol_point_6")]
+script = ExtResource("9_oqlok")
+patrol_point_1 = NodePath("../patrol_point_B1")
+patrol_point_2 = NodePath("../patrol_point_B2")
+patrol_point_3 = NodePath("../patrol_point_B3")
+patrol_point_4 = NodePath("../patrol_point_B4")
+patrol_point_5 = NodePath("../patrol_point_B5")
+patrol_point_6 = NodePath("../patrol_point_B6")
+
+[node name="patrol_point_B1" type="Marker2D" parent="Enemy2" unique_id=1173362068]
+
+[node name="patrol_point_B2" type="Marker2D" parent="Enemy2" unique_id=616472385]
+position = Vector2(7.9999995, 564.5436)
+
+[node name="patrol_point_B3" type="Marker2D" parent="Enemy2" unique_id=816774605]
+position = Vector2(-367.99997, 578.3129)
+
+[node name="patrol_point_B4" type="Marker2D" parent="Enemy2" unique_id=1831437987]
+position = Vector2(-375.99997, 1067.1254)
+
+[node name="patrol_point_B5" type="Marker2D" parent="Enemy2" unique_id=127455520]
+position = Vector2(-183.99997, 1074.01)
+
+[node name="patrol_point_B6" type="Marker2D" parent="Enemy2" unique_id=920097783]
+position = Vector2(-183.99997, 1666.0928)
+
+[node name="Enemy3" parent="." unique_id=1630764144 instance=ExtResource("8_lrvbd")]
+position = Vector2(-2000.0001, 1711.9999)
+scale = Vector2(1, 1.162)
+
+[node name="FollowMovementC2" type="Node" parent="Enemy3" unique_id=418054267 node_paths=PackedStringArray("patrol_point_1", "patrol_point_2", "patrol_point_3", "patrol_point_4", "patrol_point_5", "patrol_point_6")]
+script = ExtResource("9_oqlok")
+patrol_point_1 = NodePath("../patrol_point_C1")
+patrol_point_2 = NodePath("../patrol_point_C2")
+patrol_point_3 = NodePath("../patrol_point_C3")
+patrol_point_4 = NodePath("../patrol_point_C4")
+patrol_point_5 = NodePath("../patrol_point_C5")
+patrol_point_6 = NodePath("../patrol_point_C6")
+
+[node name="patrol_point_C1" type="Marker2D" parent="Enemy3" unique_id=1087239368]
+
+[node name="patrol_point_C2" type="Marker2D" parent="Enemy3" unique_id=801166171]
+position = Vector2(8.000121, 234.07928)
+
+[node name="patrol_point_C3" type="Marker2D" parent="Enemy3" unique_id=894354046]
+position = Vector2(256.0001, 240.96396)
+
+[node name="patrol_point_C4" type="Marker2D" parent="Enemy3" unique_id=1895694878]
+position = Vector2(200.00009, 537.00525)
+
+[node name="patrol_point_C5" type="Marker2D" parent="Enemy3" unique_id=2133998231]
+position = Vector2(-47.999756, 798.6233)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="patrol_point_C6" type="Marker2D" parent="Enemy3" unique_id=544783369]
+position = Vector2(-479.99985, 805.5078)
+
+[node name="Doors" type="Node" parent="." unique_id=1590626143]
+
+[node name="Door_Cave" parent="Doors" unique_id=84920167 instance=ExtResource("10_7nvrk")]
+position = Vector2(-1235, 628)
+destination_level_tag = "base_level"
+destination_door_tag = "Base"
+spawn_direction = "left"
+
+[node name="Door_Cave1" parent="Doors" unique_id=567359006 instance=ExtResource("10_7nvrk")]
+position = Vector2(-1236, 1640)
+destination_level_tag = "level_2"
+destination_door_tag = "Grass"
+spawn_direction = "right"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1258362143]
+visible = false
+position = Vector2(-2587, 1149)
+color = Color(0, 0, 0, 1)
+
+[node name="Leticia" parent="." unique_id=815887106 instance=ExtResource("7_bgw3c")]
+position = Vector2(-1358, 618)
+
+[node name="Camera2D" type="Camera2D" parent="Leticia" unique_id=1183762719]
 zoom = Vector2(0.7, 0.7)
 limit_left = -3990
 limit_top = -454
 limit_right = -1210
 limit_bottom = 2916
 
-[node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=2083598374]
+[node name="PointLight2D" type="PointLight2D" parent="Leticia" unique_id=2083598374]
 scale = Vector2(13.59375, 13.593748)
 texture = SubResource("GradientTexture2D_nssrp")
 
@@ -3334,15 +3332,19 @@ autoplay = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1593011944]
 
+[node name="FadeOverlay" parent="CanvasLayer" unique_id=141250735 instance=ExtResource("16_bgw3c")]
+visible = false
+
 [node name="HUD" parent="CanvasLayer" unique_id=1024019043 instance=ExtResource("14_betor")]
 
 [node name="HeartsContainer" parent="CanvasLayer" unique_id=1030660543 instance=ExtResource("13_nmsli")]
 scale = Vector2(4, 4)
 metadata/_edit_use_anchors_ = true
 
-[connection signal="died" from="Player" to="." method="_on_player_died"]
-[connection signal="died" from="Player" to="CanvasLayer/HeartsContainer" method="_on_player_died"]
+[connection signal="died" from="Leticia" to="." method="_on_player_died"]
+[connection signal="died" from="Leticia" to="CanvasLayer/HeartsContainer" method="_on_player_died"]
 
 [editable path="Doors/Door_Cave"]
 [editable path="Doors/Door_Cave1"]
+[editable path="CanvasLayer/FadeOverlay"]
 [editable path="CanvasLayer/HUD"]

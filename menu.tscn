@@ -19,6 +19,10 @@
 [ext_resource type="AudioStream" uid="uid://cok6wrjscou8s" path="res://audio/button_press.wav" id="17_3ls4m"]
 [ext_resource type="AudioStream" uid="uid://2f5v42u7on3c" path="res://audio/button_hover.wav" id="18_5h80m"]
 [ext_resource type="Texture2D" uid="uid://c86egf5aj7uc" path="res://assets/titlecard/RoseFieldIcon.png" id="19_5h80m"]
+[ext_resource type="AudioStream" uid="uid://bt4lav7w841ai" path="res://dialogue_balloon/response_pressed.wav" id="20_guify"]
+[ext_resource type="FontFile" uid="uid://banlcel5fi3bf" path="res://assets/fonts/dogicabold.ttf" id="20_td6mg"]
+[ext_resource type="AudioStream" uid="uid://ixaichdqfgfd" path="res://audio/mainmenu_music.mp3" id="20_w25hu"]
+[ext_resource type="Texture2D" uid="uid://dbqgg7togkg3a" path="res://assets/UI/Board.png" id="21_oil5j"]
 
 [sub_resource type="Animation" id="Animation_w25hu"]
 length = 0.001
@@ -58,6 +62,16 @@ _data = {
 &"RESET": SubResource("Animation_w25hu"),
 &"rose_glint": SubResource("Animation_td6mg")
 }
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nssrp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ex30i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i6s5b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ffd5c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y4fjn"]
 
 [node name="Main Menu" type="Node2D" unique_id=1322552231]
 script = ExtResource("1_lti8b")
@@ -158,9 +172,11 @@ wait_time = 2.0
 
 [node name="Button_press" type="AudioStreamPlayer2D" parent="CanvasLayer" unique_id=952782574]
 stream = ExtResource("17_3ls4m")
+volume_db = 5.0
 
 [node name="Button_hover" type="AudioStreamPlayer2D" parent="CanvasLayer" unique_id=2005982566]
 stream = ExtResource("18_5h80m")
+volume_db = 5.0
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1001635856]
 visible = false
@@ -171,6 +187,103 @@ hframes = 6
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Sprite2D" unique_id=707207105]
 libraries/ = SubResource("AnimationLibrary_guify")
 
+[node name="AreYouSure" type="Control" parent="CanvasLayer" unique_id=1125723722]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -230.40002
+offset_bottom = -129.60004
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+
+[node name="PopupSound" type="AudioStreamPlayer2D" parent="CanvasLayer/AreYouSure" unique_id=404563927]
+scale = Vector2(0.19999999, 0.19999999)
+stream = ExtResource("20_guify")
+
+[node name="Panel" type="TextureRect" parent="CanvasLayer/AreYouSure" unique_id=1220684241]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.00006
+offset_top = -72.8
+offset_right = 144.79974
+offset_bottom = 87.20004
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.06981317
+texture = ExtResource("21_oil5j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/AreYouSure" unique_id=205647639]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -129.59998
+offset_top = -47.0
+offset_right = 129.59998
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Text" type="RichTextLabel" parent="CanvasLayer/AreYouSure/VBoxContainer" unique_id=1253219524]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.8784314, 0.70980394, 0.5882353, 1)
+theme_override_colors/font_outline_color = Color(0.44705883, 0.21176471, 0.043137256, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_constants/line_separation = 5
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("20_td6mg")
+theme_override_font_sizes/normal_font_size = 14
+text = "Are you sure you want to quit?"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Yes" type="Button" parent="CanvasLayer/AreYouSure/VBoxContainer" unique_id=1106148963]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8784314, 0.70980394, 0.5882353, 1)
+theme_override_colors/font_hover_color = Color(0.70184, 0.502261, 0.35311657, 1)
+theme_override_colors/font_outline_color = Color(0.44705883, 0.21176471, 0.043137256, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("20_td6mg")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nssrp")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ex30i")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_i6s5b")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ffd5c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y4fjn")
+text = "Yes"
+
+[node name="No" type="Button" parent="CanvasLayer/AreYouSure/VBoxContainer" unique_id=1474830942]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8784314, 0.70980394, 0.5882353, 1)
+theme_override_colors/font_hover_color = Color(0.7019608, 0.5019608, 0.3529412, 1)
+theme_override_colors/font_outline_color = Color(0.44705883, 0.21176471, 0.043137256, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("20_td6mg")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nssrp")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ex30i")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_i6s5b")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ffd5c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y4fjn")
+text = "No
+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2032669544]
+stream = ExtResource("20_w25hu")
+volume_db = -10.0
+autoplay = true
+
 [connection signal="mouse_entered" from="CanvasLayer/ButtonManager/VBoxContainer/Start" to="." method="_on_start_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/ButtonManager/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/ButtonManager/VBoxContainer/Continue" to="." method="_on_continue_mouse_entered"]
@@ -180,5 +293,9 @@ libraries/ = SubResource("AnimationLibrary_guify")
 [connection signal="mouse_entered" from="CanvasLayer/ButtonManager/VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/ButtonManager/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="timeout" from="CanvasLayer/FadeOverlay/fade_timer" to="." method="_on_fade_timer_timeout"]
+[connection signal="mouse_entered" from="CanvasLayer/AreYouSure/VBoxContainer/Yes" to="." method="_on_yes_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/AreYouSure/VBoxContainer/Yes" to="." method="_on_yes_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/AreYouSure/VBoxContainer/No" to="." method="_on_no_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/AreYouSure/VBoxContainer/No" to="." method="_on_no_pressed"]
 
 [editable path="CanvasLayer/FadeOverlay"]

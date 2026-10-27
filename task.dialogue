@@ -1,5 +1,4 @@
 ~ task1
-
 Leticia: Excuse me...
 $> State.has_met_old_lady = true
 Old lady: *grumble* [wait=0.5]*grumble*
@@ -11,6 +10,7 @@ Old lady: I lost something important...
 Old lady: *grumble* [wait=0.5]*grumble*
 Old lady: I can't seem to find it anywhere.
 Old lady: I'm certain I dropped it around here...
+Leticia: (Can't she hear me?)
 - "Dropped what?" 
 - "Can I please ask where we are?"
 Old lady: Can't you see that I'm busy?
@@ -18,12 +18,10 @@ Old lady: Can't you see that I'm busy?
 	Leticia: (Since she really can't hear me... I might as well help her.)
 - "I'm asking what is this place." 
 	Leticia: (So she was just ignoring me?) => startle
-
 ~ help
-
 Old lady: What was that?
 - Repeat what you said.
-Old lady: [speed=0.3]...[wait=0.3]you want to help?
+Old lady: ...[wait=0.3]you want to help? ... [wait=0.7][next=auto]
 Old lady: Absolutely!
 - "Yes, I'll help."
 - "That's not what I said." [if State.disrespected_old_lady /]
@@ -35,13 +33,13 @@ else
 Old lady: I don't remember where exactly, [wait=0.3]unfortunately...
 Old lady: I'm guessing it fell somewhere on the grass.
 Old lady: Please come back as soon as you find it.
-Leticia: (I don't even know what she's looking for.)
+if State.disrespected_old_lady
+	Leticia: (I didn't even say anything about helping her...)
+else:
+	Leticia: (I don't even know what she's looking for.)
 $> State.task1 = true
-
 => END
-
 ~ startle
-
 $> State.disrespected_old_lady = true
 Old lady: Oh! So disrespectful!
 - "I'm sorry"
@@ -49,7 +47,5 @@ Old lady: Oh! So disrespectful!
 Old lady: *grumble* [wait=0.5]*grumble*
 - "Ok, I'll help."
 	$> State.disrespected_old_lady = false
-- "Can you hear me?"
+- "I just wanted to ask where are we."
 => help
-
-

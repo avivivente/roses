@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dr7t5trcwj4s2"]
 
-[ext_resource type="Script" uid="uid://bd3ebmiwfq7mm" path="res://scripts/player.gd" id="1_c0y7d"]
-[ext_resource type="Texture2D" uid="uid://t3a3l3p5lyad" path="res://assets/player/LeticiaSpriteSheet.png" id="2_dc1pm"]
-[ext_resource type="AudioStream" uid="uid://kti1pn4a82wi" path="res://audio/hurt.wav" id="5_ea7gk"]
-[ext_resource type="AudioStream" uid="uid://c3dnp4qt7na16" path="res://audio/you_died.mp3" id="6_dc1pm"]
-[ext_resource type="Script" uid="uid://cd3222nx3y3k5" path="res://addons/dialogue_manager/nodes/context/dialogue_state_context.gd" id="7_ea7gk"]
-[ext_resource type="Script" uid="uid://cxge1wx70prau" path="res://addons/dialogue_manager/nodes/marker/dialogue_marker_2d.gd" id="8_kqvfm"]
+[ext_resource type="Script" uid="uid://bd3ebmiwfq7mm" path="res://scripts/player.gd" id="1_1v857"]
+[ext_resource type="Texture2D" uid="uid://t3a3l3p5lyad" path="res://assets/player/LeticiaSpriteSheet.png" id="2_8i7at"]
+[ext_resource type="AudioStream" uid="uid://kti1pn4a82wi" path="res://audio/hurt.wav" id="3_qh0ae"]
+[ext_resource type="AudioStream" uid="uid://c3dnp4qt7na16" path="res://audio/you_died.mp3" id="4_0jn1i"]
+[ext_resource type="Script" uid="uid://cd3222nx3y3k5" path="res://addons/dialogue_manager/nodes/context/dialogue_state_context.gd" id="5_d8135"]
+[ext_resource type="Script" uid="uid://cxge1wx70prau" path="res://addons/dialogue_manager/nodes/marker/dialogue_marker_2d.gd" id="6_odi3v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sm8fe"]
 size = Vector2(76, 62)
@@ -284,6 +284,23 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 25)]
+}
+
+[sub_resource type="Animation" id="Animation_v24dj"]
+resource_name = "look_around"
+length = 2.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(0, 4), Vector2i(0, 3), Vector2i(0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_f48a8"]
@@ -630,6 +647,7 @@ _data = {
 &"idle_left": SubResource("Animation_oqto2"),
 &"idle_right": SubResource("Animation_l60v7"),
 &"idle_up": SubResource("Animation_xf0yl"),
+&"look_around": SubResource("Animation_v24dj"),
 &"run_down": SubResource("Animation_f48a8"),
 &"run_left": SubResource("Animation_0gphr"),
 &"run_right": SubResource("Animation_37cy3"),
@@ -643,13 +661,14 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_sm8fe"]
 radius = 46.010868
 
-[node name="Player" type="CharacterBody2D" unique_id=815887106 groups=["Player"]]
+[node name="Leticia" type="CharacterBody2D" unique_id=815887106 groups=["Player"]]
+y_sort_enabled = true
 collision_layer = 2
 collision_mask = 249
 motion_mode = 1
 platform_floor_layers = 4278190081
 platform_wall_layers = 1
-script = ExtResource("1_c0y7d")
+script = ExtResource("1_1v857")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=332786124]
 position = Vector2(0, 33)
@@ -658,7 +677,7 @@ shape = SubResource("RectangleShape2D_sm8fe")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1815867955]
 clip_children = 2
 scale = Vector2(4, 4)
-texture = ExtResource("2_dc1pm")
+texture = ExtResource("2_8i7at")
 hframes = 4
 vframes = 9
 
@@ -675,10 +694,10 @@ one_shot = true
 
 [node name="TakingDamage" type="AudioStreamPlayer2D" parent="." unique_id=1844880472]
 y_sort_enabled = true
-stream = ExtResource("5_ea7gk")
+stream = ExtResource("3_qh0ae")
 
 [node name="YouDied" type="AudioStreamPlayer2D" parent="." unique_id=1250092356]
-stream = ExtResource("6_dc1pm")
+stream = ExtResource("4_0jn1i")
 volume_db = -20.0
 
 [node name="Effects" type="AnimationPlayer" parent="." unique_id=1472262693]
@@ -691,7 +710,7 @@ libraries/ = SubResource("AnimationLibrary_f48a8")
 one_shot = true
 
 [node name="DialogueStateContext" type="Node" parent="." unique_id=1585236763 node_paths=PackedStringArray("target")]
-script = ExtResource("7_ea7gk")
+script = ExtResource("5_d8135")
 alias = "Leticia"
 target = NodePath("..")
 metadata/_custom_type_script = "uid://cd3222nx3y3k5"
@@ -699,7 +718,7 @@ metadata/_custom_type_script = "uid://cd3222nx3y3k5"
 [node name="DialogueMarker2D" type="Marker2D" parent="." unique_id=1529956810]
 position = Vector2(0, 25)
 rotation = 1.5707964
-script = ExtResource("8_kqvfm")
+script = ExtResource("6_odi3v")
 character_name = "Leticia"
 metadata/_custom_type_script = "uid://cxge1wx70prau"
 

@@ -3,6 +3,8 @@ extends Node2D
 @onready var animation_player: AnimationPlayer = $CanvasLayer/FadeOverlay/AnimationPlayer
 @onready var button_press: AudioStreamPlayer2D = $CanvasLayer/Button_press
 @onready var button_hover: AudioStreamPlayer2D = $CanvasLayer/Button_hover
+@onready var are_you_sure: Control = $CanvasLayer/AreYouSure
+@onready var popup_sound: AudioStreamPlayer2D = $CanvasLayer/AreYouSure/PopupSound
 
 
 var button_type = null
@@ -27,10 +29,27 @@ func _on_options_pressed() -> void:
 func _on_options_mouse_entered() -> void:
 	button_hover.play()
 
+
 func _on_quit_pressed() -> void:
-	get_tree().quit()
+	popup_sound.play()
+	are_you_sure.show()
 func _on_quit_mouse_entered() -> void:
 	button_hover.play()
+
+
+func _on_yes_pressed() -> void:
+	button_press.play()
+	get_tree().quit()
+func _on_yes_mouse_entered() -> void:
+	button_hover.play()
+
+
+func _on_no_pressed() -> void:
+	button_press.play()
+	are_you_sure.hide()
+func _on_no_mouse_entered() -> void:
+	button_hover.play()
+
 
 func _on_fade_timer_timeout() -> void:
 	if button_type == "start":

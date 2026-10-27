@@ -21,8 +21,9 @@ config/icon="res://icon.svg"
 PlayerStats="*uid://dh6bvyor2dj0j"
 State="*uid://bc6dbq65ui85"
 NavigationManager="*uid://dgtwcu1sqy7bl"
-TransitionScreen="*uid://jfq7270joa8j"
 InteractionManager="*uid://c5h8ahs8n03po"
+TransitionScreen="*uid://jfq7270joa8j"
+Intro="*uid://cyk1qyry7c53h"
 DialogueManager="*uid://c3rodes2l3gxb"
 
 [debug]
@@ -31,7 +32,7 @@ canvas_items/size/viewport_height=1080
 
 [dialogue_manager]
 
-runtime/balloon_path="res://dialogues/balloon.tscn"
+runtime/balloon_path="res://dialogue_balloon/balloon.tscn"
 
 [display]
 
@@ -99,7 +100,7 @@ flashlight={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogues/intro.dialogue", "res://dialogues/task1.dialogue")
+locale/translations_pot_files=PackedStringArray("res://task.dialogue", "res://chest.dialogue")
 
 [layer_names]
 

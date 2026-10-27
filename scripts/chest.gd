@@ -10,6 +10,7 @@ func _ready():
 
 
 func _open_chest():
+	DialogueManager.show_dialogue_balloon(load("res://chest.dialogue"), "open")
 	if is_open: return
 	
 	is_open = true

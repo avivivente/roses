@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dfouxv18sckpc"
+path="res://.godot/imported/task.dialogue-ca33986a57524fbc0bfb1663e87f351c.tres"
+
+[deps]
+
+source_file="res://task.dialogue"
+dest_files=["res://.godot/imported/task.dialogue-ca33986a57524fbc0bfb1663e87f351c.tres"]
+
+[params]
+
+defaults=true

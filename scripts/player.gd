@@ -4,7 +4,7 @@ signal healthChanged
 signal died
 
 @export var speed: float = 200
-@export var run_speed: float = 350
+@export var run_speed: float = 400
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var damage_cooldown: Timer = $DamageCooldown
@@ -25,6 +25,7 @@ var look_dir: String = "up"
 var can_move: bool = true
 
 func _ready() -> void:
+	
 	add_to_group("Player")
 	
 	health = PlayerStats.health
@@ -113,3 +114,8 @@ func update_sprite_direction(input: Vector2) -> void:
 			animation_direction = "up"
 		else:
 			animation_direction = "down"
+
+### Animations
+
+func look_around() -> void:
+	animation_player.play("look_around")

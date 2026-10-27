@@ -22,12 +22,12 @@ func _physics_process(delta):
 		animated_sprite_2d.play("idle_down")
 
 func _on_follow_area_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
+	if body.name == "Leticia":
 		target = body
 
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
+	if body.name == "Leticia":
 		target_in_range = true
 		attack_sound.play()
 		body.take_damage(strength)
@@ -35,7 +35,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 
 
 func _on_hitbox_body_exited(body: Node2D) -> void:
-	if body.name == "Player" and is_alive:
+	if body.name == "Leticia" and is_alive:
 		target_in_range = false
 		attack_timer.stop()
 

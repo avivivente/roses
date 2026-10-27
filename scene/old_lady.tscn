@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bh0s1unq3tx3c"]
 
-[ext_resource type="Script" uid="uid://bgbec7ga23dwi" path="res://old_lady.gd" id="1_0d66v"]
+[ext_resource type="Script" uid="uid://bgbec7ga23dwi" path="res://scripts/old_lady.gd" id="1_0d66v"]
 [ext_resource type="Script" uid="uid://cd3222nx3y3k5" path="res://addons/dialogue_manager/nodes/context/dialogue_state_context.gd" id="2_0d66v"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_cebmx"]
 
