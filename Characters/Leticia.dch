@@ -1,0 +1,53 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "",
+&"color": Color(0.95686275, 0.19215687, 0.35686275, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "Talk",
+"sound_moods": {
+"Startled": {
+"mode": 0,
+"name": "Startled",
+"pitch_base": 1.0,
+"pitch_variance": 0.0,
+"skip_characters": 0.0,
+"sound_path": "res://audio/talk.wav",
+"volume_base": 0.0,
+"volume_variance": 0.0
+},
+"Talk": {
+"mode": 0,
+"name": "Talk",
+"pitch_base": 1.0,
+"pitch_variance": 0.0,
+"skip_characters": 3.0,
+"sound_path": "res://audio/talk.wav",
+"volume_base": 0.0,
+"volume_variance": 0.0
+}
+},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "Leticia",
+&"description": "Main Character",
+&"display_name": "Leticia",
+&"mirror": false,
+&"nicknames": ["Lettie"],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"Leticia": {
+"export_overrides": {
+"image": "\"res://assets/character_portraits/Leticia.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": "",
+"sound_mood": "Talk"
+}
+},
+&"scale": 1.0
+}

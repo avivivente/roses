@@ -1,0 +1,16 @@
+set {areas.gate_locked} = true
+[signal arg="look_around"]
+[wait time="2.0"]
+Leticia: Where am I?
+Leticia: How did I get here?
+Leticia: I don't remember how I got here...
+Leticia: Maybe there's someone here I can ask...?
+[signal arg="look_around"]
+[wait time="2.0"]
+[signal arg="look_left"]
+Leticia: Wait, there's someone there.
+[signal arg="pan_camera"]
+[wait time="5.0"]
+Leticia: I can go ask that lady.
+[signal arg="end"]
+[end_timeline]
