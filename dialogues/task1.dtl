@@ -1,1 +1,38 @@
-Leticia: Excuse me?
+if {NPCs.has_met_old_lady} == false:
+	Leticia: Excuse me?
+	[wait time="3.0"]
+	Leticia: Hello??
+	"Old Lady": *grumble* *grumble*
+	set {NPCs.has_met_old_lady} = true
+	Leticia: Can I ask where are we?
+	"Old Lady": I can't seem to find it...!
+	Leticia: Did you lose something?
+	"Old Lady": I must've dropped it somewhere on the grass... [pause=1.0]"*grumble* *grumble*
+	- Do you need help finding it?
+	- Nevermind [Leave]
+		set {NPCs.leaving_conversation_early.leave1} = true
+		[end_timeline]
+	label help
+	"Old Lady": ....What was that?
+	[wait time="2.0"]
+	"Old Lady": You want to help?
+	"Old Lady": Absolutely!
+	"Old Lady": You see, [pause=1.5]I dropped something very important.
+	"Old Lady": Deary me, I tripped earlier and I thought I was ok! I didn't realize I dropped something so precious.
+	"Old Lady": I would very much appreciate it if you find it for me.
+	set {tasks.task1} = true
+	[end_timeline]
+else:
+	if {tasks.task1} == true:
+		"Old Lady": Have you found what I'm looking  for?
+		- Yes
+			"Old Lady": Thank you very much, deary.
+			"Old Lady": Here's something nice for you.
+			set {tasks.task1_done} = true
+		- No
+			"Old Lady": Oh alright, you take your time deary.
+			[end_timeline]
+	elif {NPCs.leaving_conversation_early.leave1} == true:
+		- Help her
+			jump help
+		- Not now [Leave]

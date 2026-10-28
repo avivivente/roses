@@ -2994,6 +2994,9 @@ _data = {
 &"pan_camera": SubResource("Animation_e78uj")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ggnbx"]
+radius = 123.97581
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_sm8fe"]
 radius = 166.92813
 
@@ -3315,6 +3318,14 @@ scale = Vector2(4, 4)
 [node name="Old_lady" parent="." unique_id=61653652 instance=ExtResource("16_qeex7")]
 position = Vector2(-679, 154)
 
+[node name="Task1" type="Area2D" parent="Old_lady" unique_id=866185079]
+collision_layer = 128
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Old_lady/Task1" unique_id=2046499720]
+position = Vector2(35, 0)
+shape = SubResource("CircleShape2D_ggnbx")
+
 [node name="Intro" type="Area2D" parent="." unique_id=1495918927]
 position = Vector2(578, 276)
 collision_layer = 0
@@ -3324,6 +3335,8 @@ script = ExtResource("17_hd0gu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Intro" unique_id=2113673485]
 shape = SubResource("CircleShape2D_sm8fe")
 
+[connection signal="body_entered" from="Old_lady/Task1" to="Old_lady" method="_on_task_1_body_entered"]
+[connection signal="body_exited" from="Old_lady/Task1" to="Old_lady" method="_on_task_1_body_exited"]
 [connection signal="body_entered" from="Intro" to="Intro" method="_on_body_entered"]
 
 [editable path="Doors/Door_Base"]

@@ -7,14 +7,14 @@
 "prefix": "",
 "sound_mood_default": "Talk",
 "sound_moods": {
-"Startled": {
+"Shout": {
 "mode": 0,
-"name": "Startled",
-"pitch_base": 1.0,
+"name": "Shout",
+"pitch_base": 2.0,
 "pitch_variance": 0.0,
 "skip_characters": 0.0,
 "sound_path": "res://audio/talk.wav",
-"volume_base": 0.0,
+"volume_base": 1.0,
 "volume_variance": 0.0
 },
 "Talk": {

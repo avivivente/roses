@@ -132,3 +132,5 @@ func _on_dialogic_signal(argument: String):
 		animation_player.play("left")
 		await animation_player.animation_finished
 		look_left = false
+	if argument == "kill_leticia":
+		die()
