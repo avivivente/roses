@@ -1,0 +1,198 @@
+[gd_scene format=3 uid="uid://3r0y1m13euur"]
+
+[ext_resource type="Script" uid="uid://bywxhjlb06xn7" path="res://globals/menuscreen.gd" id="1_sdn43"]
+[ext_resource type="Texture2D" uid="uid://nb37fpcelf57" path="res://assets/UI/Continue.png" id="2_485ff"]
+[ext_resource type="Texture2D" uid="uid://dsai6s4hm41qn" path="res://assets/UI/Continue_Pressed.png" id="3_wmpn7"]
+[ext_resource type="Texture2D" uid="uid://gl0u6351v3ul" path="res://assets/UI/Continue_Hover.png" id="4_5c2vq"]
+[ext_resource type="Texture2D" uid="uid://b22ho12xc4fbs" path="res://assets/UI/Load.png" id="5_3xnvs"]
+[ext_resource type="Texture2D" uid="uid://ct23er3p3oqgp" path="res://assets/UI/Load_Pressed.png" id="6_e4my4"]
+[ext_resource type="Texture2D" uid="uid://c8pc1iy8l3pl7" path="res://assets/UI/Load_Hover.png" id="7_egcnh"]
+[ext_resource type="Texture2D" uid="uid://dlk1f0d70nvh8" path="res://assets/UI/Options.png" id="8_xhed3"]
+[ext_resource type="Texture2D" uid="uid://bperlrlclute8" path="res://assets/UI/Option_Pressed.png" id="9_uyn5q"]
+[ext_resource type="Texture2D" uid="uid://gp0ehkbwcohr" path="res://assets/UI/Option_Hover.png" id="10_fykqq"]
+[ext_resource type="Texture2D" uid="uid://mwvrk3iffhbn" path="res://assets/UI/Quit.png" id="11_6uqvk"]
+[ext_resource type="Texture2D" uid="uid://b5puaegjnb27p" path="res://assets/UI/Quit_Pressed.png" id="12_ukulx"]
+[ext_resource type="Texture2D" uid="uid://by3ffeo1eceaj" path="res://assets/UI/Quit_Hover.png" id="13_t4787"]
+[ext_resource type="AudioStream" uid="uid://2f5v42u7on3c" path="res://audio/button_hover.wav" id="14_20j2g"]
+[ext_resource type="AudioStream" uid="uid://cok6wrjscou8s" path="res://audio/button_press.wav" id="15_fvdo6"]
+[ext_resource type="Texture2D" uid="uid://dbqgg7togkg3a" path="res://assets/UI/Board.png" id="16_6dieo"]
+[ext_resource type="FontFile" uid="uid://uux5tmjstmhm" path="res://assets/fonts/dogicapixelbold.ttf" id="17_wyr82"]
+[ext_resource type="FontFile" uid="uid://banlcel5fi3bf" path="res://assets/fonts/dogicabold.ttf" id="18_wepsk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gpw7w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a87b6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pd4bp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k2jxq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sbvaa"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=50910930]
+process_mode = 3
+layer = 2
+visible = false
+script = ExtResource("1_sdn43")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1821059129]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3254902)
+
+[node name="Control" type="Control" parent="." unique_id=1399259469]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=748757601]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -154.0
+offset_right = 192.0
+offset_bottom = 498.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+alignment = 1
+
+[node name="Continue" type="TextureButton" parent="Control/VBoxContainer" unique_id=1094955205]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("2_485ff")
+texture_pressed = ExtResource("3_wmpn7")
+texture_hover = ExtResource("4_5c2vq")
+
+[node name="Load" type="TextureButton" parent="Control/VBoxContainer" unique_id=1760788819]
+layout_mode = 2
+texture_normal = ExtResource("5_3xnvs")
+texture_pressed = ExtResource("6_e4my4")
+texture_hover = ExtResource("7_egcnh")
+
+[node name="Options" type="TextureButton" parent="Control/VBoxContainer" unique_id=810562961]
+layout_mode = 2
+texture_normal = ExtResource("8_xhed3")
+texture_pressed = ExtResource("9_uyn5q")
+texture_hover = ExtResource("10_fykqq")
+
+[node name="Quit" type="TextureButton" parent="Control/VBoxContainer" unique_id=1934859740]
+layout_mode = 2
+texture_normal = ExtResource("11_6uqvk")
+texture_pressed = ExtResource("12_ukulx")
+texture_hover = ExtResource("13_t4787")
+
+[node name="ButtonHover" type="AudioStreamPlayer" parent="." unique_id=388736771]
+stream = ExtResource("14_20j2g")
+
+[node name="ButtonPress" type="AudioStreamPlayer" parent="." unique_id=460594337]
+stream = ExtResource("15_fvdo6")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1211992885]
+process_mode = 3
+layer = 3
+visible = false
+
+[node name="Panel" type="TextureRect" parent="CanvasLayer2" unique_id=2084143584]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.99997
+offset_top = -72.000015
+offset_right = 123.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.04363323
+texture = ExtResource("16_6dieo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2" unique_id=1154154329]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.0
+offset_top = -50.0
+offset_right = 121.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="AreYouSure?" type="RichTextLabel" parent="CanvasLayer2/VBoxContainer" unique_id=356247347]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.8784314, 0.70980394, 0.5882353, 1)
+theme_override_colors/font_outline_color = Color(0.50980395, 0.23137255, 0.03137255, 1)
+theme_override_constants/line_separation = 5
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("17_wyr82")
+theme_override_font_sizes/normal_font_size = 15
+text = "Quit to title screen?"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Yes" type="Button" parent="CanvasLayer2/VBoxContainer" unique_id=1943314104]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8784314, 0.70980394, 0.5882353, 1)
+theme_override_colors/font_pressed_color = Color(0.60784316, 0.42352942, 0.28627452, 1)
+theme_override_colors/font_hover_color = Color(0.606227, 0.42383185, 0.28651267, 1)
+theme_override_colors/font_outline_color = Color(0.50980395, 0.23137255, 0.03137255, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("18_wepsk")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gpw7w")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_a87b6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_pd4bp")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_k2jxq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sbvaa")
+text = "Yes"
+
+[node name="No" type="Button" parent="CanvasLayer2/VBoxContainer" unique_id=924196321]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8784314, 0.70980394, 0.5882353, 1)
+theme_override_colors/font_pressed_color = Color(0.60784316, 0.42352942, 0.28627452, 1)
+theme_override_colors/font_hover_color = Color(0.606227, 0.42383185, 0.28651267, 1)
+theme_override_colors/font_outline_color = Color(0.50980395, 0.23137255, 0.03137255, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("18_wepsk")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gpw7w")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_a87b6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_pd4bp")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_k2jxq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sbvaa")
+text = "No
+"
+
+[connection signal="mouse_entered" from="Control/VBoxContainer/Continue" to="." method="_on_continue_mouse_entered"]
+[connection signal="pressed" from="Control/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/Load" to="." method="_on_load_mouse_entered"]
+[connection signal="pressed" from="Control/VBoxContainer/Load" to="." method="_on_load_pressed"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/Options" to="." method="_on_options_mouse_entered"]
+[connection signal="pressed" from="Control/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="Control/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer2/VBoxContainer/Yes" to="." method="_on_yes_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer2/VBoxContainer/Yes" to="." method="_on_yes_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer2/VBoxContainer/No" to="." method="_on_no_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer2/VBoxContainer/No" to="." method="_on_no_pressed"]

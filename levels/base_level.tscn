@@ -2995,7 +2995,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ggnbx"]
-radius = 123.97581
+radius = 205.18285
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sm8fe"]
 radius = 166.92813
@@ -3323,7 +3323,7 @@ collision_layer = 128
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Old_lady/Task1" unique_id=2046499720]
-position = Vector2(35, 0)
+position = Vector2(2, -3)
 shape = SubResource("CircleShape2D_ggnbx")
 
 [node name="Intro" type="Area2D" parent="." unique_id=1495918927]

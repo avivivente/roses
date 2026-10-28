@@ -2,9 +2,19 @@
 
 [ext_resource type="Script" uid="uid://bgbec7ga23dwi" path="res://old_lady.gd" id="1_0d66v"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_cebmx"]
+[ext_resource type="PackedScene" uid="uid://c2dat6fqm8soo" path="res://interactions/interaction_area/interaction_area.tscn" id="3_0d66v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sm8fe"]
+radius = 218.00917
 
 [node name="Old_lady" type="Sprite2D" unique_id=61653652]
 script = ExtResource("1_0d66v")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=499520878]
 texture = ExtResource("2_cebmx")
+
+[node name="InteractionArea" parent="." unique_id=2018872061 instance=ExtResource("3_0d66v")]
+action_name = "TALK"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=105929599]
+shape = SubResource("CircleShape2D_sm8fe")
