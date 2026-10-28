@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://rqiacw6rrsh6" path="res://assets/tilesets/Miscellaneous & Props1.png" id="4_nmsli"]
 [ext_resource type="Texture2D" uid="uid://bq8owmcit1j0d" path="res://assets/tilesets/trees.png" id="5_betor"]
 [ext_resource type="PackedScene" uid="uid://dw1vn1lewcclr" path="res://scene/locker.tscn" id="6_vjtdm"]
-[ext_resource type="PackedScene" uid="uid://dr7t5trcwj4s2" path="res://scene/Player.tscn" id="7_bgw3c"]
+[ext_resource type="PackedScene" uid="uid://dr7t5trcwj4s2" path="res://scene/Leticia.tscn" id="7_bgw3c"]
 [ext_resource type="PackedScene" uid="uid://b0j3eqlkugmdw" path="res://scene/enemy.tscn" id="8_lrvbd"]
 [ext_resource type="Script" uid="uid://ccvjinio50h6r" path="res://scripts/follow_movement_c.gd" id="9_oqlok"]
 [ext_resource type="PackedScene" uid="uid://mq5dpit82nx2" path="res://doors/door.tscn" id="10_7nvrk"]
@@ -3076,7 +3076,7 @@ scale = Vector2(4, 4)
 [node name="Locker" parent="Lockers" unique_id=27276546 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
 position = Vector2(111, 33.5)
 scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
+player = NodePath("../../Leticia")
 
 [node name="ExitPoint" type="Marker2D" parent="Lockers/Locker" unique_id=1809768821]
 position = Vector2(3, 77)
@@ -3084,7 +3084,7 @@ position = Vector2(3, 77)
 [node name="Locker2" parent="Lockers" unique_id=163992719 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
 position = Vector2(160, 33.5)
 scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
+player = NodePath("../../Leticia")
 
 [node name="ExitPoint" type="Marker2D" parent="Lockers/Locker2" unique_id=1443162054]
 position = Vector2(3, 77)
@@ -3092,7 +3092,7 @@ position = Vector2(3, 77)
 [node name="Locker3" parent="Lockers" unique_id=26676203 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
 position = Vector2(272, 33.5)
 scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
+player = NodePath("../../Leticia")
 
 [node name="ExitPoint" type="Marker2D" parent="Lockers/Locker3" unique_id=1480110532]
 position = Vector2(3, 77)
@@ -3100,7 +3100,7 @@ position = Vector2(3, 77)
 [node name="Locker4" parent="Lockers" unique_id=1596229146 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
 position = Vector2(-208, 67)
 scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
+player = NodePath("../../Leticia")
 
 [node name="ExitPoint" type="Marker2D" parent="Lockers/Locker4" unique_id=968531478]
 position = Vector2(0, 88)
@@ -3108,7 +3108,7 @@ position = Vector2(0, 88)
 [node name="Locker5" parent="Lockers" unique_id=1578381641 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
 position = Vector2(-52, 579)
 scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
+player = NodePath("../../Leticia")
 
 [node name="ExitPoint" type="Marker2D" parent="Lockers/Locker5" unique_id=472208560]
 position = Vector2(0, 88)
@@ -3116,7 +3116,7 @@ position = Vector2(0, 88)
 [node name="Locker6" parent="Lockers" unique_id=243524020 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
 position = Vector2(144, 645)
 scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
+player = NodePath("../../Leticia")
 
 [node name="ExitPoint" type="Marker2D" parent="Lockers/Locker6" unique_id=1961570729]
 position = Vector2(0, 88)
@@ -3124,7 +3124,7 @@ position = Vector2(0, 88)
 [node name="Locker7" parent="Lockers" unique_id=1189258976 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
 position = Vector2(-204, 387)
 scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
+player = NodePath("../../Leticia")
 
 [node name="ExitPoint" type="Marker2D" parent="Lockers/Locker7" unique_id=1778540786]
 position = Vector2(0, 88)
@@ -3132,7 +3132,7 @@ position = Vector2(0, 88)
 [node name="Locker8" parent="Lockers" unique_id=1801778630 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
 position = Vector2(242, 323)
 scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
+player = NodePath("../../Leticia")
 
 [node name="ExitPoint" type="Marker2D" parent="Lockers/Locker8" unique_id=1069602286]
 position = Vector2(0, 88)
@@ -3140,7 +3140,7 @@ position = Vector2(0, 88)
 [node name="Locker9" parent="Lockers" unique_id=1161097946 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
 position = Vector2(288, 323)
 scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
+player = NodePath("../../Leticia")
 
 [node name="ExitPoint" type="Marker2D" parent="Lockers/Locker9" unique_id=745346090]
 position = Vector2(0, 88)
@@ -3148,7 +3148,7 @@ position = Vector2(0, 88)
 [node name="Locker10" parent="Lockers" unique_id=1637108696 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
 position = Vector2(271, 419)
 scale = Vector2(0.25, 0.25)
-player = NodePath("../../Player")
+player = NodePath("../../Leticia")
 
 [node name="ExitPoint" type="Marker2D" parent="Lockers/Locker10" unique_id=634210935]
 position = Vector2(4, 90)
@@ -3313,17 +3313,17 @@ scale = Vector2(4, 4)
 position = Vector2(-2240, 1168)
 scale = Vector2(4, 4)
 
-[node name="Player" parent="." unique_id=815887106 instance=ExtResource("7_bgw3c")]
+[node name="Leticia" parent="." unique_id=815887106 instance=ExtResource("7_bgw3c")]
 position = Vector2(584, 284)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1183762719]
+[node name="Camera2D" type="Camera2D" parent="Leticia" unique_id=1183762719]
 zoom = Vector2(0.7, 0.7)
 limit_left = -3990
 limit_top = -454
 limit_right = -1210
 limit_bottom = 2916
 
-[node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=2083598374]
+[node name="PointLight2D" type="PointLight2D" parent="Leticia" unique_id=2083598374]
 scale = Vector2(13.59375, 13.593748)
 texture = SubResource("GradientTexture2D_nssrp")
 
@@ -3340,8 +3340,8 @@ autoplay = true
 scale = Vector2(4, 4)
 metadata/_edit_use_anchors_ = true
 
-[connection signal="died" from="Player" to="." method="_on_player_died"]
-[connection signal="died" from="Player" to="CanvasLayer/HeartsContainer" method="_on_player_died"]
+[connection signal="died" from="Leticia" to="." method="_on_player_died"]
+[connection signal="died" from="Leticia" to="CanvasLayer/HeartsContainer" method="_on_player_died"]
 
 [editable path="Doors/Door_Cave"]
 [editable path="Doors/Door_Cave1"]

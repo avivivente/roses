@@ -9,5 +9,5 @@ class_name Door
 @onready var spawn = $Spawn
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
+	if body.name == "Leticia":
 		NavigationManager.go_to_level(destination_level_tag, destination_door_tag)

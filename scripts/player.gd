@@ -4,7 +4,7 @@ signal healthChanged
 signal died
 
 @export var speed: float = 200
-@export var run_speed: float = 350
+@export var run_speed: float = 400
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var damage_cooldown: Timer = $DamageCooldown
@@ -12,7 +12,6 @@ signal died
 @onready var you_died: AudioStreamPlayer2D = $YouDied
 @onready var effects: AnimationPlayer = $Effects
 @onready var hurtblinktimer: Timer = $HurtBlinkTimer
-@onready var actionable_finder: Area2D = $DialogueMarker2D/ActionableFinder
 
 
 var animation_direction: String = "down"
@@ -23,8 +22,13 @@ var health: int
 
 var look_dir: String = "up"
 var can_move: bool = true
+var look_around: bool = false
+var look_left: bool = false
+
 
 func _ready() -> void:
+	Dialogic.signal_event.connect(_on_dialogic_signal)
+	
 	add_to_group("Player")
 	
 	health = PlayerStats.health
@@ -33,15 +37,14 @@ func _ready() -> void:
 	
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
 
-func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("interact"):
-		var actionables = actionable_finder.get_overlapping_areas()
-		if actionables.size() > 0:
-			actionables[0].action()
-			return
-
 
 func _physics_process(_delta: float) -> void:
+	if look_around:
+		return
+	
+	if look_left:
+		return
+	
 	if !can_move:
 		animation_player.play("idle_" + animation_direction)
 		return
@@ -113,3 +116,19 @@ func update_sprite_direction(input: Vector2) -> void:
 			animation_direction = "up"
 		else:
 			animation_direction = "down"
+
+func _on_dialogic_signal(argument: String):
+	if argument == "look_around":
+		can_move = false
+		look_around = true
+		velocity = Vector2.ZERO
+		animation_player.play("look_around")
+		await animation_player.animation_finished
+		look_around = false
+	if argument == "look_left":
+		can_move = false
+		look_left = true
+		velocity = Vector2.ZERO
+		animation_player.play("left")
+		await animation_player.animation_finished
+		look_left = false

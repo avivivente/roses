@@ -12,5 +12,6 @@ Leticia: Wait, there's someone there.
 [signal arg="pan_camera"]
 [wait time="5.0"]
 Leticia: I can go ask that lady.
+set {dialogues.has_triggered_intro} = true
 [signal arg="end"]
 [end_timeline]

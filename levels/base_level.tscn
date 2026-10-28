@@ -7,16 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://rqiacw6rrsh6" path="res://assets/tilesets/Miscellaneous & Props1.png" id="4_5mwf5"]
 [ext_resource type="Texture2D" uid="uid://bq8owmcit1j0d" path="res://assets/tilesets/trees.png" id="5_upde5"]
 [ext_resource type="PackedScene" uid="uid://dw1vn1lewcclr" path="res://scene/locker.tscn" id="6_406qh"]
-[ext_resource type="PackedScene" uid="uid://dr7t5trcwj4s2" path="res://scene/Player.tscn" id="7_jldy4"]
+[ext_resource type="PackedScene" uid="uid://dr7t5trcwj4s2" path="res://scene/Leticia.tscn" id="7_jldy4"]
 [ext_resource type="PackedScene" uid="uid://b0j3eqlkugmdw" path="res://scene/enemy.tscn" id="8_qeex7"]
 [ext_resource type="Script" uid="uid://ccvjinio50h6r" path="res://scripts/follow_movement_c.gd" id="9_hd0gu"]
 [ext_resource type="PackedScene" uid="uid://mq5dpit82nx2" path="res://doors/door.tscn" id="10_n8wy4"]
 [ext_resource type="AudioStream" uid="uid://bnq11cnqsvrrj" path="res://audio/nature_ambience.mp3" id="12_5mwf5"]
 [ext_resource type="PackedScene" uid="uid://6676kmjj5l2h" path="res://scene/HeartsContainer.tscn" id="13_upde5"]
 [ext_resource type="PackedScene" uid="uid://bncikc6aaaj8k" path="res://scene/hud.tscn" id="14_406qh"]
-[ext_resource type="Script" uid="uid://cqcur1rm7433g" path="res://addons/dialogue_manager/nodes/actionable/dialogue_actionable_2d.gd" id="15_qeex7"]
-[ext_resource type="Resource" uid="uid://vnvbhio6dmj3" path="res://dialogues/task1.dialogue" id="16_hd0gu"]
 [ext_resource type="PackedScene" uid="uid://bh0s1unq3tx3c" path="res://scene/old_lady.tscn" id="16_qeex7"]
+[ext_resource type="Script" uid="uid://fm77yx4wj7yk" path="res://Dialogues/intro.gd" id="17_hd0gu"]
 [ext_resource type="PackedScene" uid="uid://dmlokcmuwcndl" path="res://scene/menu_fade.tscn" id="18_e78uj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hd0gu"]
@@ -2957,11 +2956,46 @@ sources/2 = SubResource("TileSetAtlasSource_mswub")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4j5ol"]
 size = Vector2(105, 1368)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_sm8fe"]
-radius = 80.04999
+[sub_resource type="Animation" id="Animation_hd0gu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nssrp"]
-radius = 62.625874
+[sub_resource type="Animation" id="Animation_e78uj"]
+resource_name = "pan_camera"
+length = 6.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-879, -37), Vector2(-879, -37), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u35x1"]
+_data = {
+&"RESET": SubResource("Animation_hd0gu"),
+&"pan_camera": SubResource("Animation_e78uj")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sm8fe"]
+radius = 166.92813
 
 [node name="LevelRoot" type="Node2D" unique_id=87040570]
 y_sort_enabled = true
@@ -3255,58 +3289,45 @@ stream = ExtResource("12_5mwf5")
 volume_db = 0.5
 autoplay = true
 
-[node name="Player" parent="." unique_id=815887106 instance=ExtResource("7_jldy4")]
+[node name="Leticia" parent="." unique_id=815887106 instance=ExtResource("7_jldy4")]
 position = Vector2(578, 278)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1629325380]
+[node name="Camera2D" type="Camera2D" parent="Leticia" unique_id=1629325380]
 zoom = Vector2(0.7, 0.7)
 limit_left = -1206
 limit_top = -419
 limit_right = 1632
 limit_bottom = 1029
 
+[node name="pan_camera" type="AnimationPlayer" parent="Leticia" unique_id=2035932067]
+libraries/ = SubResource("AnimationLibrary_u35x1")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1669101652]
 
 [node name="FadeOverlay" parent="CanvasLayer" unique_id=141250735 instance=ExtResource("18_e78uj")]
+visible = false
 
 [node name="HUD" parent="CanvasLayer" unique_id=1534264351 instance=ExtResource("14_406qh")]
 
 [node name="HeartsContainer" parent="CanvasLayer" unique_id=1030660543 instance=ExtResource("13_upde5")]
-offset_left = 17.0
-offset_top = 17.0
-offset_right = 74.0
-offset_bottom = 35.0
 scale = Vector2(4, 4)
-metadata/_edit_use_anchors_ = true
 
 [node name="Old_lady" parent="." unique_id=61653652 instance=ExtResource("16_qeex7")]
 position = Vector2(-679, 154)
 
-[node name="DialogueActionable2D" type="Area2D" parent="Old_lady" unique_id=599990043]
-collision_layer = 128
-collision_mask = 0
-script = ExtResource("15_qeex7")
-dialogue_resource = ExtResource("16_hd0gu")
-dialogue_cue = "task1"
-metadata/_custom_type_script = "uid://cqcur1rm7433g"
+[node name="Intro" type="Area2D" parent="." unique_id=1495918927]
+position = Vector2(578, 276)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("17_hd0gu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Old_lady/DialogueActionable2D" unique_id=506369255]
-position = Vector2(68, 0)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Intro" unique_id=2113673485]
 shape = SubResource("CircleShape2D_sm8fe")
 
-[node name="DialogueActionable2D" type="Area2D" parent="." unique_id=528787117]
-position = Vector2(579, 306)
-script = ExtResource("15_qeex7")
-metadata/_custom_type_script = "uid://cqcur1rm7433g"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueActionable2D" unique_id=385912223]
-shape = SubResource("CircleShape2D_nssrp")
-
-[connection signal="actioned" from="Old_lady/DialogueActionable2D" to="Old_lady" method="_on_dialogue_actionable_2d_actioned"]
-[connection signal="body_entered" from="Old_lady/DialogueActionable2D" to="Old_lady" method="_on_dialogue_actionable_2d_body_entered"]
-[connection signal="dialogue_ended" from="Old_lady/DialogueActionable2D" to="Old_lady" method="_on_dialogue_actionable_2d_dialogue_ended"]
+[connection signal="body_entered" from="Intro" to="Intro" method="_on_body_entered"]
 
 [editable path="Doors/Door_Base"]
 [editable path="Doors/Door_Grass1"]
+[editable path="Leticia"]
 [editable path="CanvasLayer/FadeOverlay"]
 [editable path="CanvasLayer/HUD"]

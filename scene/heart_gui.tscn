@@ -8,6 +8,7 @@ self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(19, 18)
 offset_right = 19.0
 offset_bottom = 18.0
+scale = Vector2(3, 3)
 script = ExtResource("1_dnd2h")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1251704510]

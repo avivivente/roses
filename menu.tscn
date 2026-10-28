@@ -19,6 +19,10 @@
 [ext_resource type="AudioStream" uid="uid://cok6wrjscou8s" path="res://audio/button_press.wav" id="17_3ls4m"]
 [ext_resource type="AudioStream" uid="uid://2f5v42u7on3c" path="res://audio/button_hover.wav" id="18_5h80m"]
 [ext_resource type="Texture2D" uid="uid://c86egf5aj7uc" path="res://assets/titlecard/RoseFieldIcon.png" id="19_5h80m"]
+[ext_resource type="Texture2D" uid="uid://dbqgg7togkg3a" path="res://assets/UI/Board.png" id="20_oil5j"]
+[ext_resource type="AudioStream" uid="uid://ixaichdqfgfd" path="res://audio/mainmenu_music.mp3" id="20_w25hu"]
+[ext_resource type="FontFile" uid="uid://uux5tmjstmhm" path="res://assets/fonts/dogicapixelbold.ttf" id="21_8uog0"]
+[ext_resource type="FontFile" uid="uid://banlcel5fi3bf" path="res://assets/fonts/dogicabold.ttf" id="22_k5x1w"]
 
 [sub_resource type="Animation" id="Animation_w25hu"]
 length = 0.001
@@ -58,6 +62,16 @@ _data = {
 &"RESET": SubResource("Animation_w25hu"),
 &"rose_glint": SubResource("Animation_td6mg")
 }
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sm8fe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ggnbx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nssrp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ex30i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i6s5b"]
 
 [node name="Main Menu" type="Node2D" unique_id=1322552231]
 script = ExtResource("1_lti8b")
@@ -161,6 +175,7 @@ stream = ExtResource("17_3ls4m")
 
 [node name="Button_hover" type="AudioStreamPlayer2D" parent="CanvasLayer" unique_id=2005982566]
 stream = ExtResource("18_5h80m")
+volume_db = 3.0
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1001635856]
 visible = false
@@ -171,6 +186,90 @@ hframes = 6
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Sprite2D" unique_id=707207105]
 libraries/ = SubResource("AnimationLibrary_guify")
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=34488559]
+visible = false
+
+[node name="Panel" type="TextureRect" parent="CanvasLayer2" unique_id=2032195950]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.99997
+offset_top = -72.000015
+offset_right = 123.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.04363323
+texture = ExtResource("20_oil5j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2" unique_id=418224820]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.0
+offset_top = -50.0
+offset_right = 121.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="AreYouSure?" type="RichTextLabel" parent="CanvasLayer2/VBoxContainer" unique_id=1688600410]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.8784314, 0.70980394, 0.5882353, 1)
+theme_override_colors/font_outline_color = Color(0.50980395, 0.23137255, 0.03137255, 1)
+theme_override_constants/line_separation = 5
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("21_8uog0")
+theme_override_font_sizes/normal_font_size = 15
+text = "Are you sure you want to quit?"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Yes" type="Button" parent="CanvasLayer2/VBoxContainer" unique_id=1970165389]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8784314, 0.70980394, 0.5882353, 1)
+theme_override_colors/font_pressed_color = Color(0.60784316, 0.42352942, 0.28627452, 1)
+theme_override_colors/font_hover_color = Color(0.606227, 0.42383185, 0.28651267, 1)
+theme_override_colors/font_outline_color = Color(0.50980395, 0.23137255, 0.03137255, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("22_k5x1w")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sm8fe")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ggnbx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nssrp")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ex30i")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i6s5b")
+text = "Yes"
+
+[node name="No" type="Button" parent="CanvasLayer2/VBoxContainer" unique_id=1799245070]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8784314, 0.70980394, 0.5882353, 1)
+theme_override_colors/font_pressed_color = Color(0.60784316, 0.42352942, 0.28627452, 1)
+theme_override_colors/font_hover_color = Color(0.606227, 0.42383185, 0.28651267, 1)
+theme_override_colors/font_outline_color = Color(0.50980395, 0.23137255, 0.03137255, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("22_k5x1w")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sm8fe")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ggnbx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nssrp")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ex30i")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i6s5b")
+text = "No
+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=508687741]
+stream = ExtResource("20_w25hu")
+autoplay = true
+
 [connection signal="mouse_entered" from="CanvasLayer/ButtonManager/VBoxContainer/Start" to="." method="_on_start_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/ButtonManager/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/ButtonManager/VBoxContainer/Continue" to="." method="_on_continue_mouse_entered"]
@@ -180,5 +279,9 @@ libraries/ = SubResource("AnimationLibrary_guify")
 [connection signal="mouse_entered" from="CanvasLayer/ButtonManager/VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/ButtonManager/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="timeout" from="CanvasLayer/FadeOverlay/fade_timer" to="." method="_on_fade_timer_timeout"]
+[connection signal="mouse_entered" from="CanvasLayer2/VBoxContainer/Yes" to="." method="_on_yes_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer2/VBoxContainer/Yes" to="." method="_on_yes_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer2/VBoxContainer/No" to="." method="_on_no_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer2/VBoxContainer/No" to="." method="_on_no_pressed"]
 
 [editable path="CanvasLayer/FadeOverlay"]
