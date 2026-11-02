@@ -3305,10 +3305,7 @@ limit_bottom = 1029
 [node name="pan_camera" type="AnimationPlayer" parent="Leticia" unique_id=2035932067]
 libraries/ = SubResource("AnimationLibrary_u35x1")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1669101652]
-
-[node name="FadeOverlay" parent="CanvasLayer" unique_id=141250735 instance=ExtResource("18_e78uj")]
-visible = false
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1981908763]
 
 [node name="HUD" parent="CanvasLayer" unique_id=1534264351 instance=ExtResource("14_406qh")]
 
@@ -3335,6 +3332,11 @@ script = ExtResource("17_hd0gu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Intro" unique_id=2113673485]
 shape = SubResource("CircleShape2D_sm8fe")
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1442208604]
+visible = false
+
+[node name="FadeOverlay" parent="CanvasLayer2" unique_id=141250735 instance=ExtResource("18_e78uj")]
+
 [connection signal="body_entered" from="Old_lady/Task1" to="Old_lady" method="_on_task_1_body_entered"]
 [connection signal="body_exited" from="Old_lady/Task1" to="Old_lady" method="_on_task_1_body_exited"]
 [connection signal="body_entered" from="Intro" to="Intro" method="_on_body_entered"]
@@ -3342,5 +3344,5 @@ shape = SubResource("CircleShape2D_sm8fe")
 [editable path="Doors/Door_Base"]
 [editable path="Doors/Door_Grass1"]
 [editable path="Leticia"]
-[editable path="CanvasLayer/FadeOverlay"]
 [editable path="CanvasLayer/HUD"]
+[editable path="CanvasLayer2/FadeOverlay"]

@@ -9,29 +9,45 @@ if {NPCs.has_met_old_lady} == false:
 	Leticia: Did you lose something?
 	"Old Lady": I must've dropped it somewhere on the grass... [pause=1.0]"*grumble* *grumble*
 	- Do you need help finding it?
-	- Nevermind [Leave]
+	- Nevermind. [Leave]
 		set {NPCs.leaving_conversation_early.leave1} = true
 		[end_timeline]
 	label help
 	"Old Lady": ....What was that?
+	[signal arg="old_lady_idle_right"]
 	[wait time="2.0"]
 	"Old Lady": You want to help?
 	"Old Lady": Absolutely!
-	"Old Lady": You see, [pause=1.5]I dropped something very important.
+	"Old Lady": You see, I dropped something very important.
 	"Old Lady": Deary me, I tripped earlier and I thought I was ok! I didn't realize I dropped something so precious.
 	"Old Lady": I would very much appreciate it if you find it for me.
+	- Alright.
+	- I'm on it!
+		set {NPCs.old_lady_happy} = true
+	[signal arg="old_lady_idle_down"]
 	set {tasks.task1} = true
 	[end_timeline]
 else:
 	if {tasks.task1} == true:
+		[signal arg="old_lady_idle_right"]
 		"Old Lady": Have you found what I'm looking  for?
 		- Yes
-			"Old Lady": Thank you very much, deary.
+			if {NPCs.old_lady_happy} == true:
+				"Old Lady": Oh you found it! Thank you very much, deary.
+			else:
+				"Old Lady": Thank you so much!
 			"Old Lady": Here's something nice for you.
+			set {tasks.task1} = false
 			set {tasks.task1_done} = true
+			[signal arg="old_lady_idle_down"]
 		- No
 			"Old Lady": Oh alright, you take your time deary.
+			[signal arg="old_lady_idle_down"]
 			[end_timeline]
+	elif {tasks.task1_done} == true:
+		[signal arg="old_lady_idle_right"]
+		"Old Lady": Thank you for finding what I'm looking for, deary.
+		[signal arg="old_lady_idle_down"]
 	elif {NPCs.leaving_conversation_early.leave1} == true:
 		- Help her
 			jump help

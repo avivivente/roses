@@ -18,10 +18,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+Menuscreen="*uid://3r0y1m13euur"
 Dialogic="*uid://ds2q0uclmolvu"
 PlayerStats="*uid://dh6bvyor2dj0j"
 State="*uid://bc6dbq65ui85"
-Menuscreen="*uid://3r0y1m13euur"
 NavigationManager="*uid://dgtwcu1sqy7bl"
 TransitionScreen="*uid://jfq7270joa8j"
 InteractionManager="*uid://c5h8ahs8n03po"
@@ -35,9 +35,18 @@ canvas_items/size/viewport_height=1080
 directories/dch_directory={
 "Leticia": "res://Characters/Leticia.dch",
 "Old Lady": "res://Characters/Old Lady.dch",
-"unit_test_character": "res://Tests/Resources/unit_test_character.dch"
+"chest": "res://Characters/chest.dch",
+"unit_test_character": "res://addons/dialogic/Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
+"chest_dialogue_1": "res://Dialogues/chest_dialogue_1.dtl",
+"chest_dialogue_2": "res://Dialogues/chest_dialogue_2.dtl",
+"chest_dialogue_3": "res://Dialogues/chest_dialogue_3.dtl",
+"chest_dialogue_4": "res://Dialogues/chest_dialogue_4.dtl",
+"chest_dialogue_5": "res://Dialogues/chest_dialogue_5.dtl",
+"chest_dialogue_6": "res://Dialogues/chest_dialogue_6.dtl",
+"chest_dialogue_7": "res://Dialogues/chest_dialogue_7.dtl",
+"chest_dialogue_8": "res://Dialogues/chest_dialogue_8.dtl",
 "intro": "res://Dialogues/intro.dtl",
 "task1": "res://Dialogues/task1.dtl"
 }
@@ -51,7 +60,8 @@ variables={
 "has_met_old_lady": false,
 "leaving_conversation_early": {
 "leave1": false
-}
+},
+"old_lady_happy": false
 },
 "areas": {
 "gate_locked": false
@@ -93,7 +103,7 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
-layout/style_list=["", "res://defaultstyle.tres"]
+layout/style_list=["res://defaultstyle.tres"]
 layout/default_style="res://defaultstyle.tres"
 save/autosave=true
 history/simple_history_enabled=true
@@ -104,6 +114,8 @@ history/save_on_save=true
 history/full_history_enabled=true
 history/full_history_save=true
 animations/join_default="Fade In Up"
+text/input_action="dialogic_default_action"
+text/autocolor_names=true
 
 [dialogue_manager]
 
@@ -169,6 +181,11 @@ dialogic_default_action={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":16,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":32,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":16,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":88,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
+]
+}
+inventory={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":73,"key_label":0,"unicode":105,"location":0,"echo":false,"script":null)
 ]
 }
 

@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://6676kmjj5l2h" path="res://scene/HeartsContainer.tscn" id="13_nmsli"]
 [ext_resource type="PackedScene" uid="uid://bncikc6aaaj8k" path="res://scene/hud.tscn" id="14_betor"]
 [ext_resource type="PackedScene" uid="uid://wgcsl2h7ufti" path="res://scene/chest.tscn" id="15_vjtdm"]
+[ext_resource type="PackedScene" uid="uid://baabkikx8sj71" path="res://inventory/inv_ui.tscn" id="16_bgw3c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v0l8b"]
 texture = ExtResource("1_08mmt")
@@ -3067,6 +3068,60 @@ light_mask = 4
 visibility_layer = 4
 shape = SubResource("RectangleShape2D_4j5ol")
 
+[node name="Chests" type="Node2D" parent="." unique_id=844943663]
+
+[node name="Chest" parent="Chests" unique_id=1399679068 instance=ExtResource("15_vjtdm")]
+position = Vector2(-1728, 24)
+scale = Vector2(4, 4)
+
+[node name="Chest2" parent="Chests" unique_id=1260647409 instance=ExtResource("15_vjtdm")]
+position = Vector2(-1856, 24)
+scale = Vector2(4, 4)
+
+[node name="Chest3" parent="Chests" unique_id=405059604 instance=ExtResource("15_vjtdm")]
+position = Vector2(-2640, 280)
+scale = Vector2(4, 4)
+
+[node name="Chest4" parent="Chests" unique_id=711802106 instance=ExtResource("15_vjtdm")]
+position = Vector2(-3264, 312)
+scale = Vector2(4, 4)
+
+[node name="Chest5" parent="Chests" unique_id=1528929497 instance=ExtResource("15_vjtdm")]
+position = Vector2(-3680, 1048)
+scale = Vector2(4, 4)
+
+[node name="Chest6" parent="Chests" unique_id=424015613 instance=ExtResource("15_vjtdm")]
+position = Vector2(-3376, 1432)
+scale = Vector2(4, 4)
+
+[node name="Chest7" parent="Chests" unique_id=1734365844 instance=ExtResource("15_vjtdm")]
+position = Vector2(-3016, 2456)
+scale = Vector2(4, 4)
+
+[node name="Chest8" parent="Chests" unique_id=1094172331 instance=ExtResource("15_vjtdm")]
+position = Vector2(-3120, 2456)
+scale = Vector2(4, 4)
+
+[node name="Chest9" parent="Chests" unique_id=2145998137 instance=ExtResource("15_vjtdm")]
+position = Vector2(-2000, 2456)
+scale = Vector2(4, 4)
+
+[node name="Chest10" parent="Chests" unique_id=507006131 instance=ExtResource("15_vjtdm")]
+position = Vector2(-1344, 2200)
+scale = Vector2(4, 4)
+
+[node name="Chest11" parent="Chests" unique_id=2064224561 instance=ExtResource("15_vjtdm")]
+position = Vector2(-1472, 2200)
+scale = Vector2(4, 4)
+
+[node name="Chest12" parent="Chests" unique_id=1089477322 instance=ExtResource("15_vjtdm")]
+position = Vector2(-2360, 1168)
+scale = Vector2(4, 4)
+
+[node name="Chest13" parent="Chests" unique_id=527483448 instance=ExtResource("15_vjtdm")]
+position = Vector2(-2240, 1168)
+scale = Vector2(4, 4)
+
 [node name="Lockers" type="Node2D" parent="." unique_id=1863791425]
 light_mask = 2
 visibility_layer = 3
@@ -3154,7 +3209,6 @@ player = NodePath("../../Leticia")
 position = Vector2(4, 90)
 
 [node name="Enemy1" parent="." unique_id=243905079 instance=ExtResource("8_lrvbd")]
-visible = false
 position = Vector2(-2704, 2280)
 scale = Vector2(1, 1.162)
 
@@ -3178,7 +3232,6 @@ position = Vector2(160, -1487.0913)
 position = Vector2(208, -1900.1722)
 
 [node name="Enemy2" parent="." unique_id=388952696 instance=ExtResource("8_lrvbd")]
-visible = false
 position = Vector2(-3272, 424.00037)
 scale = Vector2(1, 1.162)
 
@@ -3209,7 +3262,6 @@ position = Vector2(-183.99997, 1074.01)
 position = Vector2(-183.99997, 1666.0928)
 
 [node name="Enemy3" parent="." unique_id=1630764144 instance=ExtResource("8_lrvbd")]
-visible = false
 position = Vector2(-2000.0001, 1711.9999)
 scale = Vector2(1, 1.162)
 
@@ -3259,62 +3311,8 @@ visible = false
 position = Vector2(-2587, 1149)
 color = Color(0, 0, 0, 1)
 
-[node name="Chests" type="Node" parent="." unique_id=1828319003]
-
-[node name="Chest" parent="Chests" unique_id=1399679068 instance=ExtResource("15_vjtdm")]
-position = Vector2(-1728, 24)
-scale = Vector2(4, 4)
-
-[node name="Chest2" parent="Chests" unique_id=1260647409 instance=ExtResource("15_vjtdm")]
-position = Vector2(-1856, 24)
-scale = Vector2(4, 4)
-
-[node name="Chest3" parent="Chests" unique_id=405059604 instance=ExtResource("15_vjtdm")]
-position = Vector2(-2640, 280)
-scale = Vector2(4, 4)
-
-[node name="Chest4" parent="Chests" unique_id=711802106 instance=ExtResource("15_vjtdm")]
-position = Vector2(-3264, 312)
-scale = Vector2(4, 4)
-
-[node name="Chest5" parent="Chests" unique_id=1528929497 instance=ExtResource("15_vjtdm")]
-position = Vector2(-3680, 1048)
-scale = Vector2(4, 4)
-
-[node name="Chest6" parent="Chests" unique_id=424015613 instance=ExtResource("15_vjtdm")]
-position = Vector2(-3376, 1432)
-scale = Vector2(4, 4)
-
-[node name="Chest7" parent="Chests" unique_id=1734365844 instance=ExtResource("15_vjtdm")]
-position = Vector2(-3016, 2456)
-scale = Vector2(4, 4)
-
-[node name="Chest8" parent="Chests" unique_id=1094172331 instance=ExtResource("15_vjtdm")]
-position = Vector2(-3120, 2456)
-scale = Vector2(4, 4)
-
-[node name="Chest9" parent="Chests" unique_id=2145998137 instance=ExtResource("15_vjtdm")]
-position = Vector2(-2000, 2456)
-scale = Vector2(4, 4)
-
-[node name="Chest10" parent="Chests" unique_id=507006131 instance=ExtResource("15_vjtdm")]
-position = Vector2(-1344, 2200)
-scale = Vector2(4, 4)
-
-[node name="Chest11" parent="Chests" unique_id=2064224561 instance=ExtResource("15_vjtdm")]
-position = Vector2(-1472, 2200)
-scale = Vector2(4, 4)
-
-[node name="Chest12" parent="Chests" unique_id=1089477322 instance=ExtResource("15_vjtdm")]
-position = Vector2(-2360, 1168)
-scale = Vector2(4, 4)
-
-[node name="Chest13" parent="Chests" unique_id=527483448 instance=ExtResource("15_vjtdm")]
-position = Vector2(-2240, 1168)
-scale = Vector2(4, 4)
-
 [node name="Leticia" parent="." unique_id=815887106 instance=ExtResource("7_bgw3c")]
-position = Vector2(584, 284)
+position = Vector2(-1353, 606)
 
 [node name="Camera2D" type="Camera2D" parent="Leticia" unique_id=1183762719]
 zoom = Vector2(0.7, 0.7)
@@ -3339,6 +3337,10 @@ autoplay = true
 [node name="HeartsContainer" parent="CanvasLayer" unique_id=1030660543 instance=ExtResource("13_nmsli")]
 scale = Vector2(4, 4)
 metadata/_edit_use_anchors_ = true
+
+[node name="Inventory" type="CanvasLayer" parent="." unique_id=1368635410]
+
+[node name="Inv_UI" parent="Inventory" unique_id=70183133 instance=ExtResource("16_bgw3c")]
 
 [connection signal="died" from="Leticia" to="." method="_on_player_died"]
 [connection signal="died" from="Leticia" to="CanvasLayer/HeartsContainer" method="_on_player_died"]

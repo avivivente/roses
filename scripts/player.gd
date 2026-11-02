@@ -4,7 +4,9 @@ signal healthChanged
 signal died
 
 @export var speed: float = 200
-@export var run_speed: float = 400
+@export var run_speed: float = 450
+
+@export var inv: Inv
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var damage_cooldown: Timer = $DamageCooldown
@@ -12,6 +14,7 @@ signal died
 @onready var you_died: AudioStreamPlayer2D = $YouDied
 @onready var effects: AnimationPlayer = $Effects
 @onready var hurtblinktimer: Timer = $HurtBlinkTimer
+
 
 
 var animation_direction: String = "down"
@@ -125,6 +128,7 @@ func _on_dialogic_signal(argument: String):
 		animation_player.play("look_around")
 		await animation_player.animation_finished
 		look_around = false
+
 	if argument == "look_left":
 		can_move = false
 		look_left = true
@@ -132,5 +136,3 @@ func _on_dialogic_signal(argument: String):
 		animation_player.play("left")
 		await animation_player.animation_finished
 		look_left = false
-	if argument == "kill_leticia":
-		die()

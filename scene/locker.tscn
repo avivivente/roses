@@ -67,11 +67,10 @@ stream = ExtResource("3_c38np")
 volume_db = -5.0
 pitch_scale = 0.7
 
-[node name="E_TO_ENTER" parent="." unique_id=2018872061 instance=ExtResource("2_y6trl")]
+[node name="interact" parent="." unique_id=2018872061 instance=ExtResource("2_y6trl")]
 collision_layer = 16
-action_name = "ENTER LOCKER"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="E_TO_ENTER" unique_id=1800833933]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interact" unique_id=1800833933]
 position = Vector2(3.5, 42)
 shape = SubResource("RectangleShape2D_q6r6c")
 one_way_collision_margin = 7.7

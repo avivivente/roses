@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c2dat6fqm8soo" path="res://interactions/interaction_area/interaction_area.tscn" id="3_cettl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sm8fe"]
-size = Vector2(22, 11)
+size = Vector2(22, 15)
 
 [sub_resource type="Animation" id="Animation_c0k1r"]
 length = 0.001
@@ -97,13 +97,14 @@ _data = {
 size = Vector2(22, 25)
 
 [node name="Chest" type="StaticBody2D" unique_id=1399679068]
+position = Vector2(-6, -11)
 collision_layer = 64
 collision_mask = 2
 script = ExtResource("1_cettl")
 metadata/_edit_horizontal_guides_ = [-25.0]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=830797128]
-position = Vector2(0, -4.5)
+position = Vector2(0, -5.5)
 shape = SubResource("RectangleShape2D_sm8fe")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1485931224]
@@ -123,4 +124,5 @@ action_name = "OPEN"
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_nssrp")
 
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

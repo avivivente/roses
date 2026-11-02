@@ -1,4 +1,5 @@
 set {areas.gate_locked} = true
+[signal arg="rummage"]
 [signal arg="look_around"]
 [wait time="2.0"]
 Leticia: Where am I?
@@ -12,6 +13,5 @@ Leticia: Wait, there's someone there.
 [signal arg="pan_camera"]
 [wait time="5.0"]
 Leticia: I can go ask that lady.
-set {dialogues.has_triggered_intro} = true
 [signal arg="end"]
 [end_timeline]

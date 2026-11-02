@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c7iu637g7t428"]
+
+[ext_resource type="Texture2D" uid="uid://c57d6tfo1fwgg" path="res://assets/UI/Inventory.png" id="1_gvcv6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sm8fe"]
+
+[node name="inv_slot" type="Panel" unique_id=1892380031]
+custom_minimum_size = Vector2(32, 32)
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_sm8fe")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1929989392]
+scale = Vector2(2, 2)
+texture = ExtResource("1_gvcv6")
+centered = false
+region_enabled = true
+region_rect = Rect2(192, 112, 16, 16)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3y0jwmf24awb"
-path="res://.godot/imported/MainMenuBG.png-616ead1891517d08677cae52ad5699a8.ctex"
+uid="uid://ci71ohd8eemhg"
+path="res://.godot/imported/Old_Lady_Spritesheet.png-26425dca0ae5336bd078f706e0ad6b8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/MainMenuBG.png"
-dest_files=["res://.godot/imported/MainMenuBG.png-616ead1891517d08677cae52ad5699a8.ctex"]
+source_file="res://assets/old_lady/Old_Lady_Spritesheet.png"
+dest_files=["res://.godot/imported/Old_Lady_Spritesheet.png-26425dca0ae5336bd078f706e0ad6b8d.ctex"]
 
 [params]
 

@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://baabkikx8sj71"]
+
+[ext_resource type="Script" uid="uid://cv8dv1718bd1c" path="res://inventory/inv_ui.gd" id="1_f2u1w"]
+[ext_resource type="Texture2D" uid="uid://c57d6tfo1fwgg" path="res://assets/UI/Inventory.png" id="2_w82yi"]
+[ext_resource type="PackedScene" uid="uid://c7iu637g7t428" path="res://inventory/inv_slot.tscn" id="3_dn3an"]
+
+[node name="Inv_UI" type="Control" unique_id=70183133]
+custom_minimum_size = Vector2(458, 427)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.0
+offset_top = -213.5
+offset_right = 229.0
+offset_bottom = 213.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f2u1w")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=489673043]
+layout_mode = 1
+offset_right = 229.0
+offset_bottom = 217.5
+scale = Vector2(2, 2)
+texture = ExtResource("2_w82yi")
+region_rect = Rect2(0, 104, 48, 56)
+patch_margin_left = 16
+patch_margin_top = 31
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect" unique_id=652911717]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -70.0
+offset_right = 88.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 5
+
+[node name="inv_slot" parent="NinePatchRect/GridContainer" unique_id=1892380031 instance=ExtResource("3_dn3an")]
+layout_mode = 2
+
+[node name="inv_slot2" parent="NinePatchRect/GridContainer" unique_id=1754351316 instance=ExtResource("3_dn3an")]
+layout_mode = 2
+
+[node name="inv_slot3" parent="NinePatchRect/GridContainer" unique_id=2125468664 instance=ExtResource("3_dn3an")]
+layout_mode = 2
+
+[node name="inv_slot4" parent="NinePatchRect/GridContainer" unique_id=1555197199 instance=ExtResource("3_dn3an")]
+layout_mode = 2
+
+[node name="inv_slot5" parent="NinePatchRect/GridContainer" unique_id=1250374974 instance=ExtResource("3_dn3an")]
+layout_mode = 2
+
+[node name="inv_slot6" parent="NinePatchRect/GridContainer" unique_id=463925350 instance=ExtResource("3_dn3an")]
+layout_mode = 2
+
+[node name="inv_slot7" parent="NinePatchRect/GridContainer" unique_id=281727894 instance=ExtResource("3_dn3an")]
+layout_mode = 2
+
+[node name="inv_slot8" parent="NinePatchRect/GridContainer" unique_id=1479328710 instance=ExtResource("3_dn3an")]
+layout_mode = 2
+
+[node name="inv_slot9" parent="NinePatchRect/GridContainer" unique_id=440852707 instance=ExtResource("3_dn3an")]
+layout_mode = 2
+
+[node name="inv_slot10" parent="NinePatchRect/GridContainer" unique_id=715252258 instance=ExtResource("3_dn3an")]
+layout_mode = 2
+
+[node name="inv_slot11" parent="NinePatchRect/GridContainer" unique_id=1208633139 instance=ExtResource("3_dn3an")]
+layout_mode = 2
+
+[node name="inv_slot12" parent="NinePatchRect/GridContainer" unique_id=1067535804 instance=ExtResource("3_dn3an")]
+layout_mode = 2
+
+[node name="inv_slot13" parent="NinePatchRect/GridContainer" unique_id=883698913 instance=ExtResource("3_dn3an")]
+layout_mode = 2
+
+[node name="inv_slot14" parent="NinePatchRect/GridContainer" unique_id=49261527 instance=ExtResource("3_dn3an")]
+layout_mode = 2
+
+[node name="inv_slot15" parent="NinePatchRect/GridContainer" unique_id=11102139 instance=ExtResource("3_dn3an")]
+layout_mode = 2
+
+[node name="inv_slot16" parent="NinePatchRect/GridContainer" unique_id=569062524 instance=ExtResource("3_dn3an")]
+layout_mode = 2
+
+[node name="inv_slot17" parent="NinePatchRect/GridContainer" unique_id=967128083 instance=ExtResource("3_dn3an")]
+layout_mode = 2
+
+[node name="inv_slot18" parent="NinePatchRect/GridContainer" unique_id=1006058557 instance=ExtResource("3_dn3an")]
+layout_mode = 2
+
+[node name="inv_slot19" parent="NinePatchRect/GridContainer" unique_id=484872827 instance=ExtResource("3_dn3an")]
+layout_mode = 2
+
+[node name="inv_slot20" parent="NinePatchRect/GridContainer" unique_id=1533342222 instance=ExtResource("3_dn3an")]
+layout_mode = 2
