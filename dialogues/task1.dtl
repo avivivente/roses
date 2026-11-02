@@ -21,7 +21,7 @@ if {NPCs.has_met_old_lady} == false:
 	"Old Lady": You see, I dropped something very important.
 	"Old Lady": Deary me, I tripped earlier and I thought I was ok! I didn't realize I dropped something so precious.
 	"Old Lady": I would very much appreciate it if you find it for me.
-	- Alright.
+	- Alright
 	- I'm on it!
 		set {NPCs.old_lady_happy} = true
 	[signal arg="old_lady_idle_down"]
@@ -32,14 +32,24 @@ else:
 		[signal arg="old_lady_idle_right"]
 		"Old Lady": Have you found what I'm looking  for?
 		- Yes
-			if {NPCs.old_lady_happy} == true:
-				"Old Lady": Oh you found it! Thank you very much, deary.
+			if {tasks.has_rose1} == true:
+				[signal arg="take_rose"]
+				if {NPCs.old_lady_happy} == true:
+					"Old Lady": Oh you found it! Thank you very much, deary.
+				else:
+					"Old Lady": Thank you so much!
+				"Old Lady": Here's something nice for you.
+				set {tasks.task1} = false
+				set {tasks.task1_done} = true
+				[signal arg="old_lady_idle_down"]
 			else:
-				"Old Lady": Thank you so much!
-			"Old Lady": Here's something nice for you.
-			set {tasks.task1} = false
-			set {tasks.task1_done} = true
-			[signal arg="old_lady_idle_down"]
+				"Old Lady": Well, where is it deary?
+				- Oh, I forgot
+					"Old Lady": Don't be silly now! Come back when you've found it.
+				- I'm not done finding it
+					"Old Lady": Alright, I'll be waiting here.
+				[signal arg="old_lady_idle_down"]
+				[end_timeline]
 		- No
 			"Old Lady": Oh alright, you take your time deary.
 			[signal arg="old_lady_idle_down"]

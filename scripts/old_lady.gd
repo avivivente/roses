@@ -48,3 +48,8 @@ func _on_dialogic_signal(argument: String):
 	if argument == ("old_lady_idle_down"):
 		animation_player.stop()
 		animation_player.play("idle_down")
+	if argument == "take_rose":
+		var rose = preload("res://inventory/items/rose.tres")
+		if leticia.inv:
+			leticia.inv.remove_item(rose, 1)
+		State.task1_done = true

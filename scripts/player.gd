@@ -14,7 +14,7 @@ signal died
 @onready var you_died: AudioStreamPlayer2D = $YouDied
 @onready var effects: AnimationPlayer = $Effects
 @onready var hurtblinktimer: Timer = $HurtBlinkTimer
-
+@onready var pickup_area: Area2D = $pickup_area
 
 
 var animation_direction: String = "down"
@@ -120,6 +120,7 @@ func update_sprite_direction(input: Vector2) -> void:
 		else:
 			animation_direction = "down"
 
+
 func _on_dialogic_signal(argument: String):
 	if argument == "look_around":
 		can_move = false
@@ -128,7 +129,6 @@ func _on_dialogic_signal(argument: String):
 		animation_player.play("look_around")
 		await animation_player.animation_finished
 		look_around = false
-
 	if argument == "look_left":
 		can_move = false
 		look_left = true
@@ -136,3 +136,6 @@ func _on_dialogic_signal(argument: String):
 		animation_player.play("left")
 		await animation_player.animation_finished
 		look_left = false
+
+func collect(item):
+	inv.insert(item)

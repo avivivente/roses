@@ -67,6 +67,7 @@ variables={
 "gate_locked": false
 },
 "tasks": {
+"has_rose1": false,
 "task1": false,
 "task1_done": false
 }
@@ -123,7 +124,6 @@ runtime/balloon_path="res://dialogues/balloon.tscn"
 
 [display]
 
-window/size/mode=4
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 display_server/driver.windows="windows"

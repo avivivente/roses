@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bncikc6aaaj8k" path="res://scene/hud.tscn" id="14_betor"]
 [ext_resource type="PackedScene" uid="uid://wgcsl2h7ufti" path="res://scene/chest.tscn" id="15_vjtdm"]
 [ext_resource type="PackedScene" uid="uid://baabkikx8sj71" path="res://inventory/inv_ui.tscn" id="16_bgw3c"]
+[ext_resource type="PackedScene" uid="uid://dmlokcmuwcndl" path="res://scene/menu_fade.tscn" id="16_lrvbd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v0l8b"]
 texture = ExtResource("1_08mmt")
@@ -3307,7 +3308,6 @@ destination_door_tag = "Grass"
 spawn_direction = "right"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1258362143]
-visible = false
 position = Vector2(-2587, 1149)
 color = Color(0, 0, 0, 1)
 
@@ -3338,9 +3338,12 @@ autoplay = true
 scale = Vector2(4, 4)
 metadata/_edit_use_anchors_ = true
 
-[node name="Inventory" type="CanvasLayer" parent="." unique_id=1368635410]
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=123147939]
 
-[node name="Inv_UI" parent="Inventory" unique_id=70183133 instance=ExtResource("16_bgw3c")]
+[node name="FadeOverlay" parent="CanvasLayer2" unique_id=141250735 instance=ExtResource("16_lrvbd")]
+metadata/_edit_use_anchors_ = true
+
+[node name="Inv_UI" parent="." unique_id=70183133 instance=ExtResource("16_bgw3c")]
 
 [connection signal="died" from="Leticia" to="." method="_on_player_died"]
 [connection signal="died" from="Leticia" to="CanvasLayer/HeartsContainer" method="_on_player_died"]
@@ -3348,3 +3351,4 @@ metadata/_edit_use_anchors_ = true
 [editable path="Doors/Door_Cave"]
 [editable path="Doors/Door_Cave1"]
 [editable path="CanvasLayer/HUD"]
+[editable path="CanvasLayer2/FadeOverlay"]

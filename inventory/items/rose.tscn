@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://ueenfjqohkf1"]
+
+[ext_resource type="Script" uid="uid://wy8m520qc3jt" path="res://inventory/items/rose.gd" id="1_ephn7"]
+[ext_resource type="Texture2D" uid="uid://csravmpk2a7t7" path="res://assets/interactables/rose.png" id="2_ephn7"]
+[ext_resource type="Resource" uid="uid://djagjavq5x61a" path="res://inventory/items/rose.tres" id="2_yort8"]
+[ext_resource type="PackedScene" uid="uid://c2dat6fqm8soo" path="res://interactions/interaction_area/interaction_area.tscn" id="4_1nukx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sm8fe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ggnbx"]
+radius = 14.035668
+
+[node name="rose" type="StaticBody2D" unique_id=1464483154]
+script = ExtResource("1_ephn7")
+item = ExtResource("2_yort8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=132451220]
+rotation = 0.79761547
+texture = ExtResource("2_ephn7")
+
+[node name="pickup_area" type="Area2D" parent="." unique_id=2101425431]
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickup_area" unique_id=1719194941]
+shape = SubResource("CircleShape2D_sm8fe")
+
+[node name="InteractionArea" parent="." unique_id=2018872061 instance=ExtResource("4_1nukx")]
+action_name = "PICK UP"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1260866640]
+shape = SubResource("CircleShape2D_ggnbx")
+
+[connection signal="body_entered" from="pickup_area" to="." method="_on_pickup_area_body_entered"]
+[connection signal="body_exited" from="pickup_area" to="." method="_on_pickup_area_body_exited"]

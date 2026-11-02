@@ -350,6 +350,9 @@ _data = {
 &"walk_up": SubResource("Animation_yk8u4")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_sm8fe"]
+radius = 62.008064
+
 [node name="Leticia" type="CharacterBody2D" unique_id=815887106 groups=["Player"]]
 collision_layer = 2
 collision_mask = 249
@@ -397,3 +400,13 @@ libraries/ = SubResource("AnimationLibrary_f48a8")
 
 [node name="HurtBlinkTimer" type="Timer" parent="." unique_id=1626170174]
 one_shot = true
+
+[node name="pickup_area" type="Area2D" parent="." unique_id=1120021546]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickup_area" unique_id=1410056118]
+position = Vector2(0, 29)
+shape = SubResource("CircleShape2D_sm8fe")
+
+[connection signal="body_entered" from="pickup_area" to="." method="_on_pickup_area_body_entered"]
