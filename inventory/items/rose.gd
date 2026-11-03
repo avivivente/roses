@@ -21,6 +21,7 @@ func _process(delta: float) -> void:
 			collect_rose()
 			Dialogic.VAR.tasks.has_rose1 = true
 			queue_free()
+			Dialogic.start("rose")
 
 func _on_pickup_area_body_entered(body):
 	if body.is_in_group("Player"):

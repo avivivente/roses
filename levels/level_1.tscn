@@ -2970,6 +2970,7 @@ fill_from = Vector2(0.49658704, 0.50341296)
 fill_to = Vector2(0.8549488, 0.097269624)
 
 [node name="LevelRoot" type="Node2D" unique_id=87040570]
+z_as_relative = false
 y_sort_enabled = true
 script = ExtResource("1_5ot28")
 metadata/_edit_horizontal_guides_ = [-655.0, 3081.0, -64.0]
@@ -3104,7 +3105,7 @@ position = Vector2(-3135, 1848)
 scale = Vector2(4, 4)
 
 [node name="Chest9" parent="Chests" unique_id=2145998137 instance=ExtResource("15_vjtdm")]
-position = Vector2(-2120, 2456)
+position = Vector2(-2468, 2458)
 scale = Vector2(4, 4)
 
 [node name="Chest10" parent="Chests" unique_id=507006131 instance=ExtResource("15_vjtdm")]
@@ -3170,7 +3171,7 @@ player = NodePath("../../Leticia")
 position = Vector2(0, 88)
 
 [node name="Locker6" parent="Lockers" unique_id=243524020 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
-position = Vector2(53, 645.5)
+position = Vector2(143.5, 642)
 scale = Vector2(0.25, 0.25)
 player = NodePath("../../Leticia")
 
@@ -3287,11 +3288,11 @@ position = Vector2(256.0001, 240.96396)
 position = Vector2(200.00009, 537.00525)
 
 [node name="patrol_point_C5" type="Marker2D" parent="Enemy3" unique_id=2133998231]
-position = Vector2(-47.999756, 798.6233)
+position = Vector2(-68.99988, 810.6715)
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="patrol_point_C6" type="Marker2D" parent="Enemy3" unique_id=544783369]
-position = Vector2(-479.99985, 805.5078)
+position = Vector2(-585.9998, 808.08954)
 
 [node name="Doors" type="Node" parent="." unique_id=1590626143]
 
@@ -3308,6 +3309,7 @@ destination_door_tag = "Grass"
 spawn_direction = "right"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1258362143]
+visible = false
 position = Vector2(-2587, 1149)
 color = Color(0, 0, 0, 1)
 
@@ -3330,7 +3332,7 @@ stream = ExtResource("12_aerfg")
 volume_db = -25.0
 autoplay = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1593011944]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1593011944 groups=["HUD"]]
 
 [node name="HUD" parent="CanvasLayer" unique_id=1024019043 instance=ExtResource("14_betor")]
 

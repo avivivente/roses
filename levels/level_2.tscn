@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://rqiacw6rrsh6" path="res://assets/tilesets/Miscellaneous & Props1.png" id="5_0ourt"]
 [ext_resource type="PackedScene" uid="uid://wgcsl2h7ufti" path="res://scene/chest.tscn" id="6_k2aru"]
 [ext_resource type="Texture2D" uid="uid://bq8owmcit1j0d" path="res://assets/tilesets/trees.png" id="6_w200a"]
+[ext_resource type="PackedScene" uid="uid://dxmp8h2m4r5ja" path="res://scene/key_chest.tscn" id="7_h351q"]
 [ext_resource type="PackedScene" uid="uid://dw1vn1lewcclr" path="res://scene/locker.tscn" id="7_uo0vl"]
 [ext_resource type="PackedScene" uid="uid://dr7t5trcwj4s2" path="res://scene/Leticia.tscn" id="8_k2aru"]
 [ext_resource type="PackedScene" uid="uid://b0j3eqlkugmdw" path="res://scene/enemy.tscn" id="9_ndgrd"]
@@ -1689,6 +1690,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ndgrd"]
 scenes/1/scene = ExtResource("6_k2aru")
+scenes/2/scene = ExtResource("7_h351q")
 
 [sub_resource type="TileSet" id="TileSet_mpunc"]
 tile_size = Vector2i(32, 32)
@@ -2988,6 +2990,8 @@ sources/1 = SubResource("TileSetScenesCollectionSource_h351q")
 size = Vector2(105, 1368)
 
 [node name="LevelRoot" type="Node2D" unique_id=87040570]
+z_as_relative = false
+y_sort_enabled = true
 script = ExtResource("1_vm7no")
 metadata/_edit_horizontal_guides_ = [-655.0, 3081.0]
 metadata/_edit_vertical_guides_ = [-4354.0, -1146.0]
@@ -3026,7 +3030,7 @@ tile_map_data = PackedByteArray("AAAYAAEAAAABAAIAAAAZAAEAAAABAAIAAAAaAAEAAAABAAI
 tile_set = SubResource("TileSet_ex30i")
 
 [node name="chests_barrels_grass" type="TileMapLayer" parent="map" unique_id=619488319]
-tile_map_data = PackedByteArray("AAANAA8AAQAQAAsAAAANABQAAQAQAAsAAAAOAAsAAQAQAAsAAAARAAsAAQAQAAsAAAARAAwAAQAQAAsAAAASAAwAAQAQAAsAAAASABAAAQAQAAsAAAAWABEAAQAQAAsAAAAXABEAAQAQAAsAAAAaABUAAQAQAAsAAAATAAoAAgAAAAAAAQAdAA0AAgAAAAAAAQATABMAAgAAAAAAAQAVABMAAgAAAAAAAQASAA0AAgAAAAAAAQANAAsAAgAAAAAAAQAXAA8AAgAAAAAAAQAgAA0AAgAAAAAAAQAbABEAAgAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAANAA8AAQAQAAsAAAANABQAAQAQAAsAAAAOAAsAAQAQAAsAAAARAAsAAQAQAAsAAAARAAwAAQAQAAsAAAASAAwAAQAQAAsAAAASABAAAQAQAAsAAAAWABEAAQAQAAsAAAAXABEAAQAQAAsAAAAaABUAAQAQAAsAAAATAAoAAgAAAAAAAQAdAA0AAgAAAAAAAQATABMAAgAAAAAAAQAVABMAAgAAAAAAAQASAA0AAgAAAAAAAQANAAsAAgAAAAAAAQAgAA0AAgAAAAAAAQAbABEAAgAAAAAAAQAfABQAAgAAAAAAAgA=")
 tile_set = SubResource("TileSet_mpunc")
 
 [node name="bookshelves" type="TileMapLayer" parent="map" unique_id=1210759076]
@@ -3062,6 +3066,7 @@ tile_map_data = PackedByteArray("AAAKAAMAAAAFAAEAAAADAAQAAAAFAAEAAAD+/wkAAAAFAAE
 tile_set = SubResource("TileSet_hybxs")
 
 [node name="fences" type="TileMapLayer" parent="map/decorations" unique_id=1648118762]
+y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAXAAgAAAAAAAwAAAAYAAgAAAABAAwAAAAVAAgAAAAAAAwAAAAWAAgAAAABAAwAAAATAAgAAAAAAAwAAAAUAAgAAAABAAwAAAARAAgAAAAAAAwAAAASAAgAAAABAAwAAAAPAAgAAAABAAwAAAAQAAgAAAABAAwAAAAOAAgAAAAAAAwAAAAMAAgAAAAAAAwAAAANAAgAAAABAAwAAAAcAAgAAAAAAAwAAAAdAAgAAAABAAwAAAAeAAgAAAAAAAwAAAAfAAgAAAABAAwAAAAgAAgAAAAAAAwAAAAhAAgAAAABAAwAAAAZAAgAAAAAAAwAAAAbAAgAAAABAAwAAAAaAAgAAQAAAAAAAQA=")
 tile_set = SubResource("TileSet_ndgrd")
 
@@ -3296,7 +3301,7 @@ rotation = 1.5707964
 [node name="Spawn" parent="Doors/Door_Base1" index="1" unique_id=1452911007]
 position = Vector2(2, 63.333336)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1717770849]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1717770849 groups=["HUD"]]
 
 [node name="HeartsContainer" parent="CanvasLayer" unique_id=1030660543 instance=ExtResource("12_hbb88")]
 scale = Vector2(4, 4)
@@ -3315,10 +3320,6 @@ autoplay = true
 
 [node name="FadeOverlay" parent="CanvasLayer2" unique_id=141250735 instance=ExtResource("16_uo0vl")]
 metadata/_edit_use_anchors_ = true
-
-[node name="FenceGate" parent="." unique_id=223223919 instance=ExtResource("19_ndgrd")]
-position = Vector2(478, 1371)
-scale = Vector2(4, 4)
 
 [editable path="Doors/Door_Grass"]
 [editable path="Doors/Door_Base1"]

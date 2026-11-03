@@ -1,0 +1,5 @@
+join rose (Rose) center
+Leticia: Why is there a rose here?
+Leticia: This might be what the Old Lady is looking for.
+leave rose [animation="Instant Out"]
+rose (Default): [A rose has been added to inventory.]

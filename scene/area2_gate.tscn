@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://dsps0iu26rxtc"]
+
+[ext_resource type="Script" uid="uid://kwr0maw0gh8o" path="res://scripts/area2_gate.gd" id="1_eo8r1"]
+[ext_resource type="Texture2D" uid="uid://8d1xplnito6h" path="res://assets/tilesets/roses_tilesets.png" id="2_3k25x"]
+[ext_resource type="PackedScene" uid="uid://c2dat6fqm8soo" path="res://interactions/interaction_area/interaction_area.tscn" id="3_lard3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggnbx"]
+size = Vector2(32, 32)
+
+[sub_resource type="Animation" id="Animation_niw4r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_04d6f"]
+resource_name = "has_opened_gate"
+length = 1.2
+loop_mode = 1
+step = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(2, 0), Vector2i(2, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hqrdj"]
+resource_name = "open_gate"
+length = 1.2
+step = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.6666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(2, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_04d6f"]
+_data = {
+&"RESET": SubResource("Animation_niw4r"),
+&"has_opened_gate": SubResource("Animation_04d6f"),
+&"open_gate": SubResource("Animation_hqrdj")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04d6f"]
+size = Vector2(32, 56)
+
+[node name="FenceGate" type="StaticBody2D" unique_id=242851620]
+y_sort_enabled = true
+collision_layer = 513
+collision_mask = 259
+script = ExtResource("1_eo8r1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1496492777]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_ggnbx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=729193280]
+texture = ExtResource("2_3k25x")
+hframes = 3
+region_enabled = true
+region_rect = Rect2(64, 384, 96, 32)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=29412788]
+libraries/ = SubResource("AnimationLibrary_04d6f")
+
+[node name="InteractionArea" parent="." unique_id=2018872061 instance=ExtResource("3_lard3")]
+action_name = "OPEN GATE"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=41284935]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_04d6f")
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

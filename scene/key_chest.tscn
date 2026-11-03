@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dxmp8h2m4r5ja"]
 
-[ext_resource type="Script" uid="uid://8mbteafanqas" path="res://scripts/chest.gd" id="1_bgy0w"]
+[ext_resource type="Script" uid="uid://dsm7pjk0arh8c" path="res://scripts/key_chest.gd" id="1_bgy0w"]
 [ext_resource type="Texture2D" uid="uid://4u8cy4lmj5yn" path="res://assets/interactables/assets.png" id="2_7fxhq"]
+[ext_resource type="Resource" uid="uid://cnoh835ujokkw" path="res://inventory/items/fence_key.tres" id="2_uvtql"]
 [ext_resource type="PackedScene" uid="uid://c2dat6fqm8soo" path="res://interactions/interaction_area/interaction_area.tscn" id="3_uvtql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sm8fe"]
@@ -96,10 +97,11 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nssrp"]
 size = Vector2(22, 25)
 
-[node name="Chest" type="StaticBody2D" unique_id=1399679068]
+[node name="Key_chest" type="StaticBody2D" unique_id=1399679068]
 collision_layer = 64
 collision_mask = 2
 script = ExtResource("1_bgy0w")
+item = ExtResource("2_uvtql")
 metadata/_edit_horizontal_guides_ = [-25.0]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=830797128]

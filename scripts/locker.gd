@@ -10,7 +10,6 @@ extends Area2D
 @onready var locker_exit: AudioStreamPlayer2D = $LockerExit
 @onready var interact: InteractionArea = $interact
 
-
 var player_nearby: bool = false
 var player_hidden: bool = false
 
@@ -37,21 +36,21 @@ func enter_locker() -> void:
 	player_hidden = true
 	player.add_to_group("hidden")
 
-	# Stop the player and hide their character.
+
 	player.velocity = Vector2.ZERO
 	player.set_physics_process(false)
 	player.visible = false
 	locker_enter.play()
+
 	$Sprite2D.texture=ResourceLoader.load("res://assets/interactables/locker_hidden.png")
 	point_light_2d.visible = true
 	point_light_2d.energy = 0.7
-	interact.set("action_name", "EXIT LOCKER")
+
 
 func exit_locker() -> void:
 	if not is_instance_valid(player):
 		return
 
-	# Move the player to the exit marker.
 	player.global_position = exit_point.global_position
 	player.force_update_transform()
 
@@ -65,6 +64,7 @@ func exit_locker() -> void:
 	point_light_2d.visible = false
 	point_light_2d.energy = 0
 	interact.set("action_name", "ENTER LOCKER")
+
 
 func _on_body_entered(body: Node2D) -> void:
 	if body == player:

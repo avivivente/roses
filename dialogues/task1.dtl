@@ -6,6 +6,7 @@ if {NPCs.has_met_old_lady} == false:
 	set {NPCs.has_met_old_lady} = true
 	Leticia: Can I ask where are we?
 	"Old Lady": I can't seem to find it...!
+	Leticia: (I don't think she can hear me.)
 	Leticia: Did you lose something?
 	"Old Lady": I must've dropped it somewhere on the grass... [pause=1.0]"*grumble* *grumble*
 	- Do you need help finding it?
@@ -35,13 +36,26 @@ else:
 		- Yes
 			if {tasks.has_rose1} == true:
 				[signal arg="take_rose"]
+				join rose (Rose) center [animation="Fade In Up"]
+				Leticia: Is this what you're looking for?
 				if {NPCs.old_lady_happy} == true:
 					"Old Lady": Oh you found it! Thank you very much, deary.
 				else:
-					"Old Lady": Thank you so much!
+					"Old Lady": Yes, thank you so much!
+				leave rose [animation="Instant Out"]
+				set {tasks.has_rose1} = false
 				"Old Lady": Here's something nice for you.
+				join key (Key) center [animation="Fade In Up"]
+				Leticia: (Another key?)
+				leave key [animation="Instant Out"]
+				- What's this for?
+				- Can I ask where are we?
+				"Old Lady": Go on now, deary.
+				[signal arg="give_key"]
+				key (Default): [A key has been added to inventory.]
 				set {tasks.task1} = false
 				set {tasks.task1_done} = true
+				set {areas.has_area2_key} = true
 				[signal arg="old_lady_idle_down"]
 			else:
 				"Old Lady": Well, where is it deary?

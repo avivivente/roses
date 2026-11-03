@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var item: InvItem
+
 @onready var canvas_layer: CanvasLayer = $"../CanvasLayer"
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var interaction_area: InteractionArea = $InteractionArea
@@ -53,3 +55,6 @@ func _on_dialogic_signal(argument: String):
 		if leticia.inv:
 			leticia.inv.remove_item(rose, 1)
 		State.task1_done = true
+	if argument == "give_key":
+		leticia.collect(item)
+		State.has_area2_key = true

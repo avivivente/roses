@@ -1,0 +1,40 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "",
+&"color": Color(1, 0, 0, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "Default",
+&"description": "",
+&"display_name": "Rose",
+&"mirror": false,
+&"nicknames": [""],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"Default": {
+"export_overrides": {
+"image": "\"res://assets/interactables/rose.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1.0,
+"scene": ""
+},
+"Rose": {
+"export_overrides": {
+"image": "\"res://assets/interactables/rose.png\""
+},
+"mirror": false,
+"offset": Vector2(0, -300),
+"scale": 0.2,
+"scene": ""
+}
+},
+&"scale": 1.0
+}

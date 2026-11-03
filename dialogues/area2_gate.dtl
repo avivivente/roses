@@ -1,0 +1,12 @@
+if {areas.has_area2_key} == true:
+	Leticia: (The lady never told me where we are...)
+	join key (Key) center [animation="Fade In Up"]
+	Leticia: (But I hope I find answers soon.)
+	leave key [animation="Instant Out"]
+	key (Default): [Used the Key to open gate.]
+	[signal arg="open_area2"]
+	[signal arg="take_area2_key"]
+	set {areas.has_area2_key} = false
+else:
+	set {areas.has_interacted_area2_gate} = true
+	Leticia: It's locked.

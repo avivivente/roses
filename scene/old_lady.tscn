@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bgbec7ga23dwi" path="res://scripts/old_lady.gd" id="1_0d66v"]
 [ext_resource type="Texture2D" uid="uid://ci71ohd8eemhg" path="res://assets/old_lady/Old_Lady_Spritesheet.png" id="2_0d66v"]
+[ext_resource type="Resource" uid="uid://cnoh835ujokkw" path="res://inventory/items/fence_key.tres" id="2_cebmx"]
 [ext_resource type="PackedScene" uid="uid://c2dat6fqm8soo" path="res://interactions/interaction_area/interaction_area.tscn" id="3_0d66v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nssrp"]
@@ -128,6 +129,7 @@ _data = {
 [node name="Old_lady" type="CharacterBody2D" unique_id=648783598]
 collision_mask = 2
 script = ExtResource("1_0d66v")
+item = ExtResource("2_cebmx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=238623092]
 shape = SubResource("RectangleShape2D_nssrp")

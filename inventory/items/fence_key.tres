@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" format=3 uid="uid://cnoh835ujokkw"]
+
+[ext_resource type="Script" uid="uid://dwiwdam5tolk3" path="res://inventory/inventory_item.gd" id="1_bfv5h"]
+[ext_resource type="Texture2D" uid="uid://b5t7u8evcodvv" path="res://assets/interactables/key.png" id="2_3pur4"]
+
+[resource]
+script = ExtResource("1_bfv5h")
+name = "Fence Key"
+texture = ExtResource("2_3pur4")
+metadata/_custom_type_script = "uid://dwiwdam5tolk3"

@@ -19,6 +19,7 @@ var save_file_name = "PlayerSave.tres"
 @onready var effects: AnimationPlayer = $Effects
 @onready var hurtblinktimer: Timer = $HurtBlinkTimer
 @onready var pickup_area: Area2D = $pickup_area
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 
 var animation_direction: String = "down"
@@ -43,6 +44,13 @@ func _ready() -> void:
 	effects.play("RESET")
 	
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
+
+
+func _process(delta: float) -> void:
+	if is_in_group("hidden"):
+		collision_shape_2d.set_deferred("disabled", true)
+	else:
+		collision_shape_2d.set_deferred("disabled", false)
 
 
 func _physics_process(_delta: float) -> void:

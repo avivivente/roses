@@ -2,8 +2,8 @@ extends StaticBody2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var interaction_area: InteractionArea = $InteractionArea
-@onready var leticia: CharacterBody2D = $"../../Leticia"
-@onready var canvas_layer: CanvasLayer = $"../../CanvasLayer"
+@onready var HUD: CanvasLayer = get_tree().get_first_node_in_group("HUD")
+@onready var player: CharacterBody2D = get_tree().get_first_node_in_group("Player")
 
 var is_open: bool = false
 var player_in_area: bool = false
@@ -36,17 +36,16 @@ func _on_interaction_area_body_exited(body: Node2D) -> void:
 
 func random_dialogue():
 	Dialogic.timeline_ended.connect(dialogue_ended)
-	leticia.can_move = false
-	
+	player.can_move = false
 	var dialogue_line = randi_range(1,8)
 	Dialogic.start("chest_dialogue_" + str(dialogue_line))
 	interaction_area.set_deferred("monitoring", false)
-	canvas_layer.hide()
+	HUD.hide()
 	animation_player.play("open")
 
 func dialogue_ended():
 	Dialogic.timeline_ended.disconnect(dialogue_ended)
-	leticia.can_move = true
+	player.can_move = true
 	interaction_area.set_deferred("monitoring", true)
-	canvas_layer.show()
+	HUD.show()
 	animation_player.play_backwards("open")
