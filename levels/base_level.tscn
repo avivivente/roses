@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bq8owmcit1j0d" path="res://assets/tilesets/trees.png" id="5_upde5"]
 [ext_resource type="PackedScene" uid="uid://dw1vn1lewcclr" path="res://scene/locker.tscn" id="6_406qh"]
 [ext_resource type="PackedScene" uid="uid://dr7t5trcwj4s2" path="res://scene/Leticia.tscn" id="7_jldy4"]
+[ext_resource type="PackedScene" uid="uid://bhw0f5n8h5gcn" path="res://scene/fence_gate.tscn" id="7_u35x1"]
 [ext_resource type="PackedScene" uid="uid://b0j3eqlkugmdw" path="res://scene/enemy.tscn" id="8_qeex7"]
 [ext_resource type="Script" uid="uid://ccvjinio50h6r" path="res://scripts/follow_movement_c.gd" id="9_hd0gu"]
 [ext_resource type="PackedScene" uid="uid://mq5dpit82nx2" path="res://doors/door.tscn" id="10_n8wy4"]
@@ -34,6 +35,11 @@ texture_region_size = Vector2i(32, 32)
 4:7/0 = 0
 5:7/0 = 0
 6:7/0 = 0
+4:12/0 = 0
+3:12/0 = 0
+2:12/0 = 0
+1:12/0 = 0
+0:12/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_nssrp"]
 tile_size = Vector2i(32, 32)
@@ -2954,6 +2960,26 @@ sources/0 = SubResource("TileSetAtlasSource_tqoya")
 sources/1 = SubResource("TileSetAtlasSource_wscrc")
 sources/2 = SubResource("TileSetAtlasSource_mswub")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lxejw"]
+texture = ExtResource("1_6w4ab")
+texture_region_size = Vector2i(32, 32)
+0:12/0 = 0
+0:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 2.5171623, 16, 2.3157883, 16, 16, -16, 16)
+1:12/0 = 0
+1:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 2.5171623, 16, 2.3157883, 16, 16, -16, 16)
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ubdnn"]
+scenes/1/scene = ExtResource("7_u35x1")
+
+[sub_resource type="TileSet" id="TileSet_ggnbx"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_lxejw")
+sources/1 = SubResource("TileSetScenesCollectionSource_ubdnn")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4j5ol"]
 size = Vector2(105, 1368)
 
@@ -3002,6 +3028,7 @@ radius = 205.18285
 radius = 166.92813
 
 [node name="LevelRoot" type="Node2D" unique_id=87040570]
+z_as_relative = false
 y_sort_enabled = true
 script = ExtResource("1_dx6c5")
 metadata/_edit_horizontal_guides_ = [-655.0, 3081.0, 650.0, 162.0, 827.0]
@@ -3074,6 +3101,10 @@ tile_set = SubResource("TileSet_ffd5c")
 [node name="cave_decorations" type="TileMapLayer" parent="map/decorations" unique_id=1230946812]
 tile_map_data = PackedByteArray("AAAKAAMAAAAFAAEAAAADAAQAAAAFAAEAAAD+/wkAAAAFAAEAAAD3/woAAAAGAAEAAAAHAA0AAAAGAAEAAAD9/w8AAAAEAAIAAAD9/w4AAAAGAAEAAAD8/w4AAAAFAAEAAAAIAAYAAAAIAAMAAAAIAAcAAAAIAAQAAAD3/wsAAAAEAAEAAAD3/wwAAAAGAAIAAAD4/wMAAAAEAAIAAAD7/wIAAAAGAAIAAAD7/xIAAAAGAAIAAAA=")
 tile_set = SubResource("TileSet_hybxs")
+
+[node name="fences" type="TileMapLayer" parent="map/decorations" unique_id=483129106]
+tile_map_data = PackedByteArray("AAAXAAgAAAAAAAwAAAAYAAgAAAABAAwAAAAVAAgAAAAAAAwAAAAWAAgAAAABAAwAAAATAAgAAAAAAAwAAAAUAAgAAAABAAwAAAARAAgAAAAAAAwAAAASAAgAAAABAAwAAAAPAAgAAAABAAwAAAAQAAgAAAABAAwAAAAOAAgAAAAAAAwAAAAMAAgAAAAAAAwAAAANAAgAAAABAAwAAAAcAAgAAAAAAAwAAAAdAAgAAAABAAwAAAAeAAgAAAAAAAwAAAAfAAgAAAABAAwAAAAgAAgAAAAAAAwAAAAhAAgAAAABAAwAAAAZAAgAAAAAAAwAAAAbAAgAAAABAAwAAAAaAAgAAQAAAAAAAQA=")
+tile_set = SubResource("TileSet_ggnbx")
 
 [node name="map collisions" type="StaticBody2D" parent="." unique_id=319834725]
 visible = false
@@ -3275,7 +3306,7 @@ spawn_direction = "right"
 position = Vector2(128, -2)
 
 [node name="Door_Grass1" parent="Doors" unique_id=1048856514 instance=ExtResource("10_n8wy4")]
-position = Vector2(700, 1027)
+position = Vector2(699, 1028)
 destination_level_tag = "level_2"
 destination_door_tag = "Base1"
 spawn_direction = "down"
@@ -3298,10 +3329,10 @@ position = Vector2(578, 278)
 
 [node name="Camera2D" type="Camera2D" parent="Leticia" unique_id=1629325380]
 zoom = Vector2(0.7, 0.7)
-limit_left = -1206
-limit_top = -419
-limit_right = 1632
-limit_bottom = 1029
+limit_left = -1212
+limit_top = -377
+limit_right = 1626
+limit_bottom = 1057
 
 [node name="pan_camera" type="AnimationPlayer" parent="Leticia" unique_id=2035932067]
 libraries/ = SubResource("AnimationLibrary_u35x1")
@@ -3333,11 +3364,12 @@ script = ExtResource("17_hd0gu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Intro" unique_id=2113673485]
 shape = SubResource("CircleShape2D_sm8fe")
 
+[node name="Inv_UI" parent="." unique_id=70183133 instance=ExtResource("18_u35x1")]
+
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1442208604]
 
 [node name="FadeOverlay" parent="CanvasLayer2" unique_id=141250735 instance=ExtResource("18_e78uj")]
-
-[node name="Inv_UI" parent="." unique_id=70183133 instance=ExtResource("18_u35x1")]
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="Old_lady/Task1" to="Old_lady" method="_on_task_1_body_entered"]
 [connection signal="body_exited" from="Old_lady/Task1" to="Old_lady" method="_on_task_1_body_exited"]

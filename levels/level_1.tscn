@@ -3100,11 +3100,11 @@ position = Vector2(-3016, 2456)
 scale = Vector2(4, 4)
 
 [node name="Chest8" parent="Chests" unique_id=1094172331 instance=ExtResource("15_vjtdm")]
-position = Vector2(-3120, 2456)
+position = Vector2(-3135, 1848)
 scale = Vector2(4, 4)
 
 [node name="Chest9" parent="Chests" unique_id=2145998137 instance=ExtResource("15_vjtdm")]
-position = Vector2(-2000, 2456)
+position = Vector2(-2120, 2456)
 scale = Vector2(4, 4)
 
 [node name="Chest10" parent="Chests" unique_id=507006131 instance=ExtResource("15_vjtdm")]
@@ -3112,7 +3112,7 @@ position = Vector2(-1344, 2200)
 scale = Vector2(4, 4)
 
 [node name="Chest11" parent="Chests" unique_id=2064224561 instance=ExtResource("15_vjtdm")]
-position = Vector2(-1472, 2200)
+position = Vector2(-1574, 2200)
 scale = Vector2(4, 4)
 
 [node name="Chest12" parent="Chests" unique_id=1089477322 instance=ExtResource("15_vjtdm")]
@@ -3120,7 +3120,7 @@ position = Vector2(-2360, 1168)
 scale = Vector2(4, 4)
 
 [node name="Chest13" parent="Chests" unique_id=527483448 instance=ExtResource("15_vjtdm")]
-position = Vector2(-2240, 1168)
+position = Vector2(-2128, 1168)
 scale = Vector2(4, 4)
 
 [node name="Lockers" type="Node2D" parent="." unique_id=1863791425]
@@ -3170,7 +3170,7 @@ player = NodePath("../../Leticia")
 position = Vector2(0, 88)
 
 [node name="Locker6" parent="Lockers" unique_id=243524020 node_paths=PackedStringArray("player") instance=ExtResource("6_vjtdm")]
-position = Vector2(144, 645)
+position = Vector2(53, 645.5)
 scale = Vector2(0.25, 0.25)
 player = NodePath("../../Leticia")
 
@@ -3338,12 +3338,12 @@ autoplay = true
 scale = Vector2(4, 4)
 metadata/_edit_use_anchors_ = true
 
+[node name="Inv_UI" parent="." unique_id=70183133 instance=ExtResource("16_bgw3c")]
+
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=123147939]
 
 [node name="FadeOverlay" parent="CanvasLayer2" unique_id=141250735 instance=ExtResource("16_lrvbd")]
 metadata/_edit_use_anchors_ = true
-
-[node name="Inv_UI" parent="." unique_id=70183133 instance=ExtResource("16_bgw3c")]
 
 [connection signal="died" from="Leticia" to="." method="_on_player_died"]
 [connection signal="died" from="Leticia" to="CanvasLayer/HeartsContainer" method="_on_player_died"]

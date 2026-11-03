@@ -24,6 +24,7 @@ if {NPCs.has_met_old_lady} == false:
 	- Alright
 	- I'm on it!
 		set {NPCs.old_lady_happy} = true
+	Leticia: (I have no idea what she's looking for...)
 	[signal arg="old_lady_idle_down"]
 	set {tasks.task1} = true
 	[end_timeline]

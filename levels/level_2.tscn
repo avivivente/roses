@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://4u8cy4lmj5yn" path="res://assets/interactables/assets.png" id="3_wcjpl"]
 [ext_resource type="Texture2D" uid="uid://oqyy7ac8qy4c" path="res://assets/tilesets/Miscellaneous & Props2.png" id="4_5orea"]
 [ext_resource type="Texture2D" uid="uid://rqiacw6rrsh6" path="res://assets/tilesets/Miscellaneous & Props1.png" id="5_0ourt"]
+[ext_resource type="PackedScene" uid="uid://wgcsl2h7ufti" path="res://scene/chest.tscn" id="6_k2aru"]
 [ext_resource type="Texture2D" uid="uid://bq8owmcit1j0d" path="res://assets/tilesets/trees.png" id="6_w200a"]
 [ext_resource type="PackedScene" uid="uid://dw1vn1lewcclr" path="res://scene/locker.tscn" id="7_uo0vl"]
 [ext_resource type="PackedScene" uid="uid://dr7t5trcwj4s2" path="res://scene/Leticia.tscn" id="8_k2aru"]
@@ -17,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://bnq11cnqsvrrj" path="res://audio/nature_ambience.mp3" id="14_5orea"]
 [ext_resource type="PackedScene" uid="uid://dmlokcmuwcndl" path="res://scene/menu_fade.tscn" id="16_uo0vl"]
 [ext_resource type="PackedScene" uid="uid://baabkikx8sj71" path="res://inventory/inv_ui.tscn" id="16_w200a"]
+[ext_resource type="PackedScene" uid="uid://bhw0f5n8h5gcn" path="res://scene/fence_gate.tscn" id="19_ndgrd"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_5orea"]
 resource_name = "Items"
@@ -1685,11 +1687,15 @@ texture_region_size = Vector2i(32, 32)
 23:13/0 = 0
 24:13/0 = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ndgrd"]
+scenes/1/scene = ExtResource("6_k2aru")
+
 [sub_resource type="TileSet" id="TileSet_mpunc"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_0ha60")
 sources/1 = SubResource("TileSetAtlasSource_jcbur")
+sources/2 = SubResource("TileSetScenesCollectionSource_ndgrd")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p1hux"]
 texture = ExtResource("3_wcjpl")
@@ -2958,6 +2964,26 @@ sources/0 = SubResource("TileSetAtlasSource_tqoya")
 sources/1 = SubResource("TileSetAtlasSource_wscrc")
 sources/2 = SubResource("TileSetAtlasSource_mswub")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k2aru"]
+texture = ExtResource("2_hbb88")
+texture_region_size = Vector2i(32, 32)
+0:12/0 = 0
+0:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 2.7185345, 16, 2.7856598, 16, 16, -16, 16)
+1:12/0 = 0
+1:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 2.7185345, 16, 2.7856598, 16, 16, -16, 16)
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_h351q"]
+scenes/1/scene = ExtResource("19_ndgrd")
+
+[sub_resource type="TileSet" id="TileSet_ndgrd"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_k2aru")
+sources/1 = SubResource("TileSetScenesCollectionSource_h351q")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4j5ol"]
 size = Vector2(105, 1368)
 
@@ -3000,7 +3026,7 @@ tile_map_data = PackedByteArray("AAAYAAEAAAABAAIAAAAZAAEAAAABAAIAAAAaAAEAAAABAAI
 tile_set = SubResource("TileSet_ex30i")
 
 [node name="chests_barrels_grass" type="TileMapLayer" parent="map" unique_id=619488319]
-tile_map_data = PackedByteArray("AAANAA8AAQAQAAsAAAANABQAAQAQAAsAAAAOAAsAAQAQAAsAAAAOABEAAAAAAAMAAAARAAsAAQAQAAsAAAARAAwAAQAQAAsAAAASAAwAAQAQAAsAAAASABAAAQAQAAsAAAATABYAAAAAAAIAAAAWABEAAQAQAAsAAAAXABEAAQAQAAsAAAAaABUAAQAQAAsAAAAeABUAAAAAAAIAAAAgAA8AAAABAAQAAAAgABAAAAABAAQAAAATAAkAAAAAAAEAAAA=")
+tile_map_data = PackedByteArray("AAANAA8AAQAQAAsAAAANABQAAQAQAAsAAAAOAAsAAQAQAAsAAAARAAsAAQAQAAsAAAARAAwAAQAQAAsAAAASAAwAAQAQAAsAAAASABAAAQAQAAsAAAAWABEAAQAQAAsAAAAXABEAAQAQAAsAAAAaABUAAQAQAAsAAAATAAoAAgAAAAAAAQAdAA0AAgAAAAAAAQATABMAAgAAAAAAAQAVABMAAgAAAAAAAQASAA0AAgAAAAAAAQANAAsAAgAAAAAAAQAXAA8AAgAAAAAAAQAgAA0AAgAAAAAAAQAbABEAAgAAAAAAAQA=")
 tile_set = SubResource("TileSet_mpunc")
 
 [node name="bookshelves" type="TileMapLayer" parent="map" unique_id=1210759076]
@@ -3034,6 +3060,10 @@ tile_set = SubResource("TileSet_ffd5c")
 [node name="cave_decorations" type="TileMapLayer" parent="map/decorations" unique_id=1230946812]
 tile_map_data = PackedByteArray("AAAKAAMAAAAFAAEAAAADAAQAAAAFAAEAAAD+/wkAAAAFAAEAAAD3/woAAAAGAAEAAAAHAA0AAAAGAAEAAAD9/w8AAAAEAAIAAAD9/w4AAAAGAAEAAAD8/w4AAAAFAAEAAAAIAAYAAAAIAAMAAAAIAAcAAAAIAAQAAAD3/wsAAAAEAAEAAAD3/wwAAAAGAAIAAAD4/wMAAAAEAAIAAAD7/wIAAAAGAAIAAAD7/xIAAAAGAAIAAAA=")
 tile_set = SubResource("TileSet_hybxs")
+
+[node name="fences" type="TileMapLayer" parent="map/decorations" unique_id=1648118762]
+tile_map_data = PackedByteArray("AAAXAAgAAAAAAAwAAAAYAAgAAAABAAwAAAAVAAgAAAAAAAwAAAAWAAgAAAABAAwAAAATAAgAAAAAAAwAAAAUAAgAAAABAAwAAAARAAgAAAAAAAwAAAASAAgAAAABAAwAAAAPAAgAAAABAAwAAAAQAAgAAAABAAwAAAAOAAgAAAAAAAwAAAAMAAgAAAAAAAwAAAANAAgAAAABAAwAAAAcAAgAAAAAAAwAAAAdAAgAAAABAAwAAAAeAAgAAAAAAAwAAAAfAAgAAAABAAwAAAAgAAgAAAAAAAwAAAAhAAgAAAABAAwAAAAZAAgAAAAAAAwAAAAbAAgAAAABAAwAAAAaAAgAAQAAAAAAAQA=")
+tile_set = SubResource("TileSet_ndgrd")
 
 [node name="map collisions" type="StaticBody2D" parent="." unique_id=319834725]
 collision_mask = 0
@@ -3152,7 +3182,7 @@ position = Vector2(655, 1184)
 [node name="Camera2D" type="Camera2D" parent="Leticia" unique_id=1183762719]
 zoom = Vector2(0.7, 0.7)
 limit_left = -1202
-limit_top = 1036
+limit_top = 843
 limit_right = 1647
 limit_bottom = 2916
 
@@ -3254,7 +3284,7 @@ spawn_direction = "left"
 position = Vector2(110, -1)
 
 [node name="Door_Base1" parent="Doors" unique_id=84920167 instance=ExtResource("11_dpc8t")]
-position = Vector2(709, 1042)
+position = Vector2(697, 940)
 scale = Vector2(1.5, 1.5)
 destination_level_tag = "base_level"
 destination_door_tag = "Grass1"
@@ -3279,12 +3309,16 @@ stream = ExtResource("14_5orea")
 volume_db = 0.5
 autoplay = true
 
+[node name="Inv_UI" parent="." unique_id=70183133 instance=ExtResource("16_w200a")]
+
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=2064476708]
 
 [node name="FadeOverlay" parent="CanvasLayer2" unique_id=141250735 instance=ExtResource("16_uo0vl")]
 metadata/_edit_use_anchors_ = true
 
-[node name="Inv_UI" parent="." unique_id=70183133 instance=ExtResource("16_w200a")]
+[node name="FenceGate" parent="." unique_id=223223919 instance=ExtResource("19_ndgrd")]
+position = Vector2(478, 1371)
+scale = Vector2(4, 4)
 
 [editable path="Doors/Door_Grass"]
 [editable path="Doors/Door_Base1"]

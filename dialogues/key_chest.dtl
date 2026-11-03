@@ -1,0 +1,4 @@
+if {areas.has_key1} == true:
+	Leticia: There's nothing in here.
+else:
+	Leticia: There's a key. I'll

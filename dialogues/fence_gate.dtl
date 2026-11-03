@@ -1,0 +1,8 @@
+set {areas.has_interacted_with_gate} = true
+if {areas.has_key1} == true:
+	if {tasks.has_rose1} == true:
+		Leticia: That worked, I'll get the rose to the Old Lady now.
+	else:
+		Leticia: That worked, but I still haven't found what the Old Lady was looking for...
+else:
+	Leticia: It's locked. What are the chances that there will be a key here somewhere...?

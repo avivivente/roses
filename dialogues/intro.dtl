@@ -1,4 +1,3 @@
-set {areas.gate_locked} = true
 [signal arg="rummage"]
 [signal arg="look_around"]
 [wait time="2.0"]

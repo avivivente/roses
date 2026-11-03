@@ -3,7 +3,11 @@ extends CharacterBody2D
 signal healthChanged
 signal died
 
-@export var speed: float = 200
+var save_file_path = "user://save/"
+var save_file_name = "PlayerSave.tres"
+
+
+@export var speed: float = 250
 @export var run_speed: float = 450
 
 @export var inv: Inv
@@ -94,7 +98,6 @@ func take_damage(amount: int) -> void:
 			die()
 			
 			print("You Died!")
-		# Make player invincible for a short time
 		damage_cooldown.start()
 
 func die() -> void:
