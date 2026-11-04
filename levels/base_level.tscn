@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://fm77yx4wj7yk" path="res://Dialogues/intro.gd" id="17_hd0gu"]
 [ext_resource type="PackedScene" uid="uid://dmlokcmuwcndl" path="res://scene/menu_fade.tscn" id="18_e78uj"]
 [ext_resource type="PackedScene" uid="uid://baabkikx8sj71" path="res://inventory/inv_ui.tscn" id="18_u35x1"]
+[ext_resource type="Script" uid="uid://dmglb6nqm78cx" path="res://scripts/task_1_done.gd" id="19_lxejw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hd0gu"]
 texture = ExtResource("1_6w4ab")
@@ -3047,6 +3048,22 @@ radius = 205.18285
 [sub_resource type="CircleShape2D" id="CircleShape2D_sm8fe"]
 radius = 166.92813
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sm8fe"]
+size = Vector2(87, 434)
+
+[sub_resource type="Environment" id="Environment_ggnbx"]
+background_mode = 3
+ambient_light_source = 3
+ambient_light_color = Color(1, 0.5019608, 0, 1)
+ambient_light_energy = 16.0
+ssao_radius = 2.47
+glow_enabled = true
+glow_intensity = 4.1
+glow_bloom = 0.05
+glow_hdr_scale = 0.0
+adjustment_enabled = true
+adjustment_saturation = 1.2
+
 [node name="LevelRoot" type="Node2D" unique_id=87040570]
 z_as_relative = false
 y_sort_enabled = true
@@ -3324,7 +3341,7 @@ position = Vector2(-479.99985, 805.5078)
 [node name="Doors" type="Node" parent="." unique_id=1454219268]
 
 [node name="Door_Base" parent="Doors" unique_id=84920167 instance=ExtResource("10_n8wy4")]
-position = Vector2(-1201, 641)
+position = Vector2(-1213, 641)
 destination_level_tag = "level_1"
 destination_door_tag = "Cave"
 spawn_direction = "right"
@@ -3391,16 +3408,31 @@ script = ExtResource("17_hd0gu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Intro" unique_id=2113673485]
 shape = SubResource("CircleShape2D_sm8fe")
 
+[node name="Task1Done" type="Area2D" parent="." unique_id=2075878164]
+position = Vector2(-1180, 641)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("19_lxejw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Task1Done" unique_id=1362913808]
+position = Vector2(28.5, 0)
+shape = SubResource("RectangleShape2D_sm8fe")
+
 [node name="Inv_UI" parent="." unique_id=70183133 instance=ExtResource("18_u35x1")]
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1442208604]
+visible = false
 
 [node name="FadeOverlay" parent="CanvasLayer2" unique_id=141250735 instance=ExtResource("18_e78uj")]
 metadata/_edit_use_anchors_ = true
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=876867873]
+environment = SubResource("Environment_ggnbx")
+
 [connection signal="body_entered" from="Old_lady/Task1" to="Old_lady" method="_on_task_1_body_entered"]
 [connection signal="body_exited" from="Old_lady/Task1" to="Old_lady" method="_on_task_1_body_exited"]
 [connection signal="body_entered" from="Intro" to="Intro" method="_on_body_entered"]
+[connection signal="body_entered" from="Task1Done" to="Task1Done" method="_on_body_entered"]
 
 [editable path="Doors/Door_Base"]
 [editable path="Doors/Door_Grass1"]

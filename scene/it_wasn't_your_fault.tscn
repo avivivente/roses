@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://djumdei187vr8"]
+
+[ext_resource type="Texture2D" uid="uid://4u8cy4lmj5yn" path="res://assets/interactables/assets.png" id="1_escvj"]
+[ext_resource type="Script" uid="uid://bkatcta3r8ald" path="res://scripts/it_wasn't_your_fault.gd" id="1_tnxmd"]
+[ext_resource type="PackedScene" uid="uid://c2dat6fqm8soo" path="res://interactions/interaction_area/interaction_area.tscn" id="2_tnxmd"]
+[ext_resource type="Texture2D" uid="uid://bf22a2tglgwak" path="res://assets/player/jumpscare.png" id="4_8wnwp"]
+[ext_resource type="AudioStream" uid="uid://2x14epl7u5hb" path="res://audio/jumpscare.mp3" id="5_mwvfo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sm8fe"]
+size = Vector2(24, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpmdj"]
+size = Vector2(22, 27)
+
+[sub_resource type="Animation" id="Animation_7drud"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("JumpscareSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_2wr3j"]
+resource_name = "jumpscare"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.43333334, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("JumpscareSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fe8l4"]
+_data = {
+&"RESET": SubResource("Animation_7drud"),
+&"jumpscare": SubResource("Animation_2wr3j")
+}
+
+[node name="ItWasn\'tYourFault" type="StaticBody2D" unique_id=28167843]
+script = ExtResource("1_tnxmd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1292353772]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_sm8fe")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1059698243]
+texture = ExtResource("1_escvj")
+region_enabled = true
+region_rect = Rect2(192, 32, 32, 32)
+
+[node name="InteractionArea" parent="." unique_id=2018872061 instance=ExtResource("2_tnxmd")]
+action_name = "LOOK"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=911541498]
+position = Vector2(0, 10.5)
+shape = SubResource("RectangleShape2D_fpmdj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2071281544]
+libraries/ = SubResource("AnimationLibrary_fe8l4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=742758868]
+visible = false
+
+[node name="jumpscare" type="TextureRect" parent="CanvasLayer" unique_id=1906167114]
+anchors_preset = -1
+anchor_left = -0.055555556
+anchor_top = -0.055555556
+anchor_right = 1.0555556
+anchor_bottom = 1.0555556
+offset_left = 64.0
+offset_top = 36.0
+offset_right = -64.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_8wnwp")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="JumpscareSound" type="AudioStreamPlayer" parent="." unique_id=935778078]
+stream = ExtResource("5_mwvfo")
+volume_db = -10.0
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

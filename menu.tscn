@@ -5,9 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://d2rwtfqgyyxl6" path="res://assets/titlecard/MainMenuBG.png" id="2_oxnod"]
 [ext_resource type="Texture2D" uid="uid://0j1yqr5sqhyg" path="res://assets/UI/Start_Pressed.png" id="3_ytr4m"]
 [ext_resource type="Texture2D" uid="uid://dxjrhsvjgasm1" path="res://assets/UI/Start_Hover.png" id="4_l48gv"]
-[ext_resource type="Texture2D" uid="uid://nb37fpcelf57" path="res://assets/UI/Continue.png" id="5_ecwwl"]
-[ext_resource type="Texture2D" uid="uid://dsai6s4hm41qn" path="res://assets/UI/Continue_Pressed.png" id="6_kk3ma"]
-[ext_resource type="Texture2D" uid="uid://gl0u6351v3ul" path="res://assets/UI/Continue_Hover.png" id="7_nrnbx"]
 [ext_resource type="Texture2D" uid="uid://dlk1f0d70nvh8" path="res://assets/UI/Options.png" id="8_iqepy"]
 [ext_resource type="Texture2D" uid="uid://bperlrlclute8" path="res://assets/UI/Option_Pressed.png" id="9_h1wq0"]
 [ext_resource type="Texture2D" uid="uid://gp0ehkbwcohr" path="res://assets/UI/Option_Hover.png" id="10_dwrpx"]
@@ -114,25 +111,19 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -167.2
-offset_right = 186.8
-offset_bottom = 652.0
+offset_left = -167.20001
+offset_top = 30.0
+offset_right = 186.79999
+offset_bottom = 550.0
 grow_horizontal = 2
 scale = Vector2(0.8, 0.8)
-theme_override_constants/separation = 0
+theme_override_constants/separation = 20
 
 [node name="Start" type="TextureButton" parent="CanvasLayer/ButtonManager/VBoxContainer" unique_id=616338444]
 layout_mode = 2
 texture_normal = ExtResource("2_4hy44")
 texture_pressed = ExtResource("3_ytr4m")
 texture_hover = ExtResource("4_l48gv")
-stretch_mode = 0
-
-[node name="Continue" type="TextureButton" parent="CanvasLayer/ButtonManager/VBoxContainer" unique_id=918881601]
-layout_mode = 2
-texture_normal = ExtResource("5_ecwwl")
-texture_pressed = ExtResource("6_kk3ma")
-texture_hover = ExtResource("7_nrnbx")
 stretch_mode = 0
 
 [node name="Options" type="TextureButton" parent="CanvasLayer/ButtonManager/VBoxContainer" unique_id=540172322]
@@ -154,9 +145,9 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = 0.0008544922
-offset_top = -144.0
+offset_top = -92.0
 offset_right = 256.00085
-offset_bottom = 36.0
+offset_bottom = 88.0
 grow_horizontal = 0
 scale = Vector2(9, 9)
 texture = ExtResource("14_jspdm")
@@ -272,8 +263,6 @@ autoplay = true
 
 [connection signal="mouse_entered" from="CanvasLayer/ButtonManager/VBoxContainer/Start" to="." method="_on_start_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/ButtonManager/VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/ButtonManager/VBoxContainer/Continue" to="." method="_on_continue_mouse_entered"]
-[connection signal="pressed" from="CanvasLayer/ButtonManager/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/ButtonManager/VBoxContainer/Options" to="." method="_on_options_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/ButtonManager/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/ButtonManager/VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]

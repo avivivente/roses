@@ -3309,7 +3309,6 @@ destination_door_tag = "Grass"
 spawn_direction = "right"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1258362143]
-visible = false
 position = Vector2(-2587, 1149)
 color = Color(0, 0, 0, 1)
 

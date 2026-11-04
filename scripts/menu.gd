@@ -6,7 +6,6 @@ extends Node2D
 @onready var canvas_layer_2: CanvasLayer = $CanvasLayer2
 
 
-
 var button_type = null
 
 func _on_start_pressed() -> void:
@@ -15,6 +14,8 @@ func _on_start_pressed() -> void:
 	$CanvasLayer/FadeOverlay.show()
 	$CanvasLayer/FadeOverlay/fade_timer.start()
 	animation_player.play("fade_to_black")
+
+
 func _on_start_mouse_entered() -> void:
 	button_hover.play()
 
@@ -23,13 +24,6 @@ func _on_continue_pressed() -> void:
 	button_press.play()
 func _on_continue_mouse_entered() -> void:
 	button_hover.play()
-
-
-func _on_options_pressed() -> void:
-	button_press.play()
-func _on_options_mouse_entered() -> void:
-	button_hover.play()
-
 
 func _on_quit_pressed() -> void:
 	button_press.play()

@@ -46,9 +46,12 @@ else:
 				set {tasks.has_rose1} = false
 				"Old Lady": Here's something nice for you.
 				join key (Key) center [animation="Fade In Up"]
-				Leticia: (Another key?)
+				if {areas.has_interacted_area2_gate} == true:
+					Leticia: (Is this the key to the other gate?)
+				else:
+					Leticia: (Another key? I see a locked gate there, this might be it.)
 				leave key [animation="Instant Out"]
-				- What's this for?
+				- Who are you?
 				- Can I ask where are we?
 				"Old Lady": Go on now, deary.
 				[signal arg="give_key"]

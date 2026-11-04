@@ -50,9 +50,3 @@ func _on_no_pressed() -> void:
 	canvas_layer_2.hide()
 func _on_no_mouse_entered() -> void:
 	button_hover.play()
-
-
-func _on_load_pressed() -> void:
-	button_press.play()
-func _on_load_mouse_entered() -> void:
-	button_hover.play()

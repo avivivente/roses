@@ -4,9 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://nb37fpcelf57" path="res://assets/UI/Continue.png" id="2_485ff"]
 [ext_resource type="Texture2D" uid="uid://dsai6s4hm41qn" path="res://assets/UI/Continue_Pressed.png" id="3_wmpn7"]
 [ext_resource type="Texture2D" uid="uid://gl0u6351v3ul" path="res://assets/UI/Continue_Hover.png" id="4_5c2vq"]
-[ext_resource type="Texture2D" uid="uid://b22ho12xc4fbs" path="res://assets/UI/Load.png" id="5_3xnvs"]
-[ext_resource type="Texture2D" uid="uid://ct23er3p3oqgp" path="res://assets/UI/Load_Pressed.png" id="6_e4my4"]
-[ext_resource type="Texture2D" uid="uid://c8pc1iy8l3pl7" path="res://assets/UI/Load_Hover.png" id="7_egcnh"]
 [ext_resource type="Texture2D" uid="uid://dlk1f0d70nvh8" path="res://assets/UI/Options.png" id="8_xhed3"]
 [ext_resource type="Texture2D" uid="uid://bperlrlclute8" path="res://assets/UI/Option_Pressed.png" id="9_uyn5q"]
 [ext_resource type="Texture2D" uid="uid://gp0ehkbwcohr" path="res://assets/UI/Option_Hover.png" id="10_fykqq"]
@@ -73,16 +70,9 @@ alignment = 1
 
 [node name="Continue" type="TextureButton" parent="Control/VBoxContainer" unique_id=1094955205]
 layout_mode = 2
-size_flags_vertical = 3
 texture_normal = ExtResource("2_485ff")
 texture_pressed = ExtResource("3_wmpn7")
 texture_hover = ExtResource("4_5c2vq")
-
-[node name="Load" type="TextureButton" parent="Control/VBoxContainer" unique_id=1760788819]
-layout_mode = 2
-texture_normal = ExtResource("5_3xnvs")
-texture_pressed = ExtResource("6_e4my4")
-texture_hover = ExtResource("7_egcnh")
 
 [node name="Options" type="TextureButton" parent="Control/VBoxContainer" unique_id=810562961]
 layout_mode = 2
@@ -186,8 +176,6 @@ text = "No
 
 [connection signal="mouse_entered" from="Control/VBoxContainer/Continue" to="." method="_on_continue_mouse_entered"]
 [connection signal="pressed" from="Control/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
-[connection signal="mouse_entered" from="Control/VBoxContainer/Load" to="." method="_on_load_mouse_entered"]
-[connection signal="pressed" from="Control/VBoxContainer/Load" to="." method="_on_load_pressed"]
 [connection signal="mouse_entered" from="Control/VBoxContainer/Options" to="." method="_on_options_mouse_entered"]
 [connection signal="pressed" from="Control/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="mouse_entered" from="Control/VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
