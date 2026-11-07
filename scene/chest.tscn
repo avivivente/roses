@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://4u8cy4lmj5yn" path="res://assets/interactables/assets.png" id="1_26f88"]
 [ext_resource type="Script" uid="uid://8mbteafanqas" path="res://scripts/chest.gd" id="1_cettl"]
 [ext_resource type="PackedScene" uid="uid://c2dat6fqm8soo" path="res://interactions/interaction_area/interaction_area.tscn" id="3_cettl"]
+[ext_resource type="AudioStream" uid="uid://d0182acy2dae" path="res://audio/chest_open.wav" id="4_bgh66"]
+[ext_resource type="AudioStream" uid="uid://cmlf266dk0lr6" path="res://audio/chest_close.wav" id="5_num40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sm8fe"]
 size = Vector2(22, 15)
@@ -45,6 +47,83 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ChestOpen:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ChestClose:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_bgh66"]
+resource_name = "close"
+length = 1.04
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.28835052, 0.4, 0.62184423, 0.7048922, 0.78182214),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -13), Vector2(0, -15.000001), Vector2(0, -15.000002), Vector2(0, -13), Vector2(0, -12.5), Vector2(0, -13)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.28835052, 0.4, 0.62184423, 0.7048922, 0.78182214),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.1250001), Vector2(1, 1.125), Vector2(1, 1), Vector2(1, 0.96875), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ChestClose:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_cettl"]
 resource_name = "open"
@@ -86,10 +165,23 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1, 0.84375), Vector2(1, 1.1250001), Vector2(1, 1.125), Vector2(1, 1), Vector2(1, 0.96875), Vector2(1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ChestOpen:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_26vdv"]
 _data = {
 &"RESET": SubResource("Animation_c0k1r"),
+&"close": SubResource("Animation_bgh66"),
 &"open": SubResource("Animation_cettl")
 }
 
@@ -122,6 +214,14 @@ action_name = "OPEN"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=312257855]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_nssrp")
+
+[node name="ChestOpen" type="AudioStreamPlayer2D" parent="." unique_id=1029058314]
+stream = ExtResource("4_bgh66")
+volume_db = -10.0
+
+[node name="ChestClose" type="AudioStreamPlayer2D" parent="." unique_id=1996004078]
+stream = ExtResource("5_num40")
+volume_db = -10.0
 
 [connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

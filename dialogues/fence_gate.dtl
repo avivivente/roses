@@ -1,7 +1,6 @@
 set {areas.has_interacted_with_gate} = true
 if {areas.has_key1} == true:
-	if {areas.has_interacted_with_gate} == true:
-		if {areas.has_interacted_area2_gate} == true:
+	if {areas.has_interacted_area2_gate} == true:
 		join key (Key) center [animation="Fade In Up"]
 		Leticia: I hope the key is for this one, I don't want to go back in that cave if it wasn't.
 		leave key [animation="Instant Out"]

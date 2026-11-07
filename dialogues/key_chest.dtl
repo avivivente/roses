@@ -11,17 +11,6 @@ elif {areas.has_interacted_with_gate} == true:
 	leave key [animation="Instant Out"]
 	set {areas.has_key1} = true
 	key (Default): [A key has been added to inventory.]
-elif {areas.has_interacted_area2_gate} == true:
-	Leticia: Oh there's something in here.
-	join key (Key) center [animation="Fade In Up"]
-	if {areas.has_interacted_with_gate} == true:
-		Leticia: A key, this could be the one for the fence gate...
-		Leticia: ...or the other fence gate?
-	else:
-		Leticia: A key, this could be the one for the fence gate.
-	leave key [animation="Instant Out"]
-	set {areas.has_key1} = true
-	key (Default): [A key has been added to inventory.]
 else:
 	Leticia: Oh there's something in here.
 	join key (Key) center [animation="Fade In Up"]

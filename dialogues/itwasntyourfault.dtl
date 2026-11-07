@@ -2,7 +2,7 @@ if {tasks.has_rose1} == true:
 	if {jumpscare.got_jumpscared} == false:
 		picture_frame: [The person in the picture looks familiar.]
 		Leticia: The candles are lit and there's red petals scattered on it.
-		Leticia: It looks like rose petals... like the rose I have right now.
+		Leticia: It looks like rose petals... like the Rose I have right now.
 		- Compare Rose to rose petals.
 			Leticia: My head hurts. [aa]
 			[signal arg="jumpscare"]

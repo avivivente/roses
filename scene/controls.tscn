@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://bncikc6aaaj8k"]
+
+[ext_resource type="Texture2D" uid="uid://bxmyr7fbrc1o5" path="res://assets/UI/Main_tiles.png" id="2_2kf6q"]
+[ext_resource type="FontFile" uid="uid://uux5tmjstmhm" path="res://assets/fonts/dogicapixelbold.ttf" id="3_i8lw2"]
+[ext_resource type="Texture2D" uid="uid://chkw62syy1ivl" path="res://assets/UI/controls/W.png" id="4_q01it"]
+[ext_resource type="Texture2D" uid="uid://djkylfisdmvwi" path="res://assets/UI/controls/A.png" id="5_ctisw"]
+[ext_resource type="Texture2D" uid="uid://cvhrc2sgb056c" path="res://assets/UI/controls/S.png" id="6_363m4"]
+[ext_resource type="Texture2D" uid="uid://dy282nxl1kpch" path="res://assets/UI/controls/D.png" id="7_n0itc"]
+[ext_resource type="Texture2D" uid="uid://bn4oskxlgaxd5" path="res://assets/UI/controls/E.png" id="8_eusby"]
+[ext_resource type="Texture2D" uid="uid://dnyetfmgx5hvn" path="res://assets/UI/controls/I.png" id="9_motej"]
+[ext_resource type="Texture2D" uid="uid://bxea05q7fueeb" path="res://assets/UI/controls/SHIFT.png" id="10_vqj8b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ggnbx"]
+line_spacing = 13.0
+font = ExtResource("3_i8lw2")
+font_size = 8
+outline_size = 3
+outline_color = Color(0.37646484, 0.22351074, 0.15686035, 1)
+
+[node name="Control" type="Control" unique_id=160572210]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1526365428]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -115.0
+offset_top = -161.0
+offset_right = -5.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer" unique_id=458381021]
+layout_mode = 2
+texture = ExtResource("2_2kf6q")
+region_rect = Rect2(104, 144, 32, 40)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=97405793]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 9
+theme_override_constants/margin_right = 9
+theme_override_constants/margin_bottom = 12
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer" unique_id=1676002698]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -4)
+theme_override_font_sizes/font_size = 13
+text = "UP
+LEFT
+DOWN
+RIGHT
+INTERACT
+INVENTORY
+RUN       "
+label_settings = SubResource("LabelSettings_ggnbx")
+horizontal_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer" unique_id=391067118]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+alignment = 2
+
+[node name="W" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=374395042]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+offset_transform_position = Vector2(27, 0)
+texture = ExtResource("4_q01it")
+
+[node name="A" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=1226067008]
+layout_mode = 2
+size_flags_horizontal = 8
+offset_transform_position = Vector2(27, 0)
+texture = ExtResource("5_ctisw")
+stretch_mode = 2
+
+[node name="S" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=1787729114]
+layout_mode = 2
+size_flags_horizontal = 8
+offset_transform_position = Vector2(27, 0)
+texture = ExtResource("6_363m4")
+stretch_mode = 2
+
+[node name="D" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=365115039]
+layout_mode = 2
+size_flags_horizontal = 8
+offset_transform_position = Vector2(27, 0)
+texture = ExtResource("7_n0itc")
+stretch_mode = 2
+
+[node name="E" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=1968814719]
+layout_mode = 2
+size_flags_horizontal = 8
+offset_transform_position = Vector2(27, 0)
+texture = ExtResource("8_eusby")
+stretch_mode = 2
+
+[node name="I" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=471027872]
+layout_mode = 2
+size_flags_horizontal = 8
+offset_transform_position = Vector2(27, 0)
+texture = ExtResource("9_motej")
+stretch_mode = 2
+
+[node name="SHIFT" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=1008532960]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+offset_transform_enabled = true
+texture = ExtResource("10_vqj8b")
+stretch_mode = 2

@@ -3,7 +3,6 @@ if {areas.has_area2_key} == true:
 	join key (Key) center [animation="Fade In Up"]
 	Leticia: (But I hope I find answers soon.)
 	leave key [animation="Instant Out"]
-	key (Default): [Used the Key to open gate.]
 	[signal arg="open_area2"]
 	[signal arg="take_area2_key"]
 	set {areas.has_area2_key} = false

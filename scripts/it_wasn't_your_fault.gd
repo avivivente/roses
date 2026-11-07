@@ -1,7 +1,6 @@
 extends StaticBody2D
 
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("Player")
-@onready var HUD: CanvasLayer = get_tree().get_first_node_in_group("HUD")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var player_in_area: bool = false
@@ -28,16 +27,13 @@ func _on_interaction_area_body_exited(body: Node2D) -> void:
 
 func start_dialogue():
 	player.can_move = false
-	HUD.hide()
 	Dialogic.start("itwasntyourfault")
 
 
 func _on_dialogue_ended():
 	player.can_move = true
-	HUD.show()
 
 
 func _on_dialogic_signal(argument: String):
 	if argument == "jumpscare":
-		HUD.hide()
 		animation_player.play("jumpscare")

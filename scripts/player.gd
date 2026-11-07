@@ -150,3 +150,6 @@ func _on_dialogic_signal(argument: String):
 
 func collect(item):
 	inv.insert(item)
+
+func _play_footstep():
+	FootstepSoundManager.play_footstep(global_position)

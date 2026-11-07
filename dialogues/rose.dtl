@@ -1,5 +1,7 @@
+[signal arg="hide_HUD"]
 join rose (Rose) center
-Leticia: Why is there a rose here?
+Leticia: Why is there a Rose here?
 Leticia: This might be what the Old Lady is looking for.
 leave rose [animation="Instant Out"]
-rose (Default): [A rose has been added to inventory.]
+rose (Default): [A Rose has been added to inventory.]
+[signal arg="show_HUD"]

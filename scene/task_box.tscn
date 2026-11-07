@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://cvf3lc374qwx5"]
+
+[ext_resource type="Script" uid="uid://mtpykxh6t7gx" path="res://globals/task_box.gd" id="1_an2gp"]
+[ext_resource type="Texture2D" uid="uid://bxmyr7fbrc1o5" path="res://assets/UI/Main_tiles.png" id="2_1phcu"]
+[ext_resource type="FontFile" uid="uid://banlcel5fi3bf" path="res://assets/fonts/dogicabold.ttf" id="3_sl70v"]
+
+[node name="TaskBox" type="Control" unique_id=1525051705]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+script = ExtResource("1_an2gp")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=224929085]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -289.0
+offset_top = 18.0
+offset_right = -18.0
+offset_bottom = 58.0
+grow_horizontal = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer" unique_id=1544496481]
+layout_mode = 2
+texture = ExtResource("2_1phcu")
+region_rect = Rect2(104, 144, 32, 40)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="[Task]" type="Label" parent="MarginContainer" unique_id=1801994315]
+layout_mode = 2
+size_flags_vertical = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 8)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.37646484, 0.22351074, 0.15686035, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_sl70v")
+theme_override_font_sizes/font_size = 10
+text = "[TASK]"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=293661710]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer" unique_id=1845140650]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Task" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=1467013555]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.43920898, 0.2861328, 0.16467285, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_sl70v")
+theme_override_font_sizes/font_size = 9
+autowrap_mode = 3
+
+[node name="Item" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=758681463]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.43920898, 0.2861328, 0.16467285, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_sl70v")
+theme_override_font_sizes/font_size = 9
+autowrap_mode = 3

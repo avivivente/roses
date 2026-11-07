@@ -70,112 +70,103 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i6s5b"]
 
-[node name="Main Menu" type="Node2D" unique_id=1322552231]
+[node name="CanvasLayer" type="CanvasLayer" unique_id=679107110]
 script = ExtResource("1_lti8b")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=679107110]
-scale = Vector2(0.25, 0.25)
-transform = Transform2D(0.25, 0, 0, 0.25, 0, 0)
-
-[node name="BG" type="TextureRect" parent="CanvasLayer" unique_id=298349539]
+[node name="BG" type="TextureRect" parent="." unique_id=298349539]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 3456.0
-offset_bottom = 1944.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_oxnod")
 
-[node name="ButtonManager" type="Control" parent="CanvasLayer" unique_id=179110142]
+[node name="ButtonManager" type="Control" parent="." unique_id=179110142]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 1772.0
-offset_top = 1128.0
-offset_right = 1772.0
-offset_bottom = 1128.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2, 2)
+scale = Vector2(0.5, 0.5)
 size_flags_horizontal = 3
 size_flags_vertical = 6
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ButtonManager" unique_id=980711630]
-custom_minimum_size = Vector2(50, 50)
+[node name="VBoxContainer" type="VBoxContainer" parent="ButtonManager" unique_id=980711630]
 propagate_maximum_size = false
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -167.20001
-offset_top = 30.0
-offset_right = 186.79999
-offset_bottom = 550.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = 78.00003
+offset_right = 128.0
+offset_bottom = 598.0
 grow_horizontal = 2
-scale = Vector2(0.8, 0.8)
+grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="Start" type="TextureButton" parent="CanvasLayer/ButtonManager/VBoxContainer" unique_id=616338444]
+[node name="Start" type="TextureButton" parent="ButtonManager/VBoxContainer" unique_id=616338444]
 layout_mode = 2
 texture_normal = ExtResource("2_4hy44")
 texture_pressed = ExtResource("3_ytr4m")
 texture_hover = ExtResource("4_l48gv")
-stretch_mode = 0
 
-[node name="Options" type="TextureButton" parent="CanvasLayer/ButtonManager/VBoxContainer" unique_id=540172322]
+[node name="Options" type="TextureButton" parent="ButtonManager/VBoxContainer" unique_id=540172322]
 layout_mode = 2
 texture_normal = ExtResource("8_iqepy")
 texture_pressed = ExtResource("9_h1wq0")
 texture_hover = ExtResource("10_dwrpx")
-stretch_mode = 0
 
-[node name="Quit" type="TextureButton" parent="CanvasLayer/ButtonManager/VBoxContainer" unique_id=671405656]
+[node name="Quit" type="TextureButton" parent="ButtonManager/VBoxContainer" unique_id=671405656]
 layout_mode = 2
 texture_normal = ExtResource("11_g7jxm")
 texture_pressed = ExtResource("12_jspdm")
 texture_hover = ExtResource("13_oxnod")
-stretch_mode = 0
 
-[node name="Title" type="TextureRect" parent="CanvasLayer" unique_id=798832162]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = 0.0008544922
-offset_top = -92.0
-offset_right = 256.00085
-offset_bottom = 88.0
-grow_horizontal = 0
-scale = Vector2(9, 9)
+[node name="Title" type="TextureRect" parent="." unique_id=798832162]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -277.33337
+offset_top = -344.0
+offset_right = 277.33337
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("14_jspdm")
-stretch_mode = 2
 
-[node name="FadeOverlay" parent="CanvasLayer" unique_id=141250735 instance=ExtResource("16_gd0jp")]
+[node name="FadeOverlay" parent="." unique_id=141250735 instance=ExtResource("16_gd0jp")]
 visible = false
 offset_right = 3460.0
 offset_bottom = 1944.0
 
-[node name="fade_timer" type="Timer" parent="CanvasLayer/FadeOverlay" unique_id=1093045485]
+[node name="fade_timer" type="Timer" parent="FadeOverlay" unique_id=1093045485]
 wait_time = 2.0
 
-[node name="Button_press" type="AudioStreamPlayer2D" parent="CanvasLayer" unique_id=952782574]
+[node name="Button_press" type="AudioStreamPlayer2D" parent="." unique_id=952782574]
 stream = ExtResource("17_3ls4m")
 
-[node name="Button_hover" type="AudioStreamPlayer2D" parent="CanvasLayer" unique_id=2005982566]
+[node name="Button_hover" type="AudioStreamPlayer2D" parent="." unique_id=2005982566]
 stream = ExtResource("18_5h80m")
 volume_db = 3.0
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1001635856]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1001635856]
 visible = false
 scale = Vector2(7, 7)
 texture = ExtResource("19_5h80m")
 hframes = 6
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Sprite2D" unique_id=707207105]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=707207105]
 libraries/ = SubResource("AnimationLibrary_guify")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=508687741]
+stream = ExtResource("20_w25hu")
+autoplay = true
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=34488559]
 visible = false
@@ -257,20 +248,16 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_i6s5b")
 text = "No
 "
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=508687741]
-stream = ExtResource("20_w25hu")
-autoplay = true
-
-[connection signal="mouse_entered" from="CanvasLayer/ButtonManager/VBoxContainer/Start" to="." method="_on_start_mouse_entered"]
-[connection signal="pressed" from="CanvasLayer/ButtonManager/VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/ButtonManager/VBoxContainer/Options" to="." method="_on_options_mouse_entered"]
-[connection signal="pressed" from="CanvasLayer/ButtonManager/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/ButtonManager/VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
-[connection signal="pressed" from="CanvasLayer/ButtonManager/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="timeout" from="CanvasLayer/FadeOverlay/fade_timer" to="." method="_on_fade_timer_timeout"]
+[connection signal="mouse_entered" from="ButtonManager/VBoxContainer/Start" to="." method="_on_start_mouse_entered"]
+[connection signal="pressed" from="ButtonManager/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="ButtonManager/VBoxContainer/Options" to="." method="_on_options_mouse_entered"]
+[connection signal="pressed" from="ButtonManager/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="ButtonManager/VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="ButtonManager/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="timeout" from="FadeOverlay/fade_timer" to="." method="_on_fade_timer_timeout"]
 [connection signal="mouse_entered" from="CanvasLayer2/VBoxContainer/Yes" to="." method="_on_yes_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer2/VBoxContainer/Yes" to="." method="_on_yes_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer2/VBoxContainer/No" to="." method="_on_no_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer2/VBoxContainer/No" to="." method="_on_no_pressed"]
 
-[editable path="CanvasLayer/FadeOverlay"]
+[editable path="FadeOverlay"]

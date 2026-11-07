@@ -2,8 +2,9 @@ extends StaticBody2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var interaction_area: InteractionArea = $InteractionArea
-@onready var HUD: CanvasLayer = get_tree().get_first_node_in_group("HUD")
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("Player")
+@onready var chest_open: AudioStreamPlayer2D = $ChestOpen
+@onready var chest_close: AudioStreamPlayer2D = $ChestClose
 
 var is_open: bool = false
 var player_in_area: bool = false
@@ -40,12 +41,11 @@ func random_dialogue():
 	var dialogue_line = randi_range(1,8)
 	Dialogic.start("chest_dialogue_" + str(dialogue_line))
 	interaction_area.set_deferred("monitoring", false)
-	HUD.hide()
 	animation_player.play("open")
+
 
 func dialogue_ended():
 	Dialogic.timeline_ended.disconnect(dialogue_ended)
 	player.can_move = true
 	interaction_area.set_deferred("monitoring", true)
-	HUD.show()
-	animation_player.play_backwards("open")
+	animation_player.play("close")

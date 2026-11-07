@@ -2,6 +2,7 @@ extends Node
 
 # Global variables teehee
 var has_triggered_intro = false
+var task0_active = false
 var has_entered_cave = false
 var task1_done = false
 var has_key1 = false

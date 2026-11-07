@@ -4,7 +4,6 @@ extends StaticBody2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var interaction_collision: CollisionShape2D = $InteractionArea/CollisionShape2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var HUD: CanvasLayer = get_tree().get_first_node_in_group("HUD")
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("Player")
 
 var is_open: bool = false
@@ -23,7 +22,6 @@ func _ready():
 func _process(delta):
 	if player_in_area:
 		if Input.is_action_just_pressed("interact"):
-			HUD.hide()
 			player.can_move = false
 			interaction_area.set_deferred("monitoring", false)
 			Dialogic.start("area2_gate")
@@ -41,7 +39,7 @@ func _open_gate():
 func dialogue_ended():
 	player.can_move = true
 	interaction_area.set_deferred("monitoring", true)
-	HUD.show()
+
 
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:

@@ -3,7 +3,6 @@ extends Node2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $Player/AnimatedSprite2D
 @onready var hearts_container: HBoxContainer = $CanvasLayer/HeartsContainer
 @onready var player: CharacterBody2D = $Leticia
-@onready var dialogue_guide: CanvasLayer = $DialogueGuide
 @onready var animation_player: AnimationPlayer = $CanvasLayer2/FadeOverlay/AnimationPlayer
 
 var level: int = 1

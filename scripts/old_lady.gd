@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 @export var item: InvItem
 
-@onready var canvas_layer: CanvasLayer = $"../CanvasLayer"
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var interaction_area: InteractionArea = $InteractionArea
 @onready var leticia: CharacterBody2D = $"../Leticia"
@@ -28,16 +27,15 @@ func _on_task_1_body_exited(body: Node2D) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if player_in_area and Input.is_action_just_pressed("interact"):
+		State.task0_active = false
 		leticia.can_move = false
 		interaction_area.set_deferred("monitoring", false)
-		canvas_layer.hide()
 		Dialogic.timeline_ended.connect(_on_timeline_ended)
 		Dialogic.start("task1")
    
 func _on_timeline_ended():
 	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
 	leticia.can_move = true
-	canvas_layer.show()
 	interaction_area.set_deferred("monitoring", true)
 
 func _on_dialogic_signal(argument: String):
