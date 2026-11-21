@@ -41,6 +41,7 @@ canvas_items/size/viewport_height=1080
 directories/dch_directory={
 "Leticia": "res://Characters/Leticia.dch",
 "Old Lady": "res://Characters/Old Lady.dch",
+"boy": "res://Characters/boy.dch",
 "chest": "res://Characters/chest.dch",
 "key": "res://Characters/key.dch",
 "killer": "res://Characters/killer.dch",
@@ -50,6 +51,8 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "area2_gate": "res://Dialogues/area2_gate.dtl",
+"boy": "res://Dialogues/boy.dtl",
+"boy_disappeared": "res://Dialogues/boy_disappeared.dtl",
 "chest_dialogue_1": "res://Dialogues/chest_dialogue_1.dtl",
 "chest_dialogue_2": "res://Dialogues/chest_dialogue_2.dtl",
 "chest_dialogue_3": "res://Dialogues/chest_dialogue_3.dtl",
@@ -79,6 +82,8 @@ variables={
 "NPCs": {
 "has_met_boy": false,
 "has_met_old_lady": false,
+"has_talked_to_boy": false,
+"im_sorry_leticia": false,
 "killer_name": "Neighbor",
 "leaving_conversation_early": {
 "leave1": false
@@ -95,7 +100,7 @@ variables={
 "got_jumpscared": false
 },
 "tasks": {
-"has_rose1": false,
+"has_rose": false,
 "task1": false,
 "task1_done": false
 }

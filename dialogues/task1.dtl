@@ -34,7 +34,7 @@ else:
 		[signal arg="face_player"]
 		"Old Lady": Have you found what I'm looking  for?
 		- Yes
-			if {tasks.has_rose1} == true:
+			if {tasks.has_rose} == true:
 				[signal arg="take_rose"]
 				join rose (Rose) center [animation="Fade In Up"]
 				Leticia: Is this what you're looking for?
@@ -43,7 +43,7 @@ else:
 				else:
 					"Old Lady": Yes, thank you so much!
 				leave rose [animation="Instant Out"]
-				set {tasks.has_rose1} = false
+				set {tasks.has_rose} = false
 				"Old Lady": Here's something nice for you.
 				join key (Key) center [animation="Fade In Up"]
 				if {areas.has_interacted_area2_gate} == true:

@@ -64,6 +64,14 @@ theme_override_fonts/font = ExtResource("3_sl70v")
 theme_override_font_sizes/font_size = 9
 autowrap_mode = 3
 
+[node name="Task1" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=560791849]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.43920898, 0.2861328, 0.16467285, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_sl70v")
+theme_override_font_sizes/font_size = 9
+autowrap_mode = 3
+
 [node name="Item" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=758681463]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.43920898, 0.2861328, 0.16467285, 1)

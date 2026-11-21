@@ -6,7 +6,7 @@ if {areas.has_key1} == true:
 		leave key [animation="Instant Out"]
 		[signal arg="take_key"]
 		[signal arg="open_gate"]
-		if {tasks.has_rose1} == true:
+		if {tasks.has_rose} == true:
 			Leticia: That worked, I'll get the rose to the Old Lady now.
 		else:
 			Leticia: That worked, but I still haven't found what the Old Lady was looking for...
@@ -16,7 +16,7 @@ if {areas.has_key1} == true:
 		leave key [animation="Instant Out"]
 		[signal arg="take_key"]
 		[signal arg="open_gate"]
-		if {tasks.has_rose1} == true:
+		if {tasks.has_rose} == true:
 			Leticia: That worked, I'll get the rose to the Old Lady now.
 		else:
 			Leticia: That worked, but I still haven't found what the Old Lady was looking for...

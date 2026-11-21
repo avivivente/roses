@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://ct2r2j3idsopk"]
+
+[ext_resource type="Texture2D" uid="uid://deo3gu1eamb1u" path="res://assets/boy/Boy.png" id="1_q583n"]
+[ext_resource type="Script" uid="uid://cavdu2lboanpe" path="res://scripts/boy.gd" id="2_nh1ww"]
+[ext_resource type="PackedScene" uid="uid://c2dat6fqm8soo" path="res://interactions/interaction_area/interaction_area.tscn" id="3_uovo4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sm8fe"]
+size = Vector2(49, 54)
+
+[sub_resource type="Animation" id="Animation_nh1ww"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uovo4"]
+resource_name = "idle_down"
+length = 4.0
+loop_mode = 1
+step = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(0, 0), Vector2i(3, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rqdee"]
+resource_name = "idle_left"
+length = 4.0
+loop_mode = 1
+step = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_fttmr"]
+resource_name = "idle_right"
+length = 4.0
+loop_mode = 1
+step = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_kyn6l"]
+resource_name = "idle_up"
+length = 4.0
+loop_mode = 1
+step = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3txb8"]
+_data = {
+&"RESET": SubResource("Animation_nh1ww"),
+&"idle_down": SubResource("Animation_uovo4"),
+&"idle_left": SubResource("Animation_rqdee"),
+&"idle_right": SubResource("Animation_fttmr"),
+&"idle_up": SubResource("Animation_kyn6l")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sm8fe"]
+radius = 56.255
+
+[node name="Boy" type="CharacterBody2D" unique_id=786859442]
+collision_mask = 2
+script = ExtResource("2_nh1ww")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1682348346]
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_sm8fe")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1780908849]
+scale = Vector2(4, 4)
+texture = ExtResource("1_q583n")
+hframes = 4
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=9601576]
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_3txb8")
+
+[node name="InteractionArea" parent="." unique_id=2018872061 instance=ExtResource("3_uovo4")]
+scale = Vector2(4, 4)
+action_name = "TALK"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1371582866]
+shape = SubResource("CircleShape2D_sm8fe")
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

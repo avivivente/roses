@@ -20,15 +20,12 @@ const continue_hover = preload("res://assets/UI/Continue_Hover.png")
 var button_type = null
 
 func _ready() -> void:
-	if State.start_game:
+	if State.start_game and not State.end_credits:
 		new_game.show()
 		start.texture_normal = continue_normal
 		start.texture_pressed = continue_pressed
 		start.texture_hover = continue_hover
 		button_type = "continue"
-	elif State.end_credits:
-		new_game.show()
-		button_type = "start"
 	else:
 		button_type = "start"
 		new_game.hide()
@@ -42,7 +39,15 @@ func _ready() -> void:
 
 func _on_start_pressed() -> void:
 	button_press.play()
-	$FadeOverlay.show()
+	
+	if button_type == "start":
+		State.reset()
+		PlayerStats.reset_health()
+		Dialogic.VAR.reset()
+		NavigationManager.current_level_tag = "base_level"
+		NavigationManager.spawn_door_tag = null 
+		
+	fade_overlay.show()
 	$FadeOverlay/fade_timer.start()
 	animation_player.play("fade_to_black")
 	State.start_game = true
@@ -79,11 +84,10 @@ func _on_no_mouse_entered() -> void:
 
 func _on_fade_timer_timeout() -> void:
 	if button_type == "start":
-		print("Button is a Start button")
 		get_tree().change_scene_to_file("res://scene/chapter.tscn")
 	elif button_type == "continue":
-		print("Button is a Continue button")
-		get_tree().change_scene_to_file("res://levels/base_level.tscn")
+		NavigationManager.continue_last_level()
+
 
 
 func _on_options_pressed() -> void:
@@ -111,9 +115,10 @@ func _on_yes_1_pressed() -> void:
 	start_new_game.hide()
 	State.reset()
 	PlayerStats.reset_health()
-	Dialogic.clear()
+	Dialogic.VAR.reset()
 	button_type = "start"
 	_on_start_pressed()
+
 func _on_yes_1_mouse_entered() -> void:
 	button_hover.play()
 

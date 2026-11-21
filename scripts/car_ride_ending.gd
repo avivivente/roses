@@ -37,6 +37,9 @@ func show_return():
 	return_menu_box.show()
 
 func _on_yes_pressed() -> void:
+	State.reset()
+	PlayerStats.reset_health()
+	Dialogic.VAR.reset()
 	get_tree().change_scene_to_file("res://menu.tscn")
 
 func _on_no_pressed() -> void:

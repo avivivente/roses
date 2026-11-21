@@ -18,8 +18,9 @@ func _ready():
 func _process(delta: float) -> void:
 	if player_in_area:
 		if Input.is_action_just_pressed("interact"):
+			State.has_rose = true
 			collect_rose()
-			Dialogic.VAR.tasks.has_rose1 = true
+			Dialogic.VAR.tasks.has_rose = true
 			queue_free()
 			Dialogic.start("rose")
 
@@ -33,4 +34,6 @@ func _on_pickup_area_body_exited(body: Node2D) -> void:
 		player_in_area = false
 
 func collect_rose():
+	if State.has_rose:
+		print("Has rose")
 	player.collect(item)

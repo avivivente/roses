@@ -1,0 +1,30 @@
+if {NPCs.im_sorry_leticia} == true:
+	Leticia: What do you mean by that? [pause=0.5]How do you know my name?
+	[wait time="3.0"]
+	Leticia: Why won't you answer me?
+	[end_timeline]
+elif {NPCs.has_met_boy} == true:
+	[signal arg="face_player"]
+	boy: I'm glad you made it out of that place.
+	boy: Not a lot of people make it out of the darkness. [pause=0.5]I'm proud of you for having that strength.
+	Leticia: What do you mean?
+	boy: You seem lost. [pause=0.5]It's unfortunate that I can't guide you to the destination you seek.
+	Leticia: What are you saying?
+	boy: I'm so[pause=0.3] so[pause=0.3] sorry,[pause=0.5] Leticia. [pause=0.5]Only you can help yourself.
+	Leticia: Are you listening to me? What are you saying?
+	boy: Don't let your guilt hold you. [pause=0.5]It wasn't your fault.
+	boy: It wasn't your fault Leticia.
+	Leticia: Please just tell me what's going on!
+	[wait time="3.0"]
+	Leticia: Hello???
+	set {NPCs.im_sorry_leticia} = true
+	set {NPCs.has_talked_to_boy} = false
+	[end_timeline]
+else:
+	[signal arg="face_player"]
+	boy: Hey!
+	set {NPCs.has_met_boy} = true
+	boy: You made it out!
+	set {NPCs.has_talked_to_boy} = true
+	[end_timeline]
+set

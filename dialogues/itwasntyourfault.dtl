@@ -1,4 +1,4 @@
-if {tasks.has_rose1} == true:
+if {tasks.has_rose} == true:
 	if {jumpscare.got_jumpscared} == false:
 		picture_frame: [The person in the picture looks familiar.]
 		Leticia: The candles are lit and there's red petals scattered on it.
