@@ -6,8 +6,6 @@ extends CharacterBody2D
 @onready var attack_sound: AudioStreamPlayer2D = $AttackSound
 @onready var proximity: AudioStreamPlayer2D = $Proximity
 
-
-
 var animation_direction: String = "down"
 var is_alive: bool = true
 var strength: int = 1
@@ -28,10 +26,13 @@ func _on_follow_area_body_entered(body: Node2D) -> void:
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.name == "Leticia":
-		target_in_range = true
-		attack_sound.play()
-		body.take_damage(strength)
-		attack_timer.start()
+		if not body.visible:
+			return
+		if body.has_method("take_damage"):
+			target_in_range = true
+			attack_sound.play()
+			body.take_damage(strength)
+			attack_timer.start()
 
 
 func _on_hitbox_body_exited(body: Node2D) -> void:

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cleh2vlkilfxu"]
+
+[ext_resource type="Texture2D" uid="uid://c27d2fe1yjpnp" path="res://assets/killer/Killer.png" id="1_kmd5x"]
+
+[node name="Killer" type="Sprite2D" unique_id=1437540475]
+scale = Vector2(4, 4)
+texture = ExtResource("1_kmd5x")
+hframes = 4
+vframes = 8
+frame = 21

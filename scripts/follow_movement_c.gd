@@ -1,10 +1,13 @@
 class_name FollowMovementC
 extends Node
 
+
+
 @export var patrol_speed: float = 100
 @export var chase_speed: float = 150
 @export var return_speed: float = 300.0
 @export var arrival_distance: float = 4
+@export var enemy: CharacterBody2D
 
 @export var patrol_point_1: Marker2D
 @export var patrol_point_2: Marker2D
@@ -14,6 +17,7 @@ extends Node
 @export var patrol_point_6: Marker2D
 
 @onready var parent: CharacterBody2D = get_parent()
+
 
 var target: CharacterBody2D = null
 var patrol_positions: Array[Vector2] = []
@@ -46,17 +50,14 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	# Stop chasing if the player hides in a locker.
 	if is_instance_valid(target) and target.is_in_group("hidden"):
 		target = null
 		start_returning()
 
-	# Chase the player.
 	if is_instance_valid(target):
 		returning = false
 		move_toward_position(target.global_position, chase_speed)
 
-	# Return to the nearest patrol point.
 	elif returning:
 		if patrol_positions.is_empty():
 			parent.velocity = Vector2.ZERO
@@ -69,7 +70,6 @@ func _physics_process(_delta: float) -> void:
 				parent.velocity = Vector2.ZERO
 				returning = false
 
-				# Continue in the current patrol direction.
 				if patrol_positions.size() > 1:
 					if patrol_index >= patrol_positions.size() - 1:
 						patrol_direction = -1
@@ -78,7 +78,6 @@ func _physics_process(_delta: float) -> void:
 
 					patrol_index += patrol_direction
 
-	# Resume normal patrol.
 	else:
 		patrol()
 
@@ -106,7 +105,7 @@ func patrol() -> void:
 	move_toward_position(destination, patrol_speed)
 
 	if parent.global_position.distance_to(destination) <= arrival_distance:
-		# Reverse at either endpoint.
+
 		if patrol_index >= patrol_positions.size() - 1:
 			patrol_direction = -1
 		elif patrol_index <= 0:
@@ -119,7 +118,7 @@ func start_returning() -> void:
 	if patrol_positions.is_empty():
 		return
 
-	# Find the closest patrol point.
+
 	patrol_index = get_nearest_patrol_index()
 	returning = true
 
@@ -150,6 +149,7 @@ func _on_follow_area_body_exited(body: Node2D) -> void:
 	if body == target:
 		target = null
 		start_returning()
+
 
 
 func disable() -> void:

@@ -6,11 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://c2dat6fqm8soo" path="res://interactions/interaction_area/interaction_area.tscn" id="2_y6trl"]
 [ext_resource type="AudioStream" uid="uid://f6y1ggdbe5pq" path="res://audio/locker_exit.wav" id="3_c38np"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bb38t"]
+size = Vector2(75, 166)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ggnbx"]
 size = Vector2(112, 208)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bb38t"]
-size = Vector2(75, 170)
 
 [sub_resource type="Gradient" id="Gradient_3vr0h"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -30,6 +30,14 @@ collision_layer = 16
 collision_mask = 3
 script = ExtResource("1_3vr0h")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=291824231]
+collision_layer = 16
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=900825742]
+position = Vector2(3.5, -36)
+shape = SubResource("RectangleShape2D_bb38t")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=50060836]
 visibility_layer = 1023
 position = Vector2(3, -45)
@@ -44,13 +52,6 @@ collision_mask = 2
 position = Vector2(4, 6)
 shape = SubResource("RectangleShape2D_ggnbx")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1417078635]
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=900825742]
-position = Vector2(3.5, -38)
-shape = SubResource("RectangleShape2D_bb38t")
-
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1601814456]
 position = Vector2(3, 2)
 scale = Vector2(6.90625, 6.90625)
@@ -61,14 +62,17 @@ texture = SubResource("GradientTexture2D_ggnbx")
 stream = ExtResource("2_7wadm")
 volume_db = -5.0
 pitch_scale = 0.7
+bus = &"Sound Effects"
 
 [node name="LockerExit" type="AudioStreamPlayer2D" parent="." unique_id=834056857]
 stream = ExtResource("3_c38np")
 volume_db = -5.0
 pitch_scale = 0.7
+bus = &"Sound Effects"
 
 [node name="interact" parent="." unique_id=2018872061 instance=ExtResource("2_y6trl")]
 collision_layer = 16
+collision_mask = 130
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interact" unique_id=1800833933]
 position = Vector2(3.5, 42)

@@ -8,7 +8,6 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	State.has_entered_cave = true
 	if State.task1_done:
 		player.can_move = false
 
@@ -20,3 +19,4 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_dialogue_ended():
 	player.can_move = true
+ 

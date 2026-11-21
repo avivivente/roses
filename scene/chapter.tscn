@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cxwqw2hrsjdlv"]
+
+[ext_resource type="Script" uid="uid://duse06ieqaa1m" path="res://scripts/chapter.gd" id="1_4qm14"]
+[ext_resource type="FontFile" uid="uid://n3rrofvioivv" path="res://assets/fonts/Daydream DEMO.otf" id="2_gntol"]
+[ext_resource type="AudioStream" uid="uid://barjlj3k6wqmt" path="res://audio/chapter.wav" id="3_gntol"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sm8fe"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Chapter" type="CanvasLayer" unique_id=1482373072]
+script = ExtResource("1_4qm14")
+
+[node name="Panel" type="Panel" parent="." unique_id=908613399]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sm8fe")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=236916391]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -463.0
+offset_top = -37.0
+offset_right = 463.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_gntol")
+theme_override_font_sizes/normal_font_size = 50
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=1714923082]
+wait_time = 3.29
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=828564658]
+stream = ExtResource("3_gntol")
+volume_db = -10.0
+autoplay = true
+bus = &"SFX"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

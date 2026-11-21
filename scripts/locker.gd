@@ -19,9 +19,6 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if not is_instance_valid(player):
-		return
-
 	if Input.is_action_just_pressed("interact"):
 		if player_hidden:
 			exit_locker()
@@ -30,35 +27,26 @@ func _process(_delta: float) -> void:
 
 
 func enter_locker() -> void:
-	if not is_instance_valid(player):
-		return
-
 	player_hidden = true
+	player.visible = false
+	player.can_move = false
 	player.add_to_group("hidden")
 
-
-	player.velocity = Vector2.ZERO
-	player.set_physics_process(false)
-	player.visible = false
 	locker_enter.play()
-
 	$Sprite2D.texture=ResourceLoader.load("res://assets/interactables/locker_hidden.png")
 	point_light_2d.visible = true
 	point_light_2d.energy = 0.7
 
 
 func exit_locker() -> void:
-	if not is_instance_valid(player):
-		return
-
 	player.global_position = exit_point.global_position
 	player.force_update_transform()
 
+	player_hidden = false
 	player.visible = true
-	player.set_physics_process(true)
+	player.can_move = true
 	player.remove_from_group("hidden")
 
-	player_hidden = false
 	locker_exit.play()
 	$Sprite2D.texture=ResourceLoader.load("res://assets/interactables/locker.png")
 	point_light_2d.visible = false

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bfrfj16axe4jn"
+path="res://.godot/imported/Roses OST - Fin.mp3-03c5a7de155bb06c21ccd32c4624b939.mp3str"
+
+[deps]
+
+source_file="res://audio/Roses OST - Fin.mp3"
+dest_files=["res://.godot/imported/Roses OST - Fin.mp3-03c5a7de155bb06c21ccd32c4624b939.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

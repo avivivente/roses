@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://by3ffeo1eceaj" path="res://assets/UI/Quit_Hover.png" id="13_t4787"]
 [ext_resource type="AudioStream" uid="uid://2f5v42u7on3c" path="res://audio/button_hover.wav" id="14_20j2g"]
 [ext_resource type="AudioStream" uid="uid://cok6wrjscou8s" path="res://audio/button_press.wav" id="15_fvdo6"]
+[ext_resource type="PackedScene" uid="uid://dsq6nvulorxva" path="res://scene/options.tscn" id="16_3pvi6"]
 [ext_resource type="Texture2D" uid="uid://dbqgg7togkg3a" path="res://assets/UI/Board.png" id="16_6dieo"]
 [ext_resource type="FontFile" uid="uid://uux5tmjstmhm" path="res://assets/fonts/dogicapixelbold.ttf" id="17_wyr82"]
 [ext_resource type="FontFile" uid="uid://banlcel5fi3bf" path="res://assets/fonts/dogicabold.ttf" id="18_wepsk"]
@@ -26,7 +27,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sbvaa"]
 
-[node name="CanvasLayer" type="CanvasLayer" unique_id=50910930]
+[node name="Menuscreen" type="CanvasLayer" unique_id=50910930]
 process_mode = 3
 layer = 2
 visible = false
@@ -43,6 +44,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.3254902)
 
 [node name="Control" type="Control" parent="." unique_id=1399259469]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -88,9 +90,11 @@ texture_hover = ExtResource("13_t4787")
 
 [node name="ButtonHover" type="AudioStreamPlayer" parent="." unique_id=388736771]
 stream = ExtResource("14_20j2g")
+bus = &"UI"
 
 [node name="ButtonPress" type="AudioStreamPlayer" parent="." unique_id=460594337]
 stream = ExtResource("15_fvdo6")
+bus = &"UI"
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1211992885]
 process_mode = 3
@@ -173,6 +177,9 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_k2jxq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_sbvaa")
 text = "No
 "
+
+[node name="Options" parent="." unique_id=1666088844 instance=ExtResource("16_3pvi6")]
+visible = false
 
 [connection signal="mouse_entered" from="Control/VBoxContainer/Continue" to="." method="_on_continue_mouse_entered"]
 [connection signal="pressed" from="Control/VBoxContainer/Continue" to="." method="_on_continue_pressed"]

@@ -30,6 +30,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		State.task0_active = false
 		leticia.can_move = false
 		interaction_area.set_deferred("monitoring", false)
+		
 		Dialogic.timeline_ended.connect(_on_timeline_ended)
 		Dialogic.start("task1")
    
@@ -38,16 +39,30 @@ func _on_timeline_ended():
 	leticia.can_move = true
 	interaction_area.set_deferred("monitoring", true)
 
+
+func face_player(player_position: Vector2):
+	var direction: Vector2 = (player_position - global_position).normalized()
+	
+	if abs(direction.x) > abs(direction.y):
+		if direction.x > 0:
+			animation_player.play("idle_right")
+		else:
+			animation_player.play("idle_left") 
+	else:
+		if direction.y > 0:
+			animation_player.play("idle_down")
+		else:
+			animation_player.play("idle_up")
+
 func _on_dialogic_signal(argument: String):
 	if argument == "rummage":
 		animation_player.stop()
 		animation_player.play("rummage")
-	if argument == ("old_lady_idle_right"):
-		animation_player.stop()
-		animation_player.play("idle_right")
 	if argument == ("old_lady_idle_down"):
 		animation_player.stop()
 		animation_player.play("idle_down")
+	if argument == "face_player":
+		face_player(leticia.global_position)
 	if argument == "take_rose":
 		var rose = preload("res://inventory/items/rose.tres")
 		if leticia.inv:

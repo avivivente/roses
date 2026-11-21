@@ -32,14 +32,13 @@ func _open_gate():
 		
 		is_open = true
 		collision_shape_2d.set_deferred("disabled", true)
-		State.has_opened_gate = true
+		State.area2_gate_opened = true
 		interaction_collision.set_deferred("disabled", true)
 		player.can_move = true
 
 func dialogue_ended():
 	player.can_move = true
 	interaction_area.set_deferred("monitoring", true)
-
 
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:

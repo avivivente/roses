@@ -218,10 +218,12 @@ shape = SubResource("RectangleShape2D_nssrp")
 [node name="ChestOpen" type="AudioStreamPlayer2D" parent="." unique_id=1029058314]
 stream = ExtResource("4_bgh66")
 volume_db = -10.0
+bus = &"Sound Effects"
 
 [node name="ChestClose" type="AudioStreamPlayer2D" parent="." unique_id=1996004078]
 stream = ExtResource("5_num40")
 volume_db = -10.0
+bus = &"Sound Effects"
 
 [connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

@@ -1,0 +1,33 @@
+[signal arg="look_at_leticia"]
+set {NPCs.killer_name} = "?"
+killer: Leticia![pause=0.5] What a coincidence to see you here.
+[signal arg="leticia_walk_in"]
+[wait time="3.5"]
+killer: Were you with your friends?
+- Who are you?
+	Leticia: (He looks familiar) Who are you?
+set {NPCs.killer_name} = "Neighbor"
+killer: You remember your dad's friend? That's me,[pause=0.5] I'm just a few houses away from yours so we're neighbors.
+killer: Do you need a ride home?
+- Yes
+	Leticia: I'd appreciate that, thank you.
+	[signal arg="get_in_car"]
+	[end_timeline]
+- No
+	Leticia: No thank you.
+killer: It’s getting dark,[pause=0.5] I- [pause=0.5]your dad wouldn’t want anything to happen to you. Am I right?
+- Refuse to get in the car
+	Leticia: I'll just get a cab home.
+- Get in the car
+	[signal arg="get_in_car"]
+	[end_timeline]
+killer: Are you sure? You’re gonna get home much quicker if I give you a ride.
+- Yes, I'm sure
+	Leticia: Yes, I can take a cab home. I'll be alright.
+	killer: Come, let's get you home.
+	[signal arg="get_in_car"]
+	Leticia: (My body is moving on it's own. I don't want to get in the car.)[aa]
+	[end_timeline]
+- Get in the car
+	[signal arg="get_in_car"]
+	[end_timeline]

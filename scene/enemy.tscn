@@ -261,17 +261,13 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ProximityArea" unique_id=879191129]
 shape = SubResource("CircleShape2D_sm8fe")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1142559630]
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_nssrp")
-animation = &"walk_left"
-
 [node name="AttackTimer" type="Timer" parent="." unique_id=799931344]
 wait_time = 3.0
 
 [node name="AttackSound" type="AudioStreamPlayer2D" parent="." unique_id=1397957925]
 stream = ExtResource("4_yvcfn")
 volume_db = -10.0
+bus = &"Sound Effects"
 
 [node name="Proximity" type="AudioStreamPlayer2D" parent="." unique_id=1237799350]
 stream = ExtResource("5_ulb22")
@@ -279,6 +275,13 @@ volume_db = 15.0
 pitch_scale = 0.5
 max_distance = 1000.0
 panning_strength = 10.0
+bus = &"Sound Effects"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1142559630]
+scale = Vector2(4.5, 4.095)
+sprite_frames = SubResource("SpriteFrames_nssrp")
+animation = &"walk_left"
+frame_progress = 0.17393203
 
 [connection signal="body_entered" from="FollowArea" to="." method="_on_follow_area_body_entered"]
 [connection signal="body_entered" from="FollowArea" to="FollowMovementC" method="_on_follow_area_body_entered"]

@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c2dat6fqm8soo" path="res://interactions/interaction_area/interaction_area.tscn" id="4_1nukx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sm8fe"]
+radius = 14.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ggnbx"]
 radius = 14.035668

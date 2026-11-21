@@ -15,7 +15,7 @@ if {NPCs.has_met_old_lady} == false:
 		[end_timeline]
 	label help
 	"Old Lady": ....What was that?
-	[signal arg="old_lady_idle_right"]
+	[signal arg="face_player"]
 	[wait time="2.0"]
 	"Old Lady": You want to help?
 	"Old Lady": Absolutely!
@@ -31,7 +31,7 @@ if {NPCs.has_met_old_lady} == false:
 	[end_timeline]
 else:
 	if {tasks.task1} == true:
-		[signal arg="old_lady_idle_right"]
+		[signal arg="face_player"]
 		"Old Lady": Have you found what I'm looking  for?
 		- Yes
 			if {tasks.has_rose1} == true:
@@ -49,7 +49,7 @@ else:
 				if {areas.has_interacted_area2_gate} == true:
 					Leticia: (Is this the key to the other gate?)
 				else:
-					Leticia: (Another key? I see a locked gate there, this might be it.)
+					Leticia: (Another key?)
 				leave key [animation="Instant Out"]
 				- Who are you?
 				- Can I ask where are we?
@@ -73,7 +73,7 @@ else:
 			[signal arg="old_lady_idle_down"]
 			[end_timeline]
 	elif {tasks.task1_done} == true:
-		[signal arg="old_lady_idle_right"]
+		[signal arg="face_player"]
 		"Old Lady": Thank you for finding what I'm looking for, deary.
 		[signal arg="old_lady_idle_down"]
 	elif {NPCs.leaving_conversation_early.leave1} == true:

@@ -32,7 +32,7 @@ var look_dir: String = "up"
 var can_move: bool = true
 var look_around: bool = false
 var look_left: bool = false
-
+var is_hidden: bool = false
 
 func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogic_signal)
@@ -63,7 +63,8 @@ func _physics_process(_delta: float) -> void:
 	if !can_move:
 		animation_player.play("idle_" + animation_direction)
 		return
-
+	
+	
 	if alive:
 		var direction := Input.get_vector("left", "right", "up", "down")
 		update_sprite_direction(direction)
@@ -152,4 +153,5 @@ func collect(item):
 	inv.insert(item)
 
 func _play_footstep():
-	FootstepSoundManager.play_footstep(global_position)
+	if can_move:
+		FootstepSoundManager.play_footstep(global_position)
